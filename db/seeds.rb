@@ -305,3 +305,112 @@ Distrikt.all.each do |distrikt|
   end
 end
 
+questions = [{
+                 description: "What does your weekend look like?",
+                 order: 1
+             },
+             {
+                 description: "Where do you see yourself?",
+                 order: 2
+             },
+             {
+                 description: "What is your beverage of choice?",
+                 order: 3
+             },
+             {
+                 description: "What kind of food do you prefer?",
+                 order: 4
+             }
+]
+
+questions.each do |question|
+  Question.create(question)
+end
+
+answers = [{
+               img_url: "q1_a1.jpg",
+               question_id: 1
+           },
+           {
+               img_url: "q1_a2.jpg",
+               question_id: 1
+           },
+           {
+               img_url: "q1_a3.jpg",
+               question_id: 1
+           },
+           {
+               img_url: "q1_a4.jpg",
+               question_id: 1
+           },
+           {
+               img_url: "q2_a1.jpg",
+               question_id: 2
+           },
+           {
+               img_url: "q2_a2.jpg",
+               question_id: 2
+           },
+           {
+               img_url: "q2_a3.jpg",
+               question_id: 2
+           },
+           {
+               img_url: "q2_a4.jpg",
+               question_id: 2
+           },
+           {
+               img_url: "q3_a1.jpg",
+               question_id: 3
+           },
+           {
+               img_url: "q3_a2.jpg",
+               question_id: 3
+           },
+           {
+               img_url: "q3_a3.jpg",
+               question_id: 3
+           },
+           {
+               img_url: "q3_a4.jpg",
+               question_id: 3
+           },
+           {
+               img_url: "q4_a1.jpg",
+               question_id: 4
+           },
+           {
+               img_url: "q4_a2.jpg",
+               question_id: 4
+           },
+           {
+               img_url: "q4_a3.jpg",
+               question_id: 4
+           },
+           {
+               img_url: "q4_a4.jpg",
+               question_id: 4
+           }
+]
+
+q_score_attrs = {
+    artsy: (0..10).to_a.sample,
+    authentic: (0..10).to_a.sample,
+    trendy: (0..10).to_a.sample,
+    foodie: (0..10).to_a.sample,
+    walkability: (0..10).to_a.sample,
+    touristy: (0..10).to_a.sample,
+    shopping: (0..10).to_a.sample,
+    nightlife: (0..10).to_a.sample,
+    outdoor: (0..10).to_a.sample,
+    luxury: (0..10).to_a.sample,
+    weather: (0..10).to_a.sample,
+    zen: (0..10).to_a.sample
+}
+
+answers.each do |answer|
+  score = Score.new(q_score_attrs)
+  answer = Answer.new(answer)
+  answer.score = score
+  answer.save
+end
