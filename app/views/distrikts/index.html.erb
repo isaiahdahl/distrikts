@@ -1,0 +1,11 @@
+<div class="row">
+  <% sorted = @distrikts.sort {|a,b| compare(b.score, @user.score)<=>compare(a.score, @user.score) } %>
+  <%= sorted.each do |distrikt| %>
+    <div class="col-xs-12 col-sm-6">
+      <div class="card">
+        <p><%= distrikt.name %></p>
+        <p><%= compare(@user.score, distrikt.score) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

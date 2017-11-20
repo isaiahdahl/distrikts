@@ -2,6 +2,7 @@ class DistriktsController < ApplicationController
   before_action :task, only: [:edit, :show, :update, :destroy]
   def index
     @distrikts = Distrikt.all
+    @user = User.first
   end
 
   def show
