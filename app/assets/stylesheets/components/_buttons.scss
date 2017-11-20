@@ -20,6 +20,18 @@
   }
 }
 
+.btn-outline-black {
+  padding: 15px 25px;
+  border: 2px solid $black;
+  border-radius: 4px;
+  color: $black;
+  background-color: Transparent;
+  outline: none;
+  &:hover {
+    border: 3px solid $black;
+  }
+}
+
 .btn-search {
   display: flex;
   justify-content: center;
