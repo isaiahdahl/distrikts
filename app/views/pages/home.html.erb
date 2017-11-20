@@ -12,19 +12,19 @@
     <div class="row">
       <div class="col-lg-4 col-md-4 text-center">
         <div id="icon-1"class="service-box mt-5 mx-auto">
-          <%= image_tag "list.png", class: "home-icon" %>
+          <%= image_tag "", class: "home-icon" %>
           <p class="text-muted home-description">Restaurants create their list of fish needed for the day</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 text-center">
         <div id="icon-2"class="service-box mt-5 mx-auto">
-          <%= image_tag "fish.png", class: "home-icon" %>
+          <%= image_tag "", class: "home-icon" %>
           <p class="text-muted home-description">Fishermen post their daily catch and find restaurants that match what they caught</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 text-center">
         <div id="icon-3"class="service-box mt-5 mx-auto">
-          <%= image_tag "envelope.png", class: "home-icon" %>
+          <%= image_tag "", class: "home-icon" %>
           <p class="text-muted home-description">When there is a match, fishermen can contact restaurants and make a sale</p>
         </div>
       </div>
@@ -43,24 +43,8 @@
 
 <div class="resto-banner" style="background-color: #E3F3F2" >
     <h3>a few sample restaurants...</h3>
-  <div id="resto-content" class="banner-content-cards">
-    <% @restaurants. each do |restaurant| %>
-    <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= photo?(restaurant) %>');">
 
-      <div class="card-body">
-        <div class="card-category text-center">
-              <h4><%= [4,2,6].sample %></h4>
-              <%= image_tag "fish_solid.png", class: "card-icon" %>
-              <h5>MATCH</h5>
-        </div>
 
-        <div class="card-desc">
-          <h2><%= restaurant.name %></h2>
-        </div>
-      </div>
-    </div>
-        <% end %>
-  </div>
   </div>
 </div>
 
