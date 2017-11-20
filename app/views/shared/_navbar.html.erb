@@ -1,0 +1,134 @@
+<!-- If user is signed in -->
+<% if user_signed_in? %>
+    <div class="navbar-wagon">
+      <!-- Logo -->
+      <div class="navbar-left">
+        <%= image_tag "logo.png", class: "navbar-logo" %>
+        <%= link_to "Distrikts", restaurants_path, class: "navbar-wagon-brand" %>
+      </div>
+     
+       <!-- Links when logged in -->
+       <%= link_to "Explore", my_restaurant_restaurant_path(is_restaurant_owner?), class: "navbar-wagon-item navbar-wagon-link" %>
+       <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+
+        <!-- Avatar with dropdown menu when logged in-->
+        <div class="navbar-wagon-item">
+          <div class="dropdown">
+            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+       
+      <!-- If user is NOT sign-in -->
+      <% else %>
+      <!-- Login link (when logged out) -->
+      <div class="navbar-wagon">
+      <!-- Logo -->
+        <div class="navbar-left">
+          <%= image_tag "logo.png", class: "navbar-logo" %>
+          <%= link_to "Distrikts", root_path, class: "navbar-wagon-brand" %>
+        </div>
+    <!-- Right Navigation -->
+        <div class="navbar-wagon-right hidden-xs hidden-sm">
+          <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignIn">Sign In</button>
+          <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalQuiz">Sign Up</button>
+        <% end %>
+      </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+      <div class="navbar-wagon-item hidden-md hidden-lg">
+        <div class="dropdown">
+          <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><a href="#">Some mobile link</a></li>
+            <li><a href="#">Other one</a></li>
+            <li><a href="#">Other one</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg modal-container" role="document">
+
+    <div class="modal-content modal-container-left text-center intro";">
+      <h2>Log in to seaBay</h2>
+      <p>Log in and sell your fish directly to restaurants in your area</p>
+    </div>
+
+
+    <div class="modal-content modal-container-right">
+      <div class="navbar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+        <%= render "shared/sign_in" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg modal-container" role="document">
+
+    <div class="modal-content modal-container-left text-center intro";">
+      <h2>Join seaBay</h2>
+      <p>Sign up and sell your fish directly to restaurants in your area</p>
+    </div>
+
+    <div class="modal-content modal-container-right">
+      <div class="navbar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+        <%= render "shared/signup" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalQuiz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg modal-container" role="document">
+
+    <div class="modal-content modal-container-left text-center intro";">
+      <h2>Join seaBay</h2>
+      <p>Sign up and sell your fish directly to restaurants in your area</p>
+    </div>
+
+    <div class="modal-content modal-container-right">
+      <div class="navbar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+        <%= render "shared/signup" %>
+      </div>
+    </div>
+  </div>
+</div>
