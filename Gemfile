@@ -18,6 +18,7 @@ gem 'devise'
 gem 'faker'
 gem 'http'
 gem 'httparty'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'pry-byebug'
