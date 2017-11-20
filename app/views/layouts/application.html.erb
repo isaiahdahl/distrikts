@@ -9,7 +9,9 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
