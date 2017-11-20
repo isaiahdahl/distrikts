@@ -4,6 +4,6 @@ class Answer < ApplicationRecord
   has_many :users, through: :user_answers
 
   validates :score, presence: true
-  validates :quesiton_id, presence: true
+  validates :question_id, presence: true
   validates :img_url, presence: true
 end
