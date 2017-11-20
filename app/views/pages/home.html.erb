@@ -1,5 +1,6 @@
 <%= render "shared/banner" %>
 
+
 <section id="steps">
   <div class="container">
     <div class="row">
@@ -32,6 +33,7 @@
   </div>
 </section>
 
+
 <%= render 'shared/quotes' %>
 
 <div class="banner2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/85528/pexels-photo-85528.jpeg');">
@@ -41,8 +43,11 @@
   </div>
 </div>
 
-<div class="resto-banner" style="background-color: #E3F3F2" >
-    <h3>a few sample restaurants...</h3>
+<%= render "shared/reasons" %>
+
+<div class="link-block" style="background-color: #FFE890" >
+    <h3 class="upper">Build your travel profile</h3>
+    <button class="btn-outline-black" data-toggle="modal" data-target="#modalSignUp">Find your Distrikts</button>
 
 
   </div>

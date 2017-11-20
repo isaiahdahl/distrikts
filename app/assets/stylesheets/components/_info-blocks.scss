@@ -1,7 +1,59 @@
+// div {
+//   outline: 1px solid red;
+// }
+
+// steps info box
+
 #steps {
-  min-height: 450px;
+  min-height: 400px;
   padding: 40px 0px;
+  // flex-direction: column;
+  background-color: white;
+  align-items: center;
+}
+
+.info-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.step-box {
+  // flex: 1 1 25%;
+  margin: 0px 10px;
+  width: 25%;
+  height: 100px;
+}
+
+
+// reasons info box
+
+#reasons {
+  min-height: 400px;
+  padding: 40px 0px;
+  background-color: white;
+  align-items: center;
+  display: flex;
   flex-direction: column;
+}
+
+.reasons-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.reason-box {
+  // flex: 1 1 25%;
+  margin: 0px 10px;
+  margin-bottom: 20px;
+  width: 25%;
+  height: 100px;
+}
+
+// global
+
+.home-icon {
+  height: 40px;
+  margin-bottom: 20px;
 }
