@@ -1,0 +1,12 @@
+.link-block {
+  background-color: $light-gold;
+  text-align: center;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h3 {
+    margin-bottom: 30px;
+  }
+}
