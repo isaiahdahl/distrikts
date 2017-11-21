@@ -21,20 +21,23 @@ Review.destroy_all
 
 puts "DESTROY DATABASE!!!"
 
-score_attrs = {
-    artsy: (40..100).to_a.sample,
-    authentic: (40..100).to_a.sample,
-    trendy: (40..100).to_a.sample,
-    foodie: (40..100).to_a.sample,
-    walkability: (40..100).to_a.sample,
-    touristy: (40..100).to_a.sample,
-    shopping: (40..100).to_a.sample,
-    nightlife: (40..100).to_a.sample,
-    outdoor: (40..100).to_a.sample,
-    luxury: (40..100).to_a.sample,
-    weather: (40..100).to_a.sample,
-    zen: (40..100).to_a.sample
-}
+def score_attrs
+  {
+      artsy: (40..100).to_a.sample,
+      authentic: (40..100).to_a.sample,
+      trendy: (40..100).to_a.sample,
+      foodie: (40..100).to_a.sample,
+      walkability: (40..100).to_a.sample,
+      touristy: (40..100).to_a.sample,
+      shopping: (40..100).to_a.sample,
+      nightlife: (40..100).to_a.sample,
+      outdoor: (40..100).to_a.sample,
+      luxury: (40..100).to_a.sample,
+      weather: (40..100).to_a.sample,
+      zen: (40..100).to_a.sample
+  }
+end
+
 
 style_attrs = {
     name: ["Urban Explorer", "Cultural Scavenger", "Cultural Explorer", "Urban Fisherman"].sample,
@@ -222,7 +225,7 @@ tokyo_distrikts = [
 
 tokyo_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
-  city = City.where(name: "Rio de Janeiro")
+  city = City.where(name: "Tokyo")
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
@@ -393,20 +396,23 @@ answers = [{
            }
 ]
 
-q_score_attrs = {
-    artsy: (0..10).to_a.sample,
-    authentic: (0..10).to_a.sample,
-    trendy: (0..10).to_a.sample,
-    foodie: (0..10).to_a.sample,
-    walkability: (0..10).to_a.sample,
-    touristy: (0..10).to_a.sample,
-    shopping: (0..10).to_a.sample,
-    nightlife: (0..10).to_a.sample,
-    outdoor: (0..10).to_a.sample,
-    luxury: (0..10).to_a.sample,
-    weather: (0..10).to_a.sample,
-    zen: (0..10).to_a.sample
-}
+def q_score_attrs
+  {
+      artsy: (0..10).to_a.sample,
+      authentic: (0..10).to_a.sample,
+      trendy: (0..10).to_a.sample,
+      foodie: (0..10).to_a.sample,
+      walkability: (0..10).to_a.sample,
+      touristy: (0..10).to_a.sample,
+      shopping: (0..10).to_a.sample,
+      nightlife: (0..10).to_a.sample,
+      outdoor: (0..10).to_a.sample,
+      luxury: (0..10).to_a.sample,
+      weather: (0..10).to_a.sample,
+      zen: (0..10).to_a.sample
+  }
+end
+
 
 answers.each do |answer|
   score = Score.new(q_score_attrs)

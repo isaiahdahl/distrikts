@@ -1,10 +1,5 @@
-class Distrikt < ApplicationRecord
-  belongs_to :city
-  has_many :users, through: :matches
-  belongs_to :score, dependent: :destroy
-  has_many :places
-
-  def self.compare(distrikt, user)
+module DistriktsHelper
+  def compare(distrikt, user)
     @match_avg = []
     @match_avg << artsy(distrikt, user)
     @match_avg << outdoor(distrikt, user)
@@ -23,79 +18,79 @@ class Distrikt < ApplicationRecord
     average.round
   end
 
-  def self.artsy(distrikt, user)
+  def artsy(distrikt, user)
     u = user.artsy
     d = distrikt.artsy
     percent_match(u,d)
   end
 
-  def self.authentic(distrikt, user)
+  def authentic(distrikt, user)
     u = user.authentic
     d = distrikt.authentic
     percent_match(u,d)
   end
 
-  def self.trendy(distrikt, user)
+  def trendy(distrikt, user)
     u = user.trendy
     d = distrikt.trendy
     percent_match(u,d)
   end
 
-  def self.foodie(distrikt, user)
+  def foodie(distrikt, user)
     u = user.foodie
     d = distrikt.foodie
     percent_match(u,d)
   end
 
-  def self.walkability(distrikt, user)
+  def walkability(distrikt, user)
     u = user.walkability
     d = distrikt.walkability
     percent_match(u,d)
   end
 
-  def self.touristy(distrikt, user)
+  def touristy(distrikt, user)
     u = user.touristy
     d = distrikt.touristy
     percent_match(u,d)
   end
 
-  def self.shopping(distrikt, user)
+  def shopping(distrikt, user)
     u = user.shopping
     d = distrikt.shopping
     percent_match(u,d)
   end
 
-  def self.nightlife(distrikt, user)
+  def nightlife(distrikt, user)
     u = user.nightlife
     d = distrikt.nightlife
     percent_match(u,d)
   end
 
-  def self.outdoor(distrikt, user)
+  def outdoor(distrikt, user)
     u = user.outdoor
     d = distrikt.outdoor
     percent_match(u,d)
   end
 
-  def self.luxury(distrikt, user)
+  def luxury(distrikt, user)
     u = user.luxury
     d = distrikt.luxury
     percent_match(u,d)
   end
 
-  def self.weather(distrikt, user)
+  def weather(distrikt, user)
     u = user.weather
     d = distrikt.weather
     percent_match(u,d)
   end
 
-  def self.zen(distrikt, user)
+  def zen(distrikt, user)
     u = user.zen
     d = distrikt.zen
     percent_match(u,d)
   end
 
-  def self.percent_match(user, distrikt)
+  def percent_match(user, distrikt)
     if distrikt > user
       (1 - (distrikt.to_f - user.to_f)/distrikt.to_f) * 100
     else
