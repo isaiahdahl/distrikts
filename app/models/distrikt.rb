@@ -3,6 +3,6 @@ class Distrikt < ApplicationRecord
   has_many :users, through: :matches
   belongs_to :score, dependent: :destroy
   has_many :places
-
+  has_attachments :photos, maximum: 6
   max_paginates_per 50
 end

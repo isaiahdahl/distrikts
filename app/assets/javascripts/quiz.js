@@ -1,13 +1,19 @@
-const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
+$(document).ready(function() {
 
-function buildQuiz(){}
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
 
-function showResults(){}
+  function buildQuiz() {
+  }
+
+  function showResults() {
+  }
 
 // display quiz right away
-buildQuiz();
+  buildQuiz();
 
 // on submit, show results
-submitButton.addEventListener('click', showResults);
+  if (submitButton)
+    submitButton.addEventListener('click', showResults);
+});
