@@ -22,6 +22,8 @@ gem 'bootstrap-sass'
 gem 'ransack'
 gem 'ransack_ui'
 gem "geocoder"
+gem 'kaminari'
+
 
 group :development, :test do
   gem 'pry-byebug'
