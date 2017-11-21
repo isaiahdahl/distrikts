@@ -19,9 +19,13 @@ gem 'faker'
 gem 'http'
 gem 'httparty'
 gem 'bootstrap-sass'
+gem 'ransack'
+gem 'ransack_ui'
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

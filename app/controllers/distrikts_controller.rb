@@ -1,7 +1,14 @@
 class DistriktsController < ApplicationController
   before_action :task, only: [:edit, :show, :update, :destroy]
+  before_action :load_ransack_search, :only => :index
+
   def index
-    @distrikts = Distrikt.all
+    @q = Distrikt.ransack(params[:q])
+    @distrikts = @q.result
+    @user = User.first
+    @cities = cities
+    @countries = countries
+    @continents = continents
   end
 
   def show
@@ -38,8 +45,6 @@ class DistriktsController < ApplicationController
   def distrikt
     @distrikt = Distrikt.find(params[:id])
   end
-<<<<<<< Updated upstream
-=======
 
   def cities
     @cities = ["City"]
@@ -58,5 +63,4 @@ class DistriktsController < ApplicationController
     City.all.each { |city| @continents << city.continent }
     @continents.sort!
   end
->>>>>>> Stashed changes
 end

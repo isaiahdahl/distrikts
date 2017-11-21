@@ -28,7 +28,8 @@
     <div class="col-xs-12 col-sm-4">
       <div class="card">
         <p><%= distrikt.name %></p>
-        <p><%= compare(@user.score, distrikt.score).round %></p>
+        <p><%= compare(@user.score, distrikt.score) %></p>
+
       </div>
     </div>
   <% end %>
