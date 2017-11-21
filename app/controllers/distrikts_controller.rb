@@ -47,20 +47,20 @@ class DistriktsController < ApplicationController
   end
 
   def cities
-    @cities = [""]
+    @cities = ["City"]
     City.all.each { |city| @cities << city.name }
-    @cities
+    @cities.sort!
   end
 
   def countries
-    @countries = [""]
+    @countries = ["Country"]
     City.all.each { |city| @countries << city.country }
-    @countries
+    @countries.sort!
   end
 
   def continents
-    @continents = [""]
+    @continents = ["Continent"]
     City.all.each { |city| @continents << city.continent }
-    @continents
+    @continents.sort!
   end
 end
