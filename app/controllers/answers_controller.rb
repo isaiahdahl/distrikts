@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
 
   def results
     add_to_cookie(params[:score_id])
-    @distrikt = Distrikt.all
+    @distrikts = Distrikt.all
   end
 
   private

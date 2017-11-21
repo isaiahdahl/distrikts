@@ -1,3 +1,7 @@
+// div {
+//   outline: 1px solid red;
+// }
+
 .modal-container {
   display: flex;
 }
@@ -27,12 +31,27 @@
 .quiz-modal-container-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+  align-content: flex-start;
   padding: 0 15px;
-  width: 30%;
+  width: 32%;
   background-color: #FEE795;
   color: #555452 !important;
+}
+
+.top-text {
+  margin-top: 40px;
+  margin-left: 30px;
+  margin-right: 20px;
+  h4 {
+    margin-top: 24px;
+  }
+}
+
+.bottom-text {
+  margin-bottom: 30px;
 }
 
 .quiz-modal-container-right {
@@ -40,9 +59,17 @@
 }
 
 .quiz-container {
+  // display: flex;
+  // justify-content: space-around;
+  // flex-wrap: wrap;
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.answer {
+
+  flex: 1 1 50%;
 }
 
 .modal-content {

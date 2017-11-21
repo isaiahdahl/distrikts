@@ -30,12 +30,12 @@
 }
 
 .footer-copyright {
-  color: $gold;
+  color: #C89C00;
   font-family: 'Lato';
   font-size: 18px;
   font-weight: 700;
   letter-spacing: .08em;
   &:hover {
-    color: #C89C00;
+    color: $gold;
   }
 }
