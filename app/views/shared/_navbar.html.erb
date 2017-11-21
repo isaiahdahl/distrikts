@@ -48,7 +48,7 @@
     <!-- Right Navigation -->
         <div class="navbar-wagon-right hidden-xs hidden-sm">
           <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignIn">Sign In</button>
-          <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalQuiz">Sign Up</button>
+          <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignIn">Sign Up</button>
         <% end %>
       </div>
 
@@ -107,27 +107,6 @@
 
       <div class="modal-body">
         <%= render "shared/sign_up" %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Quiz Modal -->
-<div class="modal fade" id="modalQuiz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg quiz-modal-container" role="document">
-
-    <div class="modal-content quiz-modal-container-left text-center";">
-      <h2>Find your travel profile</h2>
-      <p>To match you with distrikts, we need to get to know you</p>
-    </div>
-
-    <div class="modal-content quiz-modal-container-right">
-      <div class="navbar">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-
-      <div class="modal-body">
-        <%= render "shared/quiz" %>
       </div>
     </div>
   </div>
