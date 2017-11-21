@@ -17,6 +17,14 @@ class DistriktsController < ApplicationController
   end
 
   def show
+    @places = @distrikt.places.map do |place|
+      { "type": "Feature", 
+        "geometry": {
+            "type": "Point",
+            "coordinates": [place.longitude, place.latitude]
+             }
+      }
+    end
   end
 
   def new
@@ -44,7 +52,7 @@ class DistriktsController < ApplicationController
 
   private
   def distrikt_params
-    params.require(:distrikt).permit(:name, :description)
+    params.require(:distrikt).permit(:name, :description, photos: [])
   end
 
   def distrikt

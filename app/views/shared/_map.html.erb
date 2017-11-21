@@ -9,11 +9,35 @@
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-79.4512, 43.6568],
+        center: [-73.99947,40.7198443],
         pitch: 45,
         bearing: -17.6,
         zoom: 13,
       });
+
+
+      map.on('load', function() {
+    map.loadImage('<%= image_path("marker-map.png") %>', function(error, image) {
+        if (error) throw error;
+        map.addImage('cat', image);
+        map.addLayer({
+            "id": "points",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": <%= raw @places.to_json %>
+                }
+            },
+            "layout": {
+                "icon-image": "cat",
+                "icon-size": 0.045,
+                "icon-allow-overlap": true
+            }
+        });
+    });
+});
     </script>
       </div>
 
