@@ -1,7 +1,31 @@
+
+<%= search_form_for @q do |f| %>
+    <%= f.label :name_cont %>
+    <%= f.search_field :name_cont %>
+    <%= f.submit %>
+<% end %>
+
+<%= search_form_for @q do |f| %>
+    <%= f.select :city_name_cont, @cities %>
+    <%= f.submit %>
+<% end %>_
+
+<%= search_form_for @q do |f| %>
+    <%= f.select :city_country_cont, @countries %>
+    <%= f.submit %>
+<% end %>_
+
+<%= search_form_for @q do |f| %>
+    <%= f.select :city_continent_cont, @continents %>
+    <%= f.submit %>
+<% end %>_
+<%= link_to "Clear Search", request.path, class:"cancel-button" %>
+
+
 <div class="row">
   <% sorted = @distrikts.sort {|a,b| compare(b.score, @user.score)<=>compare(a.score, @user.score) } %>
   <%= sorted.each do |distrikt| %>
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-xs-12 col-sm-4">
       <div class="card">
         <p><%= distrikt.name %></p>
         <p><%= compare(@user.score, distrikt.score) %></p>

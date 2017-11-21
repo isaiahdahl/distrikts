@@ -1,5 +1,5 @@
-module DistriktsHelper
-  def compare(distrikt, user)
+class DistriktsCompare
+  def initialize(distrikt, user)
     @match_avg = []
     @match_avg << artsy(distrikt, user)
     @match_avg << outdoor(distrikt, user)

@@ -19,6 +19,7 @@ gem 'faker'
 gem 'http'
 gem 'httparty'
 gem 'bootstrap-sass'
+gem 'ransack'
 
 group :development, :test do
   gem 'pry-byebug'

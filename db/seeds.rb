@@ -225,7 +225,7 @@ tokyo_distrikts = [
 
 tokyo_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
-  city = City.where(name: "Rio de Janeiro")
+  city = City.where(name: "Tokyo")
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
