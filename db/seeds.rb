@@ -39,16 +39,20 @@ def score_attrs
 end
 
 
-style_attrs = {
-    name: ["Urban Explorer", "Cultural Scavenger", "Cultural Explorer", "Urban Fisherman"].sample,
-    description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
-}
+def style_attrs
+  {
+  name: ["Urban Explorer", "Cultural Scavenger", "Cultural Explorer", "Urban Fisherman"].sample,
+      description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
+  }
+end
 
 30.times do
   password = Faker::Internet.password(8)
   score = Score.create(score_attrs)
   style = Style.create(style_attrs)
+  style.score = Score.create(score_attrs)
   user = User.new(
+      username: Faker::Internet.user_name,
       email: Faker::Internet.free_email,
       password: password,
       password_confirmation: password
