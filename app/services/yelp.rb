@@ -42,12 +42,6 @@ class Yelp
     response.parse
   end
 
-  response = search("seafood", "Lisbon")
-
-  puts response
-
-  user_id = 1
-
   response["businesses"].each do |biz|
     resto = Place.new(
         name: biz["name"],
