@@ -23,6 +23,7 @@ gem 'ransack'
 gem 'ransack_ui'
 gem "geocoder"
 gem 'kaminari'
+gem 'omniauth-facebook'
 
 
 group :development, :test do
