@@ -5,7 +5,8 @@
     </div>
 
     <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhaWFoZGFobCIsImEiOiJjajlsZGU1Njg0YXd1MzNvcmUyc3lyeHU3In0._dr0ijvTNB8DXVaf_GXvtA';
+      mapboxgl.accessToken = ENV['MAPBOX-API'];
+      <% raise %>
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
@@ -13,49 +14,6 @@
         pitch: 45,
         bearing: -17.6,
         zoom: 13,
-      });
-
-
-      map.addControl(geocoder);
-
-      // After the map style has loaded on the page, add a source layer and default
-      // styling for a single point.
-      map.on('load', function() {
-        map.addSource('single-point', {
-          "type": "geojson",
-          "data": {
-            "type": "FeatureCollection",
-            "features": []
-          }
-        });
-
-        map.addLayer({
-          "id": "point",
-          "source": "single-point",
-          "type": "circle",
-          "paint": {
-            "circle-radius": 10,
-            "circle-color": "#007cbf"
-          }
-        });
-
-        map.addLayer({
-          'id': 'states-layer',
-          'type': 'fill',
-          'source': {
-            'type': 'geojson',
-            'data': 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_admin_1_states_provinces_shp.geojson'
-          },
-          'paint': {
-            'fill-color': 'rgba(200, 100, 240, 0.4)',
-            'fill-outline-color': 'rgba(200, 100, 240, 1)'
-          }
-        });
-        // Listen for the `geocoder.input` event that is triggered when a user
-        // makes a selection and add a symbol that matches the result.
-        geocoder.on('result', function(ev) {
-          map.getSource('single-point').setData(ev.result.geometry);
-        });
       });
     </script>
       </div>
