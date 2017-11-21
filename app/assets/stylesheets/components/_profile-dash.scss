@@ -1,0 +1,39 @@
+.dash-container {
+  display: flex;
+  height: 25vh;
+  paddi: 0 50px 0 50px;
+  background-color: #ffffff;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-details {
+  display: flex;
+}
+
+.dash-details-information {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-details-advanced {
+  display: flex;
+}
+
+.user-filters {
+  display: flex;
+  justify-content: space-around;
+}
+
+.users-filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.dashboard-position {
+  position: relative;
+  top: 30px;
+}
