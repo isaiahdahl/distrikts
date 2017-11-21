@@ -23,6 +23,10 @@ gem 'ransack'
 gem 'ransack_ui'
 gem "geocoder"
 gem 'kaminari'
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 gem 'omniauth-facebook'
 
 

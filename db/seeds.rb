@@ -117,6 +117,13 @@ new_york_distrikts = [
     }
 ]
 
+def new_york_photos
+  [
+      [
+
+      ]
+  ]
+end
 
 new_york_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
@@ -124,6 +131,7 @@ new_york_distrikts.each do |attributes|
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
+  distrikt.photo_urls = urls
   distrikt.save
 end
 
