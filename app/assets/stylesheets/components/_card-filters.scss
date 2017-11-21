@@ -8,3 +8,19 @@
 .card-filters-left {
   display: flex;
 }
+
+// pagination
+
+.paginate {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  nav {
+    margin: 0 auto !important;
+  }
+}
+
+.paginate-bottom {
+  display: flex;
+  margin: 0 auto;
+}

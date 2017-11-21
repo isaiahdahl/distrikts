@@ -7,3 +7,10 @@
       <%= render 'shared/card' %>
   </div>
 </div>
+
+<div class="paginate">
+  <%= paginate @distrikts %>
+  <div class="paginate-bottom">
+    <%= page_entries_info @distrikts %>
+  </div>
+</div>

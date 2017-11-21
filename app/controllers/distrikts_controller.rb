@@ -2,9 +2,14 @@ class DistriktsController < ApplicationController
   before_action :task, only: [:edit, :show, :update, :destroy]
   before_action :load_ransack_search, :only => :index
 
+
   def index
-    @q = Distrikt.ransack(params[:q])
-    @distrikts = @q.result
+    q_param = params[:q]
+    page = params[:page]
+    per_page = params[:per_page]
+
+    @q = Distrikt.ransack q_param
+    @distrikts = @q.result.page(page).per(per_page)
     @user = User.first
     @cities = cities
     @countries = countries
