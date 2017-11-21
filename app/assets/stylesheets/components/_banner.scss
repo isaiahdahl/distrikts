@@ -124,3 +124,20 @@
   margin: 0 0 0 100px;
 }
 
+
+//Banner-results:
+
+.banner-results {
+  color: $gold;
+  text-align: center;
+  height: calc(60vh - 70px);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // span :last-child {
+  //   color: white !important;
+  //   background-color: transparent !important;
+  // }
+}
