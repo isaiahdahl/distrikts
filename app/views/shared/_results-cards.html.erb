@@ -1,0 +1,13 @@
+<div class="distrikts-sample" style="background-color: #E3F3F2" >
+  <h3>a few sample Distrikts...</h3>
+  <div id="distrikts-content" class="banner-ditrikt-cards">
+
+    <div class="cards">
+      <div class="row">
+        <% @sorted = @distrikts.sort {|a,b| compare(b.score, @user.score)<=>compare(a.score, @user.score) } %>
+        <%= render 'shared/card' %>
+      </div>
+    </div>
+</div>
+
+

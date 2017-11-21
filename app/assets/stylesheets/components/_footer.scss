@@ -1,5 +1,5 @@
 .footer {
-  background: #375C69;
+  background: #2A2927;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,7 +16,7 @@
   align-items: center;
 }
 .footer-links a {
-  color: white;
+  color: $gold;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -27,4 +27,15 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.footer-copyright {
+  color: $gold;
+  font-family: 'Lato';
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  &:hover {
+    color: #C89C00;
+  }
 }
