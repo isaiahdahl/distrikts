@@ -130,7 +130,6 @@ new_york_distrikts.each do |attributes|
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
-  distrikt.photo_urls = urls
   distrikt.save
 end
 

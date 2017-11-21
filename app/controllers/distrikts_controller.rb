@@ -25,6 +25,9 @@ class DistriktsController < ApplicationController
              }
       }
     end
+    @coordinates = @distrikt.places.map do |place|
+      [place.longitude, place.latitude]
+    end
   end
 
   def new

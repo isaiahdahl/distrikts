@@ -6,16 +6,19 @@
 
     <script>
       mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
+
+      var llb = new mapboxgl.LngLatBounds(<%= @coordinates %>);
+
+
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-73.99947,40.7198443],
+        center: llb.getCenter(),
         pitch: 45,
         bearing: -17.6,
         zoom: 13,
       });
-
-
+<%= raise %>
       map.on('load', function() {
     map.loadImage('<%= image_path("marker-map.png") %>', function(error, image) {
         if (error) throw error;
