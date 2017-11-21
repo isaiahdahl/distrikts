@@ -13,7 +13,6 @@ class AnswersController < ApplicationController
 
   def results
     add_to_cookie(params[:score_id])
-    byebug
   end
 
   private
