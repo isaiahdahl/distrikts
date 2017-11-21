@@ -16,7 +16,7 @@
   background-color: Transparent;
   outline: none;
   &:hover {
-    border: 3px solid $gold;
+    border: 2px solid $gold;
   }
 }
 
@@ -118,4 +118,145 @@
   &:hover {
     background-color: #2350b5;
   }
+}
+
+// animated buttons global
+
+a.animated-button:link, a.animated-button:visited {
+  position: relative;
+  display: block;
+  // margin: 30px auto 0;
+  padding: 14px 15px;
+  color: #fff;
+  font-size:14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  border-radius: 0;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  z-index: -1;
+  -webkit-transition: all 0.75s ease 0s;
+  -moz-transition: all 0.75s ease 0s;
+  -o-transition: all 0.75s ease 0s;
+  transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+  color: #FFF;
+  text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+  height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+  position: relative;
+  display: block;
+  // margin: 30px auto 0;
+  padding: 14px 15px;
+  color: #fff;
+  font-size:14px;
+  border-radius: 0;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+
+// thar black button
+
+a.animated-button.thar-black {
+  color: $black;
+  font-weight: 400;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+// border-radius: 4px;
+  position: relative;
+  border: 2px solid $black;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-black:hover {
+  color: $light-gold !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+a.animated-button.thar-black:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+a.animated-button.thar-black:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: '';
+  color: white !important;
+  background: $black;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+
+// thar gold
+
+a.animated-button.thar-gold {
+  color: $gold;
+  font-weight: 700;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+// border-radius: 4px;
+  position: relative;
+  border: 2px solid $gold;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-gold:hover {
+  color: black !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+a.animated-button.thar-gold:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+a.animated-button.thar-gold:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: '';
+  color: white !important;
+  background: $gold;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
