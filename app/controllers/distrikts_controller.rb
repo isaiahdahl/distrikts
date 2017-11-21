@@ -1,7 +1,6 @@
 class DistriktsController < ApplicationController
   before_action :task, only: [:edit, :show, :update, :destroy]
   before_action :load_ransack_search, :only => :index
-  autocomplete :distrikts, :name
 
   def index
     @q = Distrikt.ransack(params[:q])
