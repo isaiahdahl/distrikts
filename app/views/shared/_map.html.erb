@@ -5,8 +5,7 @@
     </div>
 
     <script>
-      mapboxgl.accessToken = ENV['MAPBOX-API'];
-      <% raise %>
+      mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
