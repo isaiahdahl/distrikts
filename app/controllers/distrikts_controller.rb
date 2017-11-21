@@ -44,7 +44,7 @@ class DistriktsController < ApplicationController
 
   private
   def distrikt_params
-    params.require(:distrikt).permit(:name, :description)
+    params.require(:distrikt).permit(:name, :description, photos: [])
   end
 
   def distrikt
