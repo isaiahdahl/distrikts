@@ -22,6 +22,8 @@ gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
