@@ -38,4 +38,25 @@ class DistriktsController < ApplicationController
   def distrikt
     @distrikt = Distrikt.find(params[:id])
   end
+<<<<<<< Updated upstream
+=======
+
+  def cities
+    @cities = ["City"]
+    City.all.each { |city| @cities << city.name }
+    @cities.sort!
+  end
+
+  def countries
+    @countries = ["Country"]
+    City.all.each { |city| @countries << city.country }
+    @countries.sort!
+  end
+
+  def continents
+    @continents = ["Continent"]
+    City.all.each { |city| @continents << city.continent }
+    @continents.sort!
+  end
+>>>>>>> Stashed changes
 end
