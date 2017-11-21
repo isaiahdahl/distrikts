@@ -1,0 +1,126 @@
+//Banner-HomePage
+.banner {
+  color: white;
+  text-align: center;
+  height: calc(75vh - 70px);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // span :last-child {
+  //   color: white !important;
+  //   background-color: transparent !important;
+  // }
+}
+
+.banner-headline {
+  margin-bottom: 30px;
+}
+
+.typing-container {
+  display: flex;
+  margin-left: 5px;
+}
+
+
+.banner p {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.banner-content-cards {
+  margin-bottom: 0px;
+  display: flex;
+}
+
+.slideUp {
+  text-align: center;
+  animation-name: slideUp;
+  -webkit-animation-name: slideUp;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  visibility: visible;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+
+.slideUpBanner {
+  text-align: center;
+  animation-name: slideUpBanner;
+  -webkit-animation-name: slideUpBanner;
+  animation-duration: .7s;
+  -webkit-animation-duration: .7s;
+  visibility: visible;
+}
+
+@keyframes slideUpBanner {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slideUpBanner {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+.banner-content:selection {
+  background: transparent;
+  color: transparent;
+}
+
+
+//Banner-Show:
+
+.banner-show {
+  display: flex;
+  height: calc(80vh - 70px);
+  background-color: white;
+}
+
+.distrikt-profil-right {
+  margin: 0 0 0 100px;
+}
+

@@ -1,0 +1,262 @@
+.btn-solid {
+  text-decoration: none;
+  color: white !important;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #648791;
+  border: 0px solid transparent !important;
+}
+
+.btn-outline {
+  padding: 15px 25px;
+  border: 2px solid $gold;
+  border-radius: 4px;
+  color: $gold;
+  background-color: Transparent;
+  outline: none;
+  &:hover {
+    border: 2px solid $gold;
+  }
+}
+
+.btn-outline-black {
+  padding: 15px 25px;
+  border: 2px solid $black;
+  border-radius: 4px;
+  color: $black;
+  background-color: Transparent;
+  outline: none;
+  &:hover {
+    border: 3px solid $black;
+  }
+}
+
+.btn-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white !important;
+  padding: 10px 20px;
+  height: 50px;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #648791;
+  border: 0px solid transparent !important;
+}
+
+.btn-solid-pill {
+  text-decoration: none;
+  color: #648791 !important;
+  margin: 4px;
+  height: 30px;
+  padding: 2px 7px 2px 7px;
+  border-radius: 13px;
+  font-weight: 500;
+  background-color: transparent !important;
+  border: 1px solid #648791 !important;
+  display: flex;
+  justify-content: center;
+  p {
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 3px 6px 0px 6px;
+  }
+}
+
+.btn-solid:hover {
+  text-decoration: none;
+  background-color: #375C69;
+}
+
+.btn-banner {
+  text-decoration: none;
+  padding: 15px 25px;
+  color: #375C69 !important;
+  background-color: #F3FAF9;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 16px;
+  border: 0px solid #ffffff !important;
+}
+
+.btn-banner:hover {
+  text-decoration: none;
+  background-color: #96B3BB;
+}
+
+.headline {
+  margin-bottom: 40px;
+}
+
+.btn-clear {
+  text-decoration: none;
+  color: white !important;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #B9E4E2;
+  border: 0px solid transparent !important;
+}
+
+.btn-clear:hover {
+  text-decoration: none;
+  background-color: #96B3BB;
+}
+
+.btn-fb {
+  margin-top: 14px;
+  height: 52px;
+  text-decoration: none;
+  color: white !important;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #3C66C4;
+  border: 0px solid transparent !important;
+  &:hover {
+    background-color: #2350b5;
+  }
+}
+
+// animated buttons global
+
+a.animated-button:link, a.animated-button:visited {
+  position: relative;
+  display: block;
+  // margin: 30px auto 0;
+  padding: 14px 15px;
+  color: #fff;
+  font-size:14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  border-radius: 0;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  z-index: -1;
+  -webkit-transition: all 0.75s ease 0s;
+  -moz-transition: all 0.75s ease 0s;
+  -o-transition: all 0.75s ease 0s;
+  transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+  color: #FFF;
+  text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+  height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+  position: relative;
+  display: block;
+  // margin: 30px auto 0;
+  padding: 14px 15px;
+  color: #fff;
+  font-size:14px;
+  border-radius: 0;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+
+// thar black button
+
+a.animated-button.thar-black {
+  color: $black;
+  font-weight: 400;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+// border-radius: 4px;
+  position: relative;
+  border: 2px solid $black;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-black:hover {
+  color: $light-gold !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+a.animated-button.thar-black:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+a.animated-button.thar-black:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: '';
+  color: white !important;
+  background: $black;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+
+// thar gold
+
+a.animated-button.thar-gold {
+  color: $gold;
+  font-weight: 700;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+// border-radius: 4px;
+  position: relative;
+  border: 2px solid $gold;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-gold:hover {
+  color: black !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+a.animated-button.thar-gold:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+a.animated-button.thar-gold:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: '';
+  color: white !important;
+  background: $gold;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}

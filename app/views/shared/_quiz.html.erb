@@ -1,0 +1,25 @@
+<% if @question == Question.last %>
+
+  <h4 class="text-center"><%= @question.description  %></h4>
+
+  <div class="quiz-container">
+    <% @question.answers.each do |answer| %>
+    <%= link_to answers_results_path(score_id: answer.score_id, question_id: answer.question_id) do %>
+      <%= image_tag answer.img_url, class: "answer"  %>
+    <% end %>
+    <% end %>
+  </div>
+
+<% else %>
+
+<h4 class="text-center"><%= @question.description  %></h4>
+
+  <div class="quiz-container">
+    <% @question.answers.each do |answer| %>
+    <%= link_to answers_quiz_path(score_id: answer.score_id, question_id: answer.question_id), remote: true do %>
+      <%= image_tag answer.img_url, class: "answer"  %>
+    <% end %>
+    <% end %>
+  </div>
+
+<% end %>

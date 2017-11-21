@@ -1,0 +1,27 @@
+<div class="card-filters-container">
+  <div class="card-filters-left">
+    <%= search_form_for @q do |f| %>
+        <%= f.select :city_name_cont, @cities, placeholder: true %>
+        <%= f.submit %>
+    <% end %>
+
+    <%= search_form_for @q do |f| %>
+        <%= f.select :city_country_cont, @countries %>
+        <%= f.submit %>
+    <% end %>
+
+    <%= search_form_for @q do |f| %>
+        <%= f.select :city_continent_cont, @continents %>
+        <%= f.submit %>
+    <% end %>
+    <%= link_to "Clear Search", request.path, class:"btn btn-default" %>
+  </div>
+  <div class="card-filters-right">
+    <%= search_form_for @q do |f| %>
+        <%= f.label :name_cont %>
+        <%= f.search_field :name_cont, placeholder: "Search for distrikts" %>
+        <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+

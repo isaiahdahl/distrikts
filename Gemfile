@@ -14,9 +14,21 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'devise'
+gem 'faker'
+gem 'http'
+gem 'httparty'
+gem 'bootstrap-sass'
+gem 'ransack'
+gem 'ransack_ui'
+gem "geocoder"
+gem 'kaminari'
+
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
