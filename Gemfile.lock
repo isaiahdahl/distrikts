@@ -108,7 +108,6 @@ GEM
     minitest (5.10.3)
     multi_json (1.12.2)
     multi_xml (0.6.0)
-    nifty-generators (0.4.6)
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -150,8 +149,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-jquery-autocomplete (1.0.3)
-      rails (>= 3.2)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -256,14 +253,12 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
-  nifty-generators
   pg
   pry-byebug
   pry-rails
   puma
   rails (= 5.1.4)
   rails-controller-testing
-  rails-jquery-autocomplete
   ransack
   ransack_ui
   redis
