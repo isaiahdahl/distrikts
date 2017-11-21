@@ -1,5 +1,5 @@
 class DistriktsController < ApplicationController
-  before_action :task, only: [:edit, :show, :update, :destroy]
+  before_action :distrikt, only: [:edit, :show, :update, :destroy]
   before_action :load_ransack_search, :only => :index
 
   def index

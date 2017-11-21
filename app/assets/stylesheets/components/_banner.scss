@@ -1,3 +1,4 @@
+//Banner-HomePage
 .banner {
   color: white;
   text-align: center;
@@ -108,5 +109,18 @@
 .banner-content:selection {
   background: transparent;
   color: transparent;
+}
+
+
+//Banner-Show:
+
+.banner-show {
+  display: flex;
+  height: calc(80vh - 70px);
+  background-color: white;
+}
+
+.distrikt-profil-right {
+  margin: 0 0 0 100px;
 }
 

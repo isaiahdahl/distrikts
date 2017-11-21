@@ -21,6 +21,7 @@ gem 'httparty'
 gem 'bootstrap-sass'
 gem 'ransack'
 gem 'ransack_ui'
+gem "geocoder"
 
 group :development, :test do
   gem 'pry-byebug'
