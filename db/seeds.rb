@@ -116,14 +116,6 @@ new_york_distrikts = [
     }
 ]
 
-def new_york_photos
-  [
-      [
-
-      ]
-  ]
-end
-
 new_york_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
   city = City.where(name: "New York")
