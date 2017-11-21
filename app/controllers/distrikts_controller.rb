@@ -17,6 +17,14 @@ class DistriktsController < ApplicationController
   end
 
   def show
+    @places = @distrikt.places.map do |place|
+      { "type": "Feature", 
+        "geometry": {
+            "type": "Point",
+            "coordinates": [place.latitude, place.longitude]
+             }
+      }
+    end
   end
 
   def new
