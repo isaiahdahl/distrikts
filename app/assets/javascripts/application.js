@@ -5,5 +5,4 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require cable.js
-//= require quiz.js
 //= require init_attachinary.js
