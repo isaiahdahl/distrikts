@@ -24,6 +24,7 @@ class AnswersController < ApplicationController
 
     result = Result.new(cookies[:score])
     @score = result.get_score
+    @score_id = @score.id
 
     @scores = top_four
     
