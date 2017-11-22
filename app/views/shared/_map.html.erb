@@ -1,10 +1,7 @@
-<div class="map-places-container">
-  <!-- MAP -->
-  <div class="map-container">
-    <div id='map'>
-    </div>
+<div id='map'>
+</div>
 
-    <script>
+<script>
       mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
 
       var map = new mapboxgl.Map({
@@ -85,7 +82,7 @@
                 "type": "geojson",
                 "data": {
                     "type": "FeatureCollection",
-                    "features": <%= raw @places.to_json %>
+                    "features": <%= raw @places_coordinates.to_json %>
                 }
             },
             "layout": {
@@ -109,12 +106,4 @@
           map.getCanvas().style.cursor = '';
         });
 });
-
-    </script>
-      </div>
-
-    <!-- PLACES -->
-  <div class="places-container">
-    <h3>Top picks in <%= @distrikt.name %></h3>
-  </div>
-</div>
+</script>

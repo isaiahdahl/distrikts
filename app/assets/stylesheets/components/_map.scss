@@ -1,6 +1,5 @@
 .map-places-container {
   display: flex;
-  height: 500px;
 }
 
 .map-container {
@@ -16,3 +15,16 @@
       min-width:50%;
       margin-left:25%;
       }
+
+.map-places-container {
+  display: flex;
+  height: 80vh;
+}
+
+.map-left {
+  width: 60%;
+}
+
+.places-right {
+  width: 40%;
+}

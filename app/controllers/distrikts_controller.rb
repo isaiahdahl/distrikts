@@ -17,22 +17,9 @@ class DistriktsController < ApplicationController
   end
 
   def show
-    @places = @distrikt.places.map do |place|
-      lng = place.longitude unless place.longitude.nil?
-      lat =  place.latitude unless place.latitude.nil?
-      feature = { "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [lng, lat]
-             }
-      }
-      feature
-    end
-    @coordinates = @distrikt.places.map do |place|
-      unless place.longitude.nil? || place.latitude.nil?
-        [place.longitude, place.latitude]
-      end
-    end
+    place_coordinates
+    coordinates
+    @user = User.first
   end
 
   def new
@@ -83,5 +70,27 @@ class DistriktsController < ApplicationController
     @continents = [""]
     City.all.each { |city| @continents << city.continent }
     @continents.sort!
+  end
+
+  def place_coordinates
+    @places_coordinates = @distrikt.places.map do |place|
+      lng = place.longitude unless place.longitude.nil?
+      lat =  place.latitude unless place.latitude.nil?
+      feature = { "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [lng, lat]
+                  }
+      }
+      feature
+    end
+  end
+
+  def coordinates
+    @coordinates = @distrikt.places.map do |place|
+      unless place.longitude.nil? || place.latitude.nil?
+        [place.longitude, place.latitude]
+      end
+    end
   end
 end
