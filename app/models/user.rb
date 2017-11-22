@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   belongs_to :score, dependent: :destroy, optional: true
   belongs_to :style, optional: true
+  has_many :matches
   has_many :distrikts, through: :matches
   has_many :reviews
   has_many :places, through: :reviews
