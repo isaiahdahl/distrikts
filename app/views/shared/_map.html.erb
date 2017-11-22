@@ -7,19 +7,26 @@
     <script>
       mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
 
-      var llb = new mapboxgl.LngLatBounds(<%= @coordinates.compact %>);
-
-
       var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        center: llb.getCenter(),
+        style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',
         pitch: 45,
+        center: <%= @coordinates.compact.sample %>,
         bearing: -17.6,
-        zoom: 13,
+        around: <%= @coordinates.compact %>,
+        zoom: 13
       });
 
       map.on('load', function() {
+        var layers = map.getStyle().layers;
+
+        var labelLayerId;
+        for (var i = 0; i < layers.length; i++) {
+          if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+          }
+        }
         <% unless @distrikt.outline.empty? %>
         map.addLayer({
           'id': 'maine',
@@ -36,11 +43,36 @@
           },
           'layout': {},
           'paint': {
-            'fill-color': '#f5a623',
+            'fill-color': '#f1cb1d',
             'fill-opacity': 0.3
           }
         });
         <% end %>
+        map.addLayer({
+          'id': '3d-buildings',
+          'source': 'composite',
+          'source-layer': 'building',
+          'filter': ['==', 'extrude', 'true'],
+          'type': 'fill-extrusion',
+          'minzoom': 15,
+          'paint': {
+            'fill-extrusion-color': '#aaa',
+
+            // use an 'interpolate' expression to add a smooth transition effect to the
+            // buildings as the user zooms in
+            'fill-extrusion-height': [
+              "interpolate", ["linear"], ["zoom"],
+              15, 0,
+              15.05, ["get", "height"]
+            ],
+            'fill-extrusion-base': [
+              "interpolate", ["linear"], ["zoom"],
+              15, 0,
+              15.05, ["get", "min_height"]
+            ],
+            'fill-extrusion-opacity': .6
+          }
+        }, labelLayerId);
     map.loadImage('<%= image_path("marker-map.png") %>', function(error, image) {
         if (error) throw error;
         map.addImage('cat', image);
@@ -56,13 +88,12 @@
             },
             "layout": {
                 "icon-image": "cat",
-                "icon-size": 0.045,
+                "icon-size": 0.065,
                 "icon-allow-overlap": true
             }
         });
     });
 });
-      console.log(<%= @distrikt.outline %>)
     </script>
       </div>
 
