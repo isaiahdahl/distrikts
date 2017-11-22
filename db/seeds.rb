@@ -300,7 +300,7 @@ response = search("bar", "#{distrikt.name}")
         score_id: ""
     )
     place.save
-    sleep(1)
+    sleep(2)
   end
 end
 
@@ -318,7 +318,7 @@ Distrikt.all.each do |distrikt|
         score_id: ""
     )
     place.save
-    sleep(1)
+    sleep(2)
   end
 end
 
