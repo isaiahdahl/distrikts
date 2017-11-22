@@ -10,13 +10,13 @@
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',
-        pitch: 45,
+        pitch: 60,
         <% unless @coordinates.compact.empty? %>
         center: <%= @coordinates.compact.sample %>,
         around: <%= @coordinates.compact %>,
         <% end %>
         bearing: -17.6,
-        zoom: 13
+        zoom: 14
       });
 
       map.on('load', function() {
@@ -90,12 +90,26 @@
             },
             "layout": {
                 "icon-image": "cat",
-                "icon-size": 0.065,
+                "icon-size": 0.07,
                 "icon-allow-overlap": true
             }
         });
     });
+        map.on('click', 'points', function (e) {
+          map.flyTo({center: e.features[0].geometry.coordinates});
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        map.on('mouseenter', 'points', function () {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'points', function () {
+          map.getCanvas().style.cursor = '';
+        });
 });
+
     </script>
       </div>
 

@@ -20,13 +20,13 @@ class DistriktsController < ApplicationController
     @places = @distrikt.places.map do |place|
       lng = place.longitude unless place.longitude.nil?
       lat =  place.latitude unless place.latitude.nil?
-      array = { "type": "Feature",
+      feature = { "type": "Feature",
         "geometry": {
             "type": "Point",
             "coordinates": [lng, lat]
              }
       }
-      array
+      feature
     end
     @coordinates = @distrikt.places.map do |place|
       unless place.longitude.nil? || place.latitude.nil?
