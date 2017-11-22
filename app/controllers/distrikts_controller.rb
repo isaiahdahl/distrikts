@@ -32,6 +32,7 @@ class DistriktsController < ApplicationController
         format.html
       end
     end
+    @user = User.first
   end
 
   def new
