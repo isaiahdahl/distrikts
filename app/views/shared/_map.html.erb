@@ -11,9 +11,11 @@
         container: 'map',
         style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',
         pitch: 45,
+        <% unless @coordinates.compact.empty? %>
         center: <%= @coordinates.compact.sample %>,
-        bearing: -17.6,
         around: <%= @coordinates.compact %>,
+        <% end %>
+        bearing: -17.6,
         zoom: 13
       });
 
