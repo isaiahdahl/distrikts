@@ -1,7 +1,7 @@
 <div class="banner-show">
   <!-- Top-Left -->
   <div class="distrikt-profil-left">
-    <h1>Welcome to <%= @distrikt.name %></h1>
+    <h2>Welcome to <%= @distrikt.name %></h2>
     <p><%= @distrikt.city.name %>, <%= @distrikt.city.country %></p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -16,24 +16,22 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <% @distrikt.photos[1..@distrikt.photos.count - 1].each do |photo| %>
+          <li data-target="#myCarousel" data-slide-to="<%= @distrikt.photos.index(photo) %>"></li> 
+        <% end %>
       </ol>
 
       <!-- Wrapper for slides -->
-      <div class="carousel-inner">
+      <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="https://images.pexels.com/photos/693521/pexels-photo-693521.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb" alt="<%= @distrikt.name %>">
+            <%= cl_image_tag @distrikt.photos.first.path, crop: :fill %>
         </div>
-
-        <div class="item">
-          <img src="https://images.pexels.com/photos/355296/pexels-photo-355296.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb" alt="<%= @distrikt.name %>">
-        </div>
-
-        <div class="item">
-          <img src="https://images.pexels.com/photos/688835/pexels-photo-688835.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb" alt="<%= @distrikt.name %>">
-        </div>
+          <% @distrikt.photos[1..@distrikt.photos.count - 1].each do |photo| %>
+            <div class="item">
+              <%= cl_image_tag photo.path, crop: :fill %>
+            </div>
+          <% end %>
       </div>
 
       <!-- Left and right controls -->
@@ -47,4 +45,5 @@
       </a>
     </div>
   </div>
+
 </div>
