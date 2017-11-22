@@ -19,6 +19,7 @@ class DistriktsController < ApplicationController
   def show
     place_coordinates
     coordinates
+    @user = User.first
   end
 
   def new
