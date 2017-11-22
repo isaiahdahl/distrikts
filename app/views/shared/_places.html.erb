@@ -3,49 +3,50 @@
     <h4>Top Picks in <%= @distrikt.name %></h4>
   </div>
   <div class="filter-tags">
-    <%= image_tag "nightlife.png", class: "filter-icon" %>
-    <%= image_tag "foodie.png", class: "filter-icon" %>
-    <%= image_tag "outdoors.png", class: "filter-icon" %>
-    <%= image_tag "mouse.png", class: "filter-icon" %>
+    <%= link_to distrikt_path, remote: true do %>
+    <div class="filter-icon" id="all">
+      <%= image_tag "filter-tags/all-dark", class: "filter-img" %>
+    </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "nightlife"), remote: true do %>
+    <div class="filter-icon" id="bar">
+      <%= image_tag "filter-tags/bar-dark", class: "filter-img" %>
+    </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "cafe"), remote: true do %>
+    <div class="filter-icon" id="coffee">
+      <%= image_tag "filter-tags/coffee-dark", class: "filter-img" %>
+    </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "culture"), remote: true do %>
+      <div class="filter-icon" id="culture">
+        <%= image_tag "filter-tags/culture-dark", class: "filter-img" %>
+      </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "dessert"), remote: true do %>
+      <div class="filter-icon" id="dessert">
+        <%= image_tag "filter-tags/dessert-dark", class: "filter-img" %>
+      </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "outdoors"), remote: true do %>
+       <div class="filter-icon" id="outdoors">
+          <%= image_tag "filter-tags/outdoors-dark", class: "filter-img" %>
+       </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "restaurant"), remote: true do %>
+      <div class="filter-icon" id="resto">
+        <%= image_tag "filter-tags/resto-dark", class: "filter-img" %>
+      </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "shopping"), remote: true do %>
+      <div class="filter-icon" id="shopping">
+        <%= image_tag "filter-tags/shopping-dark", class: "filter-img" %>
+      </div>
+    <% end %>
   </div>
 </div>
 <div class="places">
   <ul id="places-search">
-    <% @distrikt.places.each do |place| %>
-        <li>
-          <div class="place">
-            <div class="place-category">
-              <p><%= place.category.upcase %> | $$</p>
-            </div>
-            <div class="place-name">
-              <h3><%= place.name %></h3>
-            </div>
-            <div class="place-description">
-              <p><%= place.address %></p>
-            </div>
-          </div>
-        </li>
-    <% end %>
+    <%= render @distrikt.places %>
   </ul>
 </div>
-
-<script>
-  function myFunction() {
-    // Declare variables
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("places-search");
-    li = ul.getElementsByTagName('li');
-
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName("a")[0];
-      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
-  }
-</script>
