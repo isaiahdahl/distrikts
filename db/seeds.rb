@@ -40,30 +40,54 @@ end
 
 def style_attrs
   {
-  name: ["Urban Explorer", "Cultural Scavenger", "Cultural Explorer", "Urban Fisherman"].sample,
+  name: ["Urban Explorer", "Cultural Scavenger", "Cultural Explorer", "Urban Fisherman", "Urban Scavenger", "Cultural Ninja", "Urban Ninja"].sample,
       description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
   }
 end
 
+ue = Style.new(name: "Urban Explorer", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Cultural Scavenger", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Urban Fisherman", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Urban Scavenger", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Cultural Ninja", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Luxury Scavenger", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Hedonist Connoisseur", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Zen Ninja", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Cultural Ninja", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+
 30.times do
   password = Faker::Internet.password(8)
   score = Score.create(score_attrs)
-  style = Style.create(style_attrs)
-  style.score = Score.create(score_attrs)
   user = User.new(
       username: Faker::Internet.user_name,
       email: Faker::Internet.free_email,
       password: password,
       password_confirmation: password
   )
-  user.style = style
+  user.style = Style.find((1..9).to_a.sample)
   user.score = score
   user.save
 end
 
 score = Score.create(score_attrs)
-style = Style.create(style_attrs)
-style.score = Score.create(score_attrs)
 user = User.new(
     username: "admin",
     email: "admin@admin.com",
@@ -71,22 +95,22 @@ user = User.new(
     password_confirmation: "livecode",
     admin: true
 )
-user.style = style
+user.style = Style.find((1..9).to_a.sample)
 user.score = score
 user.save
 
+
 score = Score.create(score_attrs)
-style = Style.create(style_attrs)
-style.score = Score.create(score_attrs)
 user = User.new(
     username: "rubberduck",
     email: "rubber@duck.com",
     password: "livecode",
     password_confirmation: "livecode"
 )
-user.style = style
+user.style = Style.find((1..9).to_a.sample)
 user.score = score
 user.save
+
 
 cities = [
     {

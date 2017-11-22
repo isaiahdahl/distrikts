@@ -1,3 +1,4 @@
+require 'byebug'
 class DistriktsController < ApplicationController
   before_action :distrikt, only: [:edit, :show, :update, :destroy]
   before_action :load_ransack_search, :only => :index
@@ -17,8 +18,20 @@ class DistriktsController < ApplicationController
   end
 
   def show
+    if params[:category]
+      @places = @distrikt.places.send(params[:category])
+    else
+      @places = @distrikt.places
+    end
     place_coordinates
     coordinates
+    respond_to do |format|
+      if request.xhr?
+        format.js
+      else
+        format.html
+      end
+    end
   end
 
   def new
@@ -72,7 +85,7 @@ class DistriktsController < ApplicationController
   end
 
   def place_coordinates
-    @places_coordinates = @distrikt.places.map do |place|
+    @places_coordinates = @places.map do |place|
       lng = place.longitude unless place.longitude.nil?
       lat =  place.latitude unless place.latitude.nil?
       feature = { "type": "Feature",
@@ -86,7 +99,7 @@ class DistriktsController < ApplicationController
   end
 
   def coordinates
-    @coordinates = @distrikt.places.map do |place|
+    @coordinates = @places.map do |place|
       unless place.longitude.nil? || place.latitude.nil?
         [place.longitude, place.latitude]
       end

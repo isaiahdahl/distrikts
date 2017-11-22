@@ -10,7 +10,6 @@
         pitch: 60,
         <% unless @coordinates.compact.empty? %>
         center: <%= @coordinates.compact.sample %>,
-        around: <%= @coordinates.compact %>,
         <% end %>
         bearing: -17.6,
         zoom: 14
