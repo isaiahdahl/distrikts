@@ -61,6 +61,33 @@ end
   user.save
 end
 
+score = Score.create(score_attrs)
+style = Style.create(style_attrs)
+style.score = Score.create(score_attrs)
+user = User.new(
+    username: "admin",
+    email: "admin@admin.com",
+    password: "livecode",
+    password_confirmation: "livecode",
+    admin: true
+)
+user.style = style
+user.score = score
+user.save
+
+score = Score.create(score_attrs)
+style = Style.create(style_attrs)
+style.score = Score.create(score_attrs)
+user = User.new(
+    username: "rubberduck",
+    email: "rubber@duck.com",
+    password: "livecode",
+    password_confirmation: "livecode"
+)
+user.style = style
+user.score = score
+user.save
+
 cities = [
     {
         name: "New York",
