@@ -34,8 +34,24 @@
   align-items: center;
   justify-content: center;
   .small-icon {
+    display: inline-block;
     margin-right: 8px;
     width: 20px;
+  }
+}
+
+.retake-right {
+display: inline-block;
+}
+
+.text-link{
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $mid-gray;
+  &:hover {
+    text-decoration: none;
+    color: $black;
   }
 }
 

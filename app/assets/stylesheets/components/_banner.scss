@@ -148,7 +148,7 @@
     img {
       width: 100%;
       height: calc(90vh - 70px);
-    } 
+    }
   }
 
 }
@@ -169,4 +169,11 @@
   //   color: white !important;
   //   background-color: transparent !important;
   // }
+}
+
+.banner-results-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
