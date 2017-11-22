@@ -22,18 +22,28 @@
   <div class="modal-dialog modal-lg quiz-modal-container" role="document">
 
     <div class="modal-content quiz-modal-container-left text-center";">
-    <h2>Find your travel profile</h2>
-    <p>To match you with distrikts, we need to get to know you</p>
-  </div>
-  <div class="modal-content quiz-modal-container-right">
-    <div class="navbar">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h2>Find your travel profile</h2>
+      <p>To match you with distrikts, we need to get to know you</p>
     </div>
-    <div class="modal-body">
-      <div id="quiz">
-        <%= render 'shared/quiz' %>
+    <div class="modal-content quiz-modal-container-right">
+      <div class="navbar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div id="quiz">
+          <%= render 'shared/quiz' %>
+        </div>
+        <div id="dots" class="text-center">
+          <% @questions.each do |question| %>
+            <% if question.id == @questions.first.id %>
+              <i id="dot-<%= question.id %>" class="fa fa-circle" aria-hidden="true"></i>
+            <% else %>
+              <i id="dot-<%= question.id %>" class="fa fa-circle-thin" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <i id="dot" class="fa fa-circle-thin" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
