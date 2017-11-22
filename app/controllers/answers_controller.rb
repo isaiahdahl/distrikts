@@ -14,7 +14,6 @@ class AnswersController < ApplicationController
   def results
     add_to_cookie(params[:score_id])
     @distrikts = Distrikt.all
-    # get_results(cookies[:score])
   end
 
   private

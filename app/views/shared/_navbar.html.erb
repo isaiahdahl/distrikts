@@ -6,7 +6,7 @@
         <%= image_tag "logo.png", class: "navbar-logo" %>
         <%= link_to "Distrikts", restaurants_path, class: "navbar-wagon-brand" %>
       </div>
-     
+
        <!-- Links when logged in -->
        <%= link_to "Explore", "#", class: "navbar-wagon-item navbar-wagon-link" %>
        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -35,7 +35,7 @@
             </ul>
           </div>
         </div>
-       
+
       <!-- If user is NOT sign-in -->
       <% else %>
       <!-- Login link (when logged out) -->
@@ -48,7 +48,7 @@
     <!-- Right Navigation -->
         <div class="navbar-wagon-right hidden-xs hidden-sm">
           <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignIn">Sign In</button>
-          <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalQuiz">Sign Up</button>
+          <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignUp">Sign Up</button>
         <% end %>
       </div>
 
