@@ -1,20 +1,25 @@
 <div class="banner-show">
   <!-- Top-Left -->
-  <div class="distrikt-profil-left">
+
+  <div class="distrikt-profile-left">
+
     <div class="profile-left-score gold bold">
+      <%= image_tag "hexagons/hex-solid.png", class: "distrikt-hex-match" %>
       <h4><%= compare(@user.score, @distrikt.score) %></h4>
       <p>MATCH</p>
     </div>
+
     <div class = "profile-left-header">
       <% if policy(Distrikt).edit? %>
           <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
       <% end %>
-      <h3>Welcome to</h3> 
-      <h1 class = "bold"><%= @distrikt.name %></h1> 
-      <h4><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h4>
+      <h3 class="light">Welcome to</h3>
+      <h1 class = "bold upper"><%= @distrikt.name %></h1>
+      <h5 class="upper"><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h5>
     </div>
-    <p><%= @distrikt.description %></p>
+    <p class="light spaced"><%= @distrikt.description %></p>
   </div>
+
   <!-- Top-Right(CAROUSEL) -->
   <div class="distrikt-profil-right">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -35,7 +40,7 @@
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <% @distrikt.photos[1..@distrikt.photos.count - 1].each do |photo| %>
-            <li data-target="#myCarousel" data-slide-to="<%= @distrikt.photos.index(photo) %>"></li> 
+            <li data-target="#myCarousel" data-slide-to="<%= @distrikt.photos.index(photo) %>"></li>
           <% end %>
         </ol>
 
