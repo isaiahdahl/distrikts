@@ -1,6 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     user = User.find_for_facebook_oauth(request.env['omniauth.auth'])
+    user.score_id = request.env["omniauth.params"]["score_id"].to_i
 
     if user.persisted?
       sign_in_and_redirect user, event: :authentication
