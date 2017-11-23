@@ -14,6 +14,7 @@ class DistriktsController < ApplicationController
     @distrikts = @q.result.page(page).per(per_page)
     @distrikt = policy_scope(Distrikt)
     @user = current_user
+    @score = @user.score
     @cities = cities
     @countries = countries
     @continents = continents
