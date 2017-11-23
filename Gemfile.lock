@@ -81,8 +81,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    animate-rails (1.0.10)
-      rails
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (8.0.0)
@@ -391,7 +389,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  animate-rails
   attachinary!
   autoprefixer-rails
   better_errors
