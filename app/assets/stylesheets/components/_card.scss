@@ -45,6 +45,17 @@
   }
 }
 
+.card-match {
+  position: absolute;
+  top: 24px;
+  left: 8px;
+  h4 {
+    font-size: 28px;
+    font-weight:400;
+    margin-bottom: -4px;
+  }
+}
+
 .card-desc {
   position: absolute;
   bottom: 30px;
@@ -53,4 +64,18 @@
     color: white;
     text-decoration: none;
   }
+}
+
+.hex-match {
+  width: 56%; height: 56%;
+}
+
+.match-block {
+  margin-top: -40px;
+}
+.match {
+  margin-top: 25px !important;
+}
+.country {
+  margin-top: 3px;
 }

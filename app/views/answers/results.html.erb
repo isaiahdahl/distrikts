@@ -15,3 +15,20 @@
   <a class="btn btn-sm animated-button thar-black" data-toggle="modal" data-target="#modalSignUp">Save Your Profile</a>
 
 </div>
+
+<div class="spinner-layer" id="loading">
+  <div class="spinner">
+    <div class="spinner">
+  <div class="double-bounce1"></div>
+  <div class="double-bounce2"></div>
+</div>
+  </div>
+</div>
+<% content_for :after_js do %>
+<script language="javascript" type="text/javascript">
+     $(window).load(function() {
+     setTimeout(function(){ $('#loading').hide(); }, 3000);     
+window.history.replaceState({}, document.title, "/answers/results");
+  });
+</script>
+<% end %>

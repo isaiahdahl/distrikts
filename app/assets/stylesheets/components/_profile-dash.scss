@@ -1,6 +1,15 @@
+#dash {
+  min-height: 180px;
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+
 .dash-container {
   display: flex;
-  height: 25vh;
+  max-width: 1200px;
   padding: 0 50px 0 50px;
   background-color: #ffffff;
   justify-content: space-between;
@@ -9,6 +18,16 @@
 
 .dash-details {
   display: flex;
+}
+
+.dash-avatar {
+  width: 20%; height: 20%;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.hex-filter {
+  width: 70%; height: 70%;
 }
 
 .dash-details-information {
@@ -22,7 +41,7 @@
 
 .user-filters {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .users-filter {
@@ -30,14 +49,21 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .dashboard-position {
-  position: relative;
-  top: 30px;
+  // position: relative;
+  // top: 30px;
 }
 
 .dashboard-tags {
   font-size: 3px;
+}
+
+.filter-num {
+  margin-top: -95px;
+}
+
+.wishlist{
+  margin-top: 0;
 }
