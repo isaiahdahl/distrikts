@@ -6,7 +6,11 @@ class DistriktPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+    true
+  end
+
+  def explore?
+    true
   end
 
   def create?

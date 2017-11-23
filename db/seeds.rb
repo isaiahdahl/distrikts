@@ -185,6 +185,7 @@ new_york_distrikts.each do |attributes|
   distrikt.city = city.first
   distrikt.score = score
   distrikt.save
+  sleep(1)
 end
 
 
@@ -224,6 +225,7 @@ paris_distrikts.each do |attributes|
   distrikt.city = city.first
   distrikt.score = score
   distrikt.save
+  sleep(1)
 end
 
 rio_distrikts = [
@@ -262,6 +264,7 @@ rio_distrikts.each do |attributes|
   distrikt.city = city.first
   distrikt.score = score
   distrikt.save
+  sleep(1)
 end
 
 puts "livecoooodeeeee"

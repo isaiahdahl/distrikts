@@ -6,4 +6,7 @@ class Distrikt < ApplicationRecord
   has_many :places
   has_attachments :photos, maximum: 6
   max_paginates_per 50
+
+  geocoded_by :name
+  after_validation :geocode
 end

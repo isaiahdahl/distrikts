@@ -1,0 +1,70 @@
+<div id='map-explore'></div>
+<script>
+  mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
+
+  var map = new mapboxgl.Map({
+    container: 'map-explore',
+    style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',
+    center: [<%= @distrikts.first.longitude %>, <%= @distrikts.first.latitude %>],
+    zoom: 15.5,
+    bearing: 27,
+    pitch: 45
+  });
+
+  map.addControl(new mapboxgl.NavigationControl());
+
+
+  var chapters = {
+    <% @distrikts.each do |distrikt| %>
+    '<%= distrikt.name %>': {
+      bearing:  <%= [45, 13.4, 70, 80, 12].sample %>,
+      center: [<%= distrikt.longitude %>, <%= distrikt.latitude %>],
+      zoom: 14,
+      pitch: <%= [30, 50, 40, 45, 60, 30].sample %>
+    },
+    <% end %>
+  };
+
+  window.onload = function() {
+    var chapterNames = Object.keys(chapters);
+    for (var i = 0; i < chapterNames.length; i++) {
+      var chapterName = chapterNames[i];
+      if (isElementOnScreen(chapterName)) {
+        setActiveChapter(chapterName);
+        break;
+      }
+    }
+  };
+
+  // On every scroll event, check which element is on screen
+  window.onscroll = function() {
+    var chapterNames = Object.keys(chapters);
+    for (var i = 0; i < chapterNames.length; i++) {
+      var chapterName = chapterNames[i];
+      if (isElementOnScreen(chapterName)) {
+        setActiveChapter(chapterName);
+        break;
+      }
+    }
+  };
+
+  var activeChapterName = '<%= @distrikts.first.name %>';
+
+  function setActiveChapter(chapterName) {
+    if (chapterName === activeChapterName) return;
+
+    map.flyTo(chapters[chapterName]);
+
+    document.getElementById(chapterName).setAttribute('class', 'active');
+    document.getElementById(activeChapterName).setAttribute('class', '');
+
+    activeChapterName = chapterName;
+  }
+
+  function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    return bounds.top < window.innerHeight && bounds.bottom > 0;
+  }
+
+</script>

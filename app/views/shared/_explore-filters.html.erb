@@ -1,0 +1,46 @@
+<div id='features'>
+    <section id='<%= @distrikts.first.name %>'>
+      <% if @distrikts.first.photos.first.nil? %>
+          <div class="card-explore" style = "background-color: gainsboro">
+      <% else %>
+          <div class="card-explore" style = "background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path @distrikts.first.photos.first.path, height: 281, width: 222, crop: :fill %>')">
+      <% end %>
+      <div class="card-body-explore">
+        <div class="card-category text-center gold">
+          <h4><%= compare(@user.score, @distrikts.first.score) %></h4>
+          <p>MATCH</p>
+        </div>
+        <div class="card-description">
+          <p><%= @distrikts.first.description %></p>
+        </div>
+        <div class="card-desc">
+          <h4 class="bold"><%= @distrikts.first.name %></h4>
+          <p class><%= @distrikts.first.city.name %>, <%= @distrikts.first.city.country %></p>
+        </div>
+      </div>
+      </div>
+  </section>
+  <% @distrikts.drop(1).each do |distrikt| %>
+  <section id='<%= distrikt.name %>'>
+    <% if distrikt.photos.first.nil? %>
+        <div class="card-explore" style = "background-color: gainsboro">
+    <% else %>
+        <div class="card-explore" style = "background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path distrikt.photos.first.path, height: 281, width: 222, crop: :fill %>')">
+    <% end %>
+    <div class="card-body-explore">
+      <div class="card-category text-center gold">
+        <h4><%= compare(@user.score, distrikt.score) %></h4>
+        <p>MATCH</p>
+      </div>
+      <div class="card-description">
+        <p><%= distrikt.description %></p>
+      </div>
+      <div class="card-desc">
+        <h4 class="bold"><%= distrikt.name %></h4>
+        <p class><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
+      </div>
+    </div>
+    </div>
+  </section>
+  <% end %>
+</div>
