@@ -36,7 +36,8 @@
   align-items: center;
   align-content: flex-start;
   padding: 0 15px;
-  width: 32%;
+  width: 30%;
+  margin: 0;
   background-color: #FEE795;
   color: #555452 !important;
 }
@@ -52,6 +53,12 @@
 
 .bottom-text {
   margin-bottom: 30px;
+}
+
+.modal-content  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
 }
 
 .quiz-modal-container-right {
@@ -84,7 +91,5 @@
   margin: 5px 10px 0 0;
 }
 
-#dots {
-  margin-top: 30px;
-}
+
 
