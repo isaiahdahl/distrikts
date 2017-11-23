@@ -1,4 +1,3 @@
-require 'byebug'
 class DistriktsController < ApplicationController
   before_action :distrikt, only: [:edit, :show, :update, :destroy]
   before_action :load_ransack_search, :only => :index
