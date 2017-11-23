@@ -4,7 +4,7 @@
 
 <div class="quiz-container">
   <% @question.answers.each do |answer| %>
-  <%= link_to answers_results_path(score_id: answer.score_id, question_id: answer.question_id) do %>
+  <%= link_to answers_results_path(score_id: answer.score_id, question_id: answer.question_id, quiz: "complete") do %>
     <%= image_tag answer.img_url, class: "answer"  %>
   <% end %>
   <% end %>
@@ -12,7 +12,7 @@
 
 <% else %>
 
-<h4 class="heading text-center light"><%= @question.description  %></h4>
+<h3 class="heading text-center "><%= @question.description  %></h3>
 
 <div class="quiz-container">
   <% @question.answers.each do |answer| %>

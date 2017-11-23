@@ -1,0 +1,37 @@
+.explore-distrikts {
+  width: 50%;
+  background-color: white;
+}
+
+.explore-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 20px 0;
+  background-color: #f2f2f2;
+  height: 20%;
+  -webkit-box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.card-explore {
+  background-position: center;
+  border-radius: 6px;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  margin: 40px;
+  position: relative;
+  top: -20px;
+  height: 100%;
+  width: 70vh;
+  opacity: 0.85;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+  // box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  background-size: cover !important;
+  &:hover {
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+  }
+}

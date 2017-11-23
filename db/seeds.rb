@@ -176,6 +176,7 @@ new_york_distrikts = [
         description: "Brunch and bike away the day and lounge and drink away the night in this infinitely hip warehouse-turned-loft Brooklyn neighborhood. New York City’s top spot for looking awesome while ordering beers that come in a tall can, Williamsburg is a food, drink, and music lover’s paradise. This ultra-trendy neighborhood completes its super cool repertoire with alternative-looking street art and two-story murals.",
     }
 ]
+puts "creating new york distrikts"
 
 new_york_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
@@ -184,7 +185,9 @@ new_york_distrikts.each do |attributes|
   distrikt.city = city.first
   distrikt.score = score
   distrikt.save
+  sleep(1)
 end
+
 
 paris_distrikts = [
     {
@@ -213,6 +216,7 @@ paris_distrikts = [
     },
 
 ]
+puts "creating paris distrikts"
 
 paris_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
@@ -221,6 +225,7 @@ paris_distrikts.each do |attributes|
   distrikt.city = city.first
   distrikt.score = score
   distrikt.save
+  sleep(1)
 end
 
 rio_distrikts = [
@@ -250,6 +255,8 @@ rio_distrikts = [
     },
 ]
 
+puts "creating rio distrikts"
+
 rio_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
   city = City.where(name: "Rio de Janeiro")
@@ -257,7 +264,10 @@ rio_distrikts.each do |attributes|
   distrikt.city = city.first
   distrikt.score = score
   distrikt.save
+  sleep(1)
 end
+
+puts "livecoooodeeeee"
 
 tokyo_distrikts = [
     {
@@ -286,6 +296,7 @@ tokyo_distrikts = [
     },
 ]
 
+puts "creating tokyo distrikts"
 tokyo_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
   city = City.where(name: "Tokyo")
@@ -338,24 +349,8 @@ def search(term, location)
   response.parse
 end
 
-Distrikt.all.each do |distrikt|
-response = search("bar", "#{distrikt.name}")
-  response["businesses"].each do |biz|
-    place = Place.new(
-        name: biz["name"],
-        category: "nightlife",
-        address: biz["location"]["display_address"].join(" "),
-        phone: biz["phone"],
-        img_url: biz["image_url"],
-        distrikt_id: distrikt.id,
-        score_id: ""
-    )
-    place.save
-    sleep(2)
-  end
-end
 
-
+puts "creating places for all distrikts with nightlife"
 Distrikt.all.each do |distrikt|
   response = search("club", "#{distrikt.name}")
   response["businesses"].each do |biz|
@@ -370,6 +365,26 @@ Distrikt.all.each do |distrikt|
     )
     place.save
     sleep(2)
+    puts "#{biz["name"]} created"
+  end
+end
+
+puts "creating places for all distrikts with nightlife"
+Distrikt.all.each do |distrikt|
+  response = search("cafe", "#{distrikt.name}")
+  response["businesses"].each do |biz|
+    place = Place.new(
+        name: biz["name"],
+        category: "cafe",
+        address: biz["location"]["display_address"].join(" "),
+        phone: biz["phone"],
+        img_url: biz["image_url"],
+        distrikt_id: distrikt.id,
+        score_id: ""
+    )
+    place.save
+    sleep(2)
+    puts "#{biz["name"]} created"
   end
 end
 
@@ -393,6 +408,7 @@ questions = [{
 
 questions.each do |question|
   Question.create(question)
+  puts "created a question"
 end
 
 answers = [{
@@ -478,10 +494,12 @@ def q_score_attrs
   }
 end
 
-
+puts "almost there, just creating some answers"
 answers.each do |answer|
   score = Score.new(q_score_attrs)
   answer = Answer.new(answer)
   answer.score = score
   answer.save
 end
+
+puts "success motherfucker"

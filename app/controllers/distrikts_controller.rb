@@ -1,5 +1,6 @@
 class DistriktsController < ApplicationController
   before_action :distrikt, only: [:edit, :show, :update, :destroy]
+  before_action :authorize_distrikt, only: [:edit, :show, :update, :destroy]
   before_action :load_ransack_search, :only => :index
 
 
@@ -10,14 +11,37 @@ class DistriktsController < ApplicationController
 
     @q = Distrikt.ransack q_param
     @distrikts = @q.result.page(page).per(per_page)
+    @distrikt = policy_scope(Distrikt)
     @user = current_user
+    @score = @user.score
     @cities = cities
     @countries = countries
     @continents = continents
     assign_style(@user)
   end
 
+  def explore
+    q_param = params[:q]
+
+    @q = Distrikt.ransack q_param
+    @distrikts = @q.result
+    authorize @distrikts
+    @user = current_user
+    @cities = cities
+    @countries = countries
+    @continents = continents
+    assign_style(@user)
+    respond_to do |format|
+      if request.xhr?
+        format.js
+      else
+        format.html
+      end
+    end
+  end
+
   def show
+    authorize @distrikt
     if params[:category]
       @places = @distrikt.places.send(params[:category])
     else
@@ -111,5 +135,9 @@ class DistriktsController < ApplicationController
     @score_id = @score.id
     @styles = Style.all.sort {|a,b| Compare.new(b.score, @score).average<=>Compare.new(a.score, @score).average }
     current_user.style_id = @styles.first.id
+  end
+
+  def authorize_distrikt
+    authorize @distrikt
   end
 end

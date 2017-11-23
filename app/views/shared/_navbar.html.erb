@@ -8,7 +8,7 @@
       </div>
 
        <!-- Links when logged in -->
-       <%= link_to "Explore", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+       <%= link_to "Explore", distrikts_explore_path, class: "navbar-wagon-item navbar-wagon-link" %>
        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
 
         <!-- Avatar with dropdown menu when logged in-->
@@ -48,7 +48,7 @@
     <!-- Right Navigation -->
         <div class="navbar-wagon-right hidden-xs hidden-sm">
           <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignIn">Sign In</button>
-          <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalQuiz">Take Quiz</button>
+          <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalQuiz">Take The Quiz</button>
         <% end %>
       </div>
 
@@ -72,8 +72,8 @@
   <div class="modal-dialog modal-lg modal-container" role="document">
 
     <div class="modal-content modal-container-left text-center intro";">
-      <h2>Log in to seaBay</h2>
-      <p>Log in and sell your fish directly to restaurants in your area</p>
+      <h2 class="bumpdown">Log in to Distrikts</h2>
+      <h4 class="light">Log in and find new Distrikts to explore</h4>
     </div>
 
 
@@ -96,8 +96,8 @@
   <div class="modal-dialog modal-lg modal-container" role="document">
 
     <div class="modal-content modal-container-left text-center intro";">
-      <h2>Join seaBay</h2>
-      <p>Sign up and sell your fish directly to restaurants in your area</p>
+      <h2 class="bumpdown">Join Distrikts</h2>
+      <h4 class="light">Sign up to discover and connect with distrikts around the world</h4>
     </div>
 
     <div class="modal-content modal-container-right">

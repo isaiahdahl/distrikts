@@ -1,17 +1,16 @@
 .cards {
   width: 100%;
   margin: 0 auto;
+  margin-top: 30px !important;
   max-width: 1026px;
   display: flex;
   justify-content: center;
 }
 
 .card {
-  background-size: cover;
-  background-color: gainsboro;
   background-position: center;
   border-radius: 6px;
-  color: black;
+  color: white;
   font-size: 30px;
   text-align: center;
   margin: 20px 0px 0px 0px;
@@ -20,29 +19,14 @@
   height: 281px;
   width: 222px;
   opacity: 0.85;
-  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, #373737 100%);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2));
   // box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-.card-home {
-  height: 300px;
-  width: 300px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 6px;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  padding: 10px;
-  margin: 20px 10px;
-  // box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-
-
-.card:hover {
+  background-size: cover !important;
+  &:hover {
   box-shadow: 0 0 12px rgba(0,0,0,0.6);
+ }
 }
+
 
 .card-body {
   height: 300px;
@@ -51,84 +35,48 @@
   text-align: left;
 }
 
-.card-avatar {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-
 .card-category {
   position: absolute;
   top: 20px;
   left: 20px;
-  color: #fff;
   h4 {
     font-size: 28px;
     font-weight:400;
     margin-bottom: -4px;
   }
-  h5 {
-    margin-top: -4px;
-    font-size: 10px;
-    line-height: 1;
-    font-weight: 600;
-  }
 }
 
-.card-icon {
-  width: 30px;
+.card-match {
+  position: absolute;
+  top: 24px;
+  left: 8px;
+  h4 {
+    font-size: 28px;
+    font-weight:400;
+    margin-bottom: -4px;
+  }
 }
 
 .card-desc {
   position: absolute;
   bottom: 30px;
   left: 20px;
-  color: #fff;
+  h4, p, a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-.card-desc h2{
-  font-size: 34px;
-  line-height: 1.3;
-  font-weight:500;
+.hex-match {
+  width: 56%; height: 56%;
 }
 
-
-
-.card-footer {
-  height: 50px;
-  position: relative;
+.match-block {
+  margin-top: -40px;
 }
-
-.card-links ul {
-  position: absolute;
-  bottom: 0;
-  right: 8px;
-  color: #ccc;
+.match {
+  margin-top: 25px !important;
 }
-
-.card-links ul li {
-  text-decoration: none;
-  display: inline;
-  margin: 8px;
-}
-
-.card-links ul li a {
-  color: #ccc;
-  text-decoration: none;
-}
-
-.card-links ul li a:hover {
-  color: #aaa;
-  text-decoration: none;
-}
-
-.card-date {
-  position: absolute;
-  bottom: 13px;
-  left: 5px;
-  color: #ccc;
-}
-
-.card-desc h2 a {
-  color: #fff;
+.country {
+  margin-top: 3px;
 }

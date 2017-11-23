@@ -1,32 +1,51 @@
-<div class="dash-container">
-  <div class="dash-details">
-    <%= image_tag "logo.png", class: "navbar-logo dashboard-position" %>
-    <div class="dash-details-information">
-      <h1><%= @user.username %></h1>
-      <h3><%= @user.style.name %></h3>
-      <div class="style-details">
-        <button type="button" class="btn btn-default">Details</button>
+<div id="dash">
+
+  <div class="dash-container">
+
+    <div class="dash-details">
+      <%= image_tag "hexagons/hex-solid.png", class: "dash-avatar dashboard-position" %>
+      <div class="dash-details-information">
+        <h2 class="touch upper bold"><%= @user.first_name %> <%= @user.last_name %></h2>
+        <h4 class="upper light bumpdown"><%= @user.style.name %></h4>
+        <div class="style-details">
+          <a class="btn btn-outline" data-toggle="modal" data-target="#modalDetails">Details</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="user-filters">
-    <div class="users-filter">
-      <div class="hexagon-filter">
-        <h3>13</h3>
+
+    <div class="user-filters gold">
+
+
+      <div class="users-filter text-center">
+        <div class="hexagon-filter">
+          <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
+          <div class="filter-block">
+            <h2 class="filter-num">13</h2>
+            <h5 class="wishlist upper">Wishlist</h5>
+          </div>
+        </div>
       </div>
-      <h4>Wishlist</h4>
-    </div>
-    <div class="users-filter">
-      <div class="hexagon-filter">
-        <h3>13</h3>
+
+      <div class="users-filter text-center">
+        <div class="hexagon-filter">
+          <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
+          <div class="filter-block">
+            <h2 class="filter-num">13</h2>
+            <h5 class="wishlist upper">Wishlist</h5>
+          </div>
+        </div>
       </div>
-      <h4>Wishlist</h4>
-    </div>
-    <div class="users-filter">
-      <div class="hexagon-filter">
-        <h3>13</h3>
+
+      <div class="users-filter text-center">
+        <div class="hexagon-filter">
+          <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
+          <div class="filter-block">
+            <h2 class="filter-num">13</h2>
+            <h5 class="wishlist upper">Wishlist</h5>
+          </div>
+        </div>
       </div>
-      <h4>Wishlist</h4>
+
     </div>
   </div>
 </div>

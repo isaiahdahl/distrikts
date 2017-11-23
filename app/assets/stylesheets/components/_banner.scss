@@ -1,4 +1,28 @@
 //Banner-HomePage
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    background: black;
+    opacity: 0.5;
+}
+
+.banner__video {
+  position: absolute;
+  top: -5%;
+  left: 0;
+  width: 100%;
+  min-width: 100%;
+  // height: calc(75vh - 70px);
+  // min-height: 100%;
+  // transform: translateX(-50%) translateY(-50%);
+  z-index: -2;
+}
+
 .banner {
   color: white;
   text-align: center;
@@ -116,17 +140,40 @@
 
 .banner-show {
   display: flex;
-  height: calc(90vh - 70px);
+  height: calc(95vh - 70px);
   background-color: white;
 }
 
-.distrikt-profil-left {
+.distrikt-profile-left {
+  position: relative;
   width: 35%;
-  margin: 25px 25px 25px 50px;
+  margin: 25px 40px 25px 50px;
+  h1 {
+    margin-bottom: -10px;
+  }
+  h5 {
+    // margin-top: -10px;
+    margin-bottom: 50px;
+  }
+}
+
+.distrikt-match {
+  // position: absolute;
+  // top: 24px;
+  // left: 8px;
+  h4 {
+    font-size: 28px;
+    font-weight:400;
+    margin-bottom: -4px;
+  }
+}
+.distrikt-hex-match {
+  width: 79px; height: 91px;
 }
 
 .profile-left-score {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  padding-right: 20px !important;
   h4 {
     font-size: 28px;
     font-weight:400;
@@ -135,7 +182,6 @@
 
 .profile-left-header {
   color: black;
-  margin-bottom: 30px;
 }
 
 .distrikt-profil-right {
@@ -147,7 +193,7 @@
 
     img {
       width: 100%;
-      height: calc(90vh - 70px);
+      height: calc(95vh - 70px);
     }
   }
 
@@ -159,7 +205,7 @@
 .banner-results {
   color: $gold;
   text-align: center;
-  height: calc(60vh - 70px);
+  height: calc(75vh - 70px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -176,4 +222,20 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+}
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
 }
