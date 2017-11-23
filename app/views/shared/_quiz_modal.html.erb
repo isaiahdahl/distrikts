@@ -25,12 +25,12 @@
         <div id="dots" class="text-center">
           <% @questions.each do |question| %>
             <% if question.id == @questions.first.id %>
-              <i id="dot-<%= question.id %>" class="fa fa-circle" aria-hidden="true"></i>
+              <i id="dot-<%= question.id %>" class="fa fa-circle gold" aria-hidden="true"></i>
             <% else %>
-              <i id="dot-<%= question.id %>" class="fa fa-circle-thin" aria-hidden="true"></i>
+              <i id="dot-<%= question.id %>" class="fa fa-circle-thin gold" aria-hidden="true"></i>
             <% end %>
           <% end %>
-          <i id="dot" class="fa fa-circle-thin" aria-hidden="true"></i>
+          <i id="dot" class="fa fa-circle-thin gold" aria-hidden="true"></i>
         </div>
       </div>
     </div>
