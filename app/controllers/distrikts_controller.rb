@@ -20,6 +20,26 @@ class DistriktsController < ApplicationController
     assign_style(@user)
   end
 
+  def explore
+    q_param = params[:q]
+
+    @q = Distrikt.ransack q_param
+    @distrikts = @q.result
+    authorize @distrikts
+    @user = current_user
+    @cities = cities
+    @countries = countries
+    @continents = continents
+    assign_style(@user)
+    respond_to do |format|
+      if request.xhr?
+        format.js
+      else
+        format.html
+      end
+    end
+  end
+
   def show
     authorize @distrikt
     if params[:category]

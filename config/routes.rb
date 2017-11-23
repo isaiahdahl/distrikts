@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   
+  get 'distrikts/explore', to: 'distrikts#explore'
   get 'answers/quiz', to: 'answers#quiz'
   get 'answers/results', to: 'answers#results'
   resources :distrikts, only: [:index, :show, :new, :create, :edit, :update]
