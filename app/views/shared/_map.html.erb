@@ -1,6 +1,19 @@
 <div id='map'>
 </div>
 
+<% content_for :after_js do %>
+    <script>
+      var target = document.getElementById('places-search')
+      var observer = new MutationObserver(function() {
+        console.log(jsonCoordinates);
+      });
+      observer.observe(target, {
+        childList: true,
+        subtree: true
+      });
+    </script>
+    <% end %>
+
 <script>
       mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
 
@@ -12,8 +25,10 @@
         center: <%= @coordinates.compact.sample %>,
         <% end %>
         bearing: -17.6,
-        zoom: 14
+        zoom: 14,
       });
+
+      map.addControl(new mapboxgl.NavigationControl());
 
       map.on('load', function() {
         var layers = map.getStyle().layers;
@@ -25,6 +40,7 @@
             break;
           }
         }
+
         <% unless @distrikt.outline.empty? %>
         map.addLayer({
           'id': 'maine',
