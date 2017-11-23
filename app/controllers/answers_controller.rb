@@ -25,9 +25,8 @@ class AnswersController < ApplicationController
     result = Result.new(cookies[:score])
     @score = result.get_score
     @score_id = @score.id
-
-    @scores = top_four
     
+    @scores = top_four
     @styles = Style.all.sort {|a,b| Compare.new(b.score, @score).average<=>Compare.new(a.score, @score).average }
   end
 
