@@ -4,6 +4,9 @@
     <div class="profile-left-score gold bold">
       <h4><%= compare(@user.score, @distrikt.score) %></h4>
       <p>MATCH</p>
+      <% if policy(Distrikt).edit? %>
+          <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
+      <% end %>
     </div>
     <div class = "profile-left-header">
       <h3>Welcome to</h3> 
@@ -11,9 +14,6 @@
       <h4><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h4>
     </div>
     <p><%= @distrikt.description %></p>
-    <% if policy(Distrikt).edit? %>
-        <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
-    <% end %>
   </div>
   <!-- Top-Right(CAROUSEL) -->
   <div class="distrikt-profil-right">
