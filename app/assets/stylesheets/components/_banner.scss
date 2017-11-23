@@ -1,4 +1,28 @@
 //Banner-HomePage
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    background: black;
+    opacity: 0.5;
+}
+
+.banner__video {
+  position: absolute;
+  top: -5%;
+  left: 0;
+  width: 100%;
+  min-width: 100%;
+  // height: calc(75vh - 70px);
+  // min-height: 100%;
+  // transform: translateX(-50%) translateY(-50%);
+  z-index: -2;
+}
+
 .banner {
   color: white;
   text-align: center;
@@ -176,4 +200,20 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+}
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
 }

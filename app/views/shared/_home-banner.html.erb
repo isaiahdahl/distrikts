@@ -1,9 +1,14 @@
-<div class="banner" style="background-image: linear-gradient(-180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%), url('https://static.pexels.com/photos/230875/pexels-photo-230875.jpeg');">
-
+<!-- <div class="banner" style="background-image: linear-gradient(-180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%), url('https://static.pexels.com/photos/230875/pexels-photo-230875.jpeg');"> -->
+ <div class="banner">
+  <div class="overlay"></div>
+  <video autoplay loop muted preload="auto" class="banner__video">
+    <source src="<%= asset_path('biker.mp4') %>" type="video/mp4">
+    <source src="<%= asset_path('rue.mp4') %>" type="video/mp4">
+  </video>
 
   <div class="banner-content">
     <h1 class="heading gold upper">Find your city within a city</h1>
     <a class="btn btn-sm animated-button thar-gold" data-toggle="modal" data-target="#modalQuiz">Find your Distrikts</a>
   </div>
-
 </div>
+<!-- </div> -->
