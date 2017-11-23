@@ -1,6 +1,7 @@
 require 'byebug'
 class DistriktsController < ApplicationController
   before_action :distrikt, only: [:edit, :show, :update, :destroy]
+  before_action :authorize_distrikt, only: [:edit, :show, :update, :destroy]
   before_action :load_ransack_search, :only => :index
 
 
@@ -11,6 +12,7 @@ class DistriktsController < ApplicationController
 
     @q = Distrikt.ransack q_param
     @distrikts = @q.result.page(page).per(per_page)
+    @distrikt = policy_scope(Distrikt)
     @user = current_user
     @cities = cities
     @countries = countries
@@ -19,6 +21,7 @@ class DistriktsController < ApplicationController
   end
 
   def show
+    authorize @distrikt
     if params[:category]
       @places = @distrikt.places.send(params[:category])
     else
@@ -112,5 +115,9 @@ class DistriktsController < ApplicationController
     @score_id = @score.id
     @styles = Style.all.sort {|a,b| Compare.new(b.score, @score).average<=>Compare.new(a.score, @score).average }
     current_user.style_id = @styles.first.id
+  end
+
+  def authorize_distrikt
+    authorize @distrikt
   end
 end

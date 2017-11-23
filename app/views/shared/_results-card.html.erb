@@ -1,0 +1,17 @@
+<% @sorted[0...4].each do |distrikt| %>
+<div class="col-xs-6 col-sm-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-category text-center">
+        <h4><%= compare(@score, distrikt.score) %></h4>
+        <p>MATCH</p>
+      </div>
+      <div class="card-desc">
+        <p><strong><%= distrikt.name %></strong></p>
+        <p><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
+        <a href="<%= edit_distrikt_path(distrikt.id) %>"><i class="fa fa-edit"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

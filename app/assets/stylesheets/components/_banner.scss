@@ -150,7 +150,7 @@
 }
 
 .profile-left-score {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   h4 {
     font-size: 28px;
     font-weight:400;
@@ -183,7 +183,7 @@
 .banner-results {
   color: $gold;
   text-align: center;
-  height: calc(60vh - 70px);
+  height: calc(75vh - 70px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
