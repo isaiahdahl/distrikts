@@ -4,6 +4,7 @@
 
 .modal-container {
   display: flex;
+  min-height: 600px;
 }
 
 .modal-container-left {
@@ -11,9 +12,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 25px;
   width: 50%;
-  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.icelandtravel.is/servlet/file/store5085/item702168/version1/fileservice3983/702168_3983_preview.jpg') !important;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/397434/pexels-photo-397434.jpeg') !important;
   background-size: cover;
   background-position: center;
 
@@ -21,6 +22,7 @@
 
 .modal-container-right {
   width: 50%;
+  padding: 20px;
 }
 
 .quiz-modal-container {
@@ -75,7 +77,6 @@
 }
 
 .answer {
-
   flex: 1 1 50%;
 }
 
