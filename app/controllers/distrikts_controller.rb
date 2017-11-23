@@ -11,10 +11,11 @@ class DistriktsController < ApplicationController
 
     @q = Distrikt.ransack q_param
     @distrikts = @q.result.page(page).per(per_page)
-    @user = User.first
+    @user = current_user
     @cities = cities
     @countries = countries
     @continents = continents
+    assign_style(@user)
   end
 
   def show
@@ -32,7 +33,7 @@ class DistriktsController < ApplicationController
         format.html
       end
     end
-    @user = User.first
+    @user = current_user
   end
 
   def new
@@ -105,5 +106,11 @@ class DistriktsController < ApplicationController
         [place.longitude, place.latitude]
       end
     end
+  end
+  def assign_style(user)
+    @score = user.score
+    @score_id = @score.id
+    @styles = Style.all.sort {|a,b| Compare.new(b.score, @score).average<=>Compare.new(a.score, @score).average }
+    current_user.style_id = @styles.first.id
   end
 end
