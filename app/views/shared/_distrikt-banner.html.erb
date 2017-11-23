@@ -11,6 +11,9 @@
       <h4><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h4>
     </div>
     <p><%= @distrikt.description %></p>
+    <% if policy(Distrikt).edit? %>
+        <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
+    <% end %>
   </div>
   <!-- Top-Right(CAROUSEL) -->
   <div class="distrikt-profil-right">
