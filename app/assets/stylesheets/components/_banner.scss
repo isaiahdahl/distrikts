@@ -140,17 +140,40 @@
 
 .banner-show {
   display: flex;
-  height: calc(90vh - 70px);
+  height: calc(95vh - 70px);
   background-color: white;
 }
 
-.distrikt-profil-left {
+.distrikt-profile-left {
+  position: relative;
   width: 35%;
-  margin: 25px 25px 25px 50px;
+  margin: 25px 40px 25px 50px;
+  h1 {
+    margin-bottom: -10px;
+  }
+  h5 {
+    // margin-top: -10px;
+    margin-bottom: 50px;
+  }
+}
+
+.distrikt-match {
+  // position: absolute;
+  // top: 24px;
+  // left: 8px;
+  h4 {
+    font-size: 28px;
+    font-weight:400;
+    margin-bottom: -4px;
+  }
+}
+.distrikt-hex-match {
+  width: 79px; height: 91px;
 }
 
 .profile-left-score {
   margin-bottom: 40px;
+  padding-right: 20px !important;
   h4 {
     font-size: 28px;
     font-weight:400;
@@ -159,7 +182,6 @@
 
 .profile-left-header {
   color: black;
-  margin-bottom: 30px;
 }
 
 .distrikt-profil-right {
@@ -171,7 +193,7 @@
 
     img {
       width: 100%;
-      height: calc(90vh - 70px);
+      height: calc(95vh - 70px);
     }
   }
 
@@ -201,7 +223,7 @@
   flex-wrap: nowrap;
   align-items: center;
 }
-video#bgvid { 
+video#bgvid {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -215,5 +237,5 @@ video#bgvid {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     background: url(polina.jpg) no-repeat;
-    background-size: cover; 
+    background-size: cover;
 }
