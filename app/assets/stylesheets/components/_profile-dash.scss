@@ -1,7 +1,7 @@
 .dash-container {
   display: flex;
   height: 25vh;
-  paddi: 0 50px 0 50px;
+  padding: 0 50px 0 50px;
   background-color: #ffffff;
   justify-content: space-between;
   align-items: center;
@@ -36,4 +36,8 @@
 .dashboard-position {
   position: relative;
   top: 30px;
+}
+
+.dashboard-tags {
+  font-size: 3px;
 }

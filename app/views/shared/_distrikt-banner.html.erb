@@ -6,6 +6,9 @@
       <p>MATCH</p>
     </div>
     <div class = "profile-left-header">
+      <% if policy(Distrikt).edit? %>
+          <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
+      <% end %>
       <h3>Welcome to</h3> 
       <h1 class = "bold"><%= @distrikt.name %></h1> 
       <h4><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h4>

@@ -1,5 +1,12 @@
 .answer {
-  height: 150px;
+  height: 160px;
   background-size: cover;
-  padding: 10px;
+  margin: 10px;
+  &:hover {
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  }
+}
+
+#dots {
+  margin-top: 20px;
 }
