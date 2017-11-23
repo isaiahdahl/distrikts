@@ -19,9 +19,17 @@
 
   <div class="share-results text-center">
 
-      <a class="btn btn-sm animated-button thar-gold" data-toggle="modal" data-target="#modalShare">Share Your Results</a>
+      <a class="btn btn-sm animated-button thar-gold" id="shareBtn">Share Your Results</a>
+
   </div>
 </div>
 
-
-
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'http://www.distrikts.co/',
+  }, function(response){});
+}
+</script>
