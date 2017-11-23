@@ -37,6 +37,7 @@ class DistriktsController < ApplicationController
       end
     end
     @user = current_user
+    enable :sessions
   end
 
   def new
