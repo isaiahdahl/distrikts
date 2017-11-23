@@ -1,0 +1,27 @@
+<div id="breakdown">
+
+  <div class="breakdown-heading">
+    <h3 class="heading upper text-center">Your Profile Breakdown</h3>
+  </div>
+
+
+  <div class="breakdown-container">
+
+    <% @scores.each do |score| %>
+      <div class="breakdown-box text-center">
+        <%= image_tag "outdoor.png", class: "type-icon" %>
+        <h1 class="bold gold"><%= score.last %></h1>
+        <h4 class="upper"><%= score.first.capitalize %></h4>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="share-results text-center">
+
+      <a class="btn btn-sm animated-button thar-gold" data-toggle="modal" data-target="#modalShare">Share Your Results</a>
+  </div>
+</div>
+
+
+

@@ -1,22 +1,76 @@
-<div class="map-places-container">
-  <!-- MAP -->
-  <div class="map-container">
-    <div id='map'>
-    </div>
+<div id='map'>
+</div>
 
-    <script>
+<script>
       mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
+
       var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-73.99947,40.7198443],
-        pitch: 45,
+        style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',
+        pitch: 60,
+        <% unless @coordinates.compact.empty? %>
+        center: <%= @coordinates.compact.sample %>,
+        <% end %>
         bearing: -17.6,
-        zoom: 13,
+        zoom: 14
       });
 
-
       map.on('load', function() {
+        var layers = map.getStyle().layers;
+
+        var labelLayerId;
+        for (var i = 0; i < layers.length; i++) {
+          if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+          }
+        }
+        <% unless @distrikt.outline.empty? %>
+        map.addLayer({
+          'id': 'maine',
+          'type': 'fill',
+          'source': {
+            'type': 'geojson',
+            'data': {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [<%= @distrikt.outline %>]
+              }
+            }
+          },
+          'layout': {},
+          'paint': {
+            'fill-color': '#f1cb1d',
+            'fill-opacity': 0.3
+          }
+        });
+        <% end %>
+        map.addLayer({
+          'id': '3d-buildings',
+          'source': 'composite',
+          'source-layer': 'building',
+          'filter': ['==', 'extrude', 'true'],
+          'type': 'fill-extrusion',
+          'minzoom': 15,
+          'paint': {
+            'fill-extrusion-color': '#aaa',
+
+            // use an 'interpolate' expression to add a smooth transition effect to the
+            // buildings as the user zooms in
+            'fill-extrusion-height': [
+              "interpolate", ["linear"], ["zoom"],
+              15, 0,
+              15.05, ["get", "height"]
+            ],
+            'fill-extrusion-base': [
+              "interpolate", ["linear"], ["zoom"],
+              15, 0,
+              15.05, ["get", "min_height"]
+            ],
+            'fill-extrusion-opacity': .6
+          }
+        }, labelLayerId);
     map.loadImage('<%= image_path("marker-map.png") %>', function(error, image) {
         if (error) throw error;
         map.addImage('cat', image);
@@ -27,22 +81,28 @@
                 "type": "geojson",
                 "data": {
                     "type": "FeatureCollection",
-                    "features": <%= raw @places.to_json %>
+                    "features": <%= raw @places_coordinates.to_json %>
                 }
             },
             "layout": {
                 "icon-image": "cat",
-                "icon-size": 0.045,
+                "icon-size": 0.07,
                 "icon-allow-overlap": true
             }
         });
     });
-});
-    </script>
-      </div>
+        map.on('click', 'points', function (e) {
+          map.flyTo({center: e.features[0].geometry.coordinates});
+        });
 
-    <!-- PLACES -->
-  <div class="places-container">
-    <h3>Top picks in <%= @distrikt.name %></h3>
-  </div>
-</div>
+        // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        map.on('mouseenter', 'points', function () {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'points', function () {
+          map.getCanvas().style.cursor = '';
+        });
+});
+</script>

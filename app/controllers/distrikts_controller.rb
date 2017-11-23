@@ -1,3 +1,4 @@
+require 'byebug'
 class DistriktsController < ApplicationController
   before_action :distrikt, only: [:edit, :show, :update, :destroy]
   before_action :load_ransack_search, :only => :index
@@ -10,21 +11,29 @@ class DistriktsController < ApplicationController
 
     @q = Distrikt.ransack q_param
     @distrikts = @q.result.page(page).per(per_page)
-    @user = User.first
+    @user = current_user
     @cities = cities
     @countries = countries
     @continents = continents
+    assign_style(@user)
   end
 
   def show
-    @places = @distrikt.places.map do |place|
-      { "type": "Feature", 
-        "geometry": {
-            "type": "Point",
-            "coordinates": [place.longitude, place.latitude]
-             }
-      }
+    if params[:category]
+      @places = @distrikt.places.send(params[:category])
+    else
+      @places = @distrikt.places
     end
+    place_coordinates
+    coordinates
+    respond_to do |format|
+      if request.xhr?
+        format.js
+      else
+        format.html
+      end
+    end
+    @user = current_user
   end
 
   def new
@@ -75,5 +84,33 @@ class DistriktsController < ApplicationController
     @continents = [""]
     City.all.each { |city| @continents << city.continent }
     @continents.sort!
+  end
+
+  def place_coordinates
+    @places_coordinates = @places.map do |place|
+      lng = place.longitude unless place.longitude.nil?
+      lat =  place.latitude unless place.latitude.nil?
+      feature = { "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [lng, lat]
+                  }
+      }
+      feature
+    end
+  end
+
+  def coordinates
+    @coordinates = @places.map do |place|
+      unless place.longitude.nil? || place.latitude.nil?
+        [place.longitude, place.latitude]
+      end
+    end
+  end
+  def assign_style(user)
+    @score = user.score
+    @score_id = @score.id
+    @styles = Style.all.sort {|a,b| Compare.new(b.score, @score).average<=>Compare.new(a.score, @score).average }
+    current_user.style_id = @styles.first.id
   end
 end

@@ -1,4 +1,5 @@
 <% @sorted.each do |distrikt| %>
+  <%= link_to distrikt_path(id: distrikt.id) do %>
 <div class="col-xs-6 col-sm-3">
   <div class="card">
     <div class="card-body">
@@ -14,4 +15,5 @@
     </div>
   </div>
 </div>
+<% end %>
 <% end %>

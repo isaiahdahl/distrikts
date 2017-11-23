@@ -40,26 +40,77 @@ end
 
 def style_attrs
   {
-  name: ["Urban Explorer", "Cultural Scavenger", "Cultural Explorer", "Urban Fisherman"].sample,
+  name: ["Urban Explorer", "Cultural Scavenger", "Cultural Explorer", "Urban Fisherman", "Urban Scavenger", "Cultural Ninja", "Urban Ninja"].sample,
       description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor."
   }
 end
 
+ue = Style.new(name: "Urban Explorer", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Cultural Scavenger", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Urban Fisherman", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Urban Scavenger", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Cultural Ninja", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Luxury Scavenger", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Hedonist Connoisseur", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Zen Ninja", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+ue = Style.new(name: "Cultural Ninja", description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.")
+ue.score = Score.create(score_attrs)
+ue.save
+
 30.times do
   password = Faker::Internet.password(8)
   score = Score.create(score_attrs)
-  style = Style.create(style_attrs)
-  style.score = Score.create(score_attrs)
   user = User.new(
       username: Faker::Internet.user_name,
       email: Faker::Internet.free_email,
       password: password,
       password_confirmation: password
   )
-  user.style = style
+  user.style = Style.find((1..9).to_a.sample)
   user.score = score
   user.save
 end
+
+score = Score.create(score_attrs)
+user = User.new(
+    username: "admin",
+    email: "admin@admin.com",
+    password: "livecode",
+    password_confirmation: "livecode",
+    admin: true
+)
+user.style = Style.find((1..9).to_a.sample)
+user.score = score
+user.save
+
+
+score = Score.create(score_attrs)
+user = User.new(
+    username: "rubberduck",
+    email: "rubber@duck.com",
+    password: "livecode",
+    password_confirmation: "livecode"
+)
+user.style = Style.find((1..9).to_a.sample)
+user.score = score
+user.save
+
 
 cities = [
     {
@@ -92,7 +143,17 @@ new_york_distrikts = [
     {
         name: "East Village",
         description: "Boasting the best of, well, everything, the East Village’s inexhaustible grid of beyond-hip bars, bookshops, cafes, clubs, and galleries cater to even the most exacting tastes. As stylish as it is, the East Village preserves a laid-back attitude so even outsiders feel welcome when in this classic New York City neighborhood. From early morning to late-late night, the East Village brims with activity for socialites and scaliwags alike.",
-        outline: "[[-433.97403717041016,40.718704858576665],[-433.97257804870605,40.72540497175607],[-433.9718055725097,40.727291289709356],[-433.99060249328613,40.73483602685421],[-433.9906883239746,40.73086864241804],[-433.99163246154785,40.72982797782921],[-433.99635314941406,40.72514478577349],[-433.97403717041016,40.718704858576665]]"
+        outline:  [[-73.9720631, 40.7267709],
+                   [-73.9904308, 40.7343157],
+                   [-73.9925122, 40.7300231],
+                   [-73.992877, 40.7300719],
+                   [-73.9966965, 40.72547],
+                   [-73.995173, 40.7251285],
+                   [-73.9926195, 40.7241691],
+                   [-73.979187, 40.720071],
+                   [-73.9772987, 40.7194204],
+                   [-73.9736938, 40.7184446],
+                   [-73.9718914, 40.7267059]]
     },
     {
         name: "Park Slope",
@@ -116,21 +177,12 @@ new_york_distrikts = [
     }
 ]
 
-def new_york_photos
-  [
-      [
-
-      ]
-  ]
-end
-
 new_york_distrikts.each do |attributes|
   distrikt = Distrikt.new(attributes)
   city = City.where(name: "New York")
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
-  distrikt.photo_urls = urls
   distrikt.save
 end
 
@@ -299,6 +351,7 @@ response = search("bar", "#{distrikt.name}")
         score_id: ""
     )
     place.save
+    sleep(2)
   end
 end
 
@@ -316,6 +369,7 @@ Distrikt.all.each do |distrikt|
         score_id: ""
     )
     place.save
+    sleep(2)
   end
 end
 

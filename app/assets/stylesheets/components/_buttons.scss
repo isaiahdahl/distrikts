@@ -2,7 +2,7 @@
   text-decoration: none;
   color: white !important;
   padding: 15px 25px;
-  border-radius: 4px;
+  // border-radius: 4px;
   font-weight: 500;
   background-color: #648791;
   border: 0px solid transparent !important;
@@ -11,24 +11,34 @@
 .btn-outline {
   padding: 15px 25px;
   border: 2px solid $gold;
-  border-radius: 4px;
+  // border-radius: 4px;
   color: $gold;
   background-color: Transparent;
   outline: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .08em;
   &:hover {
-    border: 2px solid $gold;
+    background-color: $gold;
+    color: $black;
+    // border: 2px solid $gold;
   }
 }
 
 .btn-outline-black {
   padding: 15px 25px;
   border: 2px solid $black;
-  border-radius: 4px;
+  // border-radius: 4px;
   color: $black;
   background-color: Transparent;
   outline: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .08em;
   &:hover {
-    border: 3px solid $black;
+    background-color: $black;
+    color: $light-gold;
+    // border: 2px solid $gold;
   }
 }
 
@@ -40,7 +50,7 @@
   color: white !important;
   padding: 10px 20px;
   height: 50px;
-  border-radius: 4px;
+  // border-radius: 4px;
   font-weight: 500;
   background-color: #648791;
   border: 0px solid transparent !important;
@@ -75,7 +85,7 @@
   padding: 15px 25px;
   color: #375C69 !important;
   background-color: #F3FAF9;
-  border-radius: 4px;
+  // border-radius: 4px;
   font-weight: 500;
   font-size: 16px;
   border: 0px solid #ffffff !important;
@@ -94,7 +104,7 @@
   text-decoration: none;
   color: white !important;
   padding: 15px 25px;
-  border-radius: 4px;
+  // border-radius: 4px;
   font-weight: 500;
   background-color: #B9E4E2;
   border: 0px solid transparent !important;
@@ -111,7 +121,7 @@
   text-decoration: none;
   color: white !important;
   padding: 15px 25px;
-  border-radius: 4px;
+  // border-radius: 4px;
   font-weight: 500;
   background-color: #3C66C4;
   border: 0px solid transparent !important;
@@ -183,7 +193,6 @@ a.animated-button:link, a.animated-button:visited {
   transition: all 1s ease;
 }
 
-
 // thar black button
 
 a.animated-button.thar-black {
@@ -191,6 +200,10 @@ a.animated-button.thar-black {
   font-weight: 400;
   background-color: transparent;
   cursor: pointer;
+  padding: 14px 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .08em;
   display: block;
   z-index: 1;
 // border-radius: 4px;
@@ -228,8 +241,12 @@ a.animated-button.thar-black:before {
 a.animated-button.thar-gold {
   color: $gold;
   font-weight: 700;
+  padding: 14px 15px;
   background-color: transparent;
   cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .08em;
   display: block;
   z-index: 1;
 // border-radius: 4px;
