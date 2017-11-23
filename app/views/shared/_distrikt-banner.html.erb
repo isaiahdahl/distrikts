@@ -5,8 +5,8 @@
 
     <div class="profile-left-score gold bold">
       <%= image_tag "hexagons/hex-solid.png", class: "distrikt-hex-match" %>
-      <h4><%= compare(@user.score, @distrikt.score) %></h4>
-      <p>MATCH</p>
+      <h2 class="text-center"><%= compare(@user.score, @distrikt.score) %></h2>
+      <h5 class="text-center bold">MATCH</h5>
     </div>
 
     <div class = "profile-left-header">

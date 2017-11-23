@@ -93,4 +93,26 @@
 }
 
 
+// profile modal
+.profile-modal-container {
+  display: flex;
+  height: 600px;
+}
 
+.profile-modal-container-left {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  padding: 0 15px;
+  width: 40%;
+  margin: 0;
+  background-color: #FEE795;
+  color: #555452 !important;
+}
+
+.profile-modal-container-right {
+  width: 60%;
+}

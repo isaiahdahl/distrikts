@@ -3,7 +3,9 @@
   <div class="dash-container">
 
     <div class="dash-details">
-      <%= image_tag "hexagons/hex-solid.png", class: "dash-avatar dashboard-position" %>
+
+      <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <%= image_tag avatar_url, class: "avatar-lg" %>
       <div class="dash-details-information">
         <h2 class="touch upper bold"><%= @user.first_name %> <%= @user.last_name %></h2>
         <h4 class="upper light bumpdown"><%= @user.style.name %></h4>
@@ -49,3 +51,7 @@
     </div>
   </div>
 </div>
+
+<!-- Details Modal -->
+<%= render 'shared/profile-modal' %>
+

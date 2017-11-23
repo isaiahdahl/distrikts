@@ -1,0 +1,29 @@
+<div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg profile-modal-container" role="document">
+
+    <div class="modal-content profile-modal-container-left";">
+      <div class="top-text">
+        <%= image_tag "compass.png", class: "large-icon" %>
+        <h3 class="bold text-center"><%= @styles.first.name %></h3>
+
+
+      </div>
+
+      <div class="bottom-text">
+        <h5 class="light">Already have an account? Log in</h5>
+      </div>
+    </div>
+
+    <div class="modal-content profile-modal-container-right">
+      <h3>Your Profile Breakdown</h3>
+      <% @user.score.each do |score| %>
+      <div class="breakdown-box text-center">
+        <%= image_tag "score-icons/#{score.first}.png", class: "type-icon" %>
+        <h1 class="bold gold"><%= score.last %></h1>
+        <h4 class="upper"><%= score.first.capitalize %></h4>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
