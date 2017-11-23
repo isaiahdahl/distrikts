@@ -5,6 +5,7 @@
     <script>
       var target = document.getElementById('places-search')
       var observer = new MutationObserver(function() {
+        console.log("boom");
         console.log(jsonCoordinates);
       });
       observer.observe(target, {
@@ -16,7 +17,6 @@
 
 <script>
       mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
-
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',

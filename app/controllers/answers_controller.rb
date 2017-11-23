@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def quiz
     if Question.find(params[:question_id]).order == 1
@@ -9,6 +10,7 @@ class AnswersController < ApplicationController
     end
     
     @question = Question.find(params[:question_id].next)
+    authorize @question
 
     respond_to do |format|
       format.js
@@ -21,6 +23,7 @@ class AnswersController < ApplicationController
     @distrikts = Distrikt.all
     @questions = Question.all
     @question = Question.first
+    authorize @question
 
     result = Result.new(cookies[:score])
     @score = result.get_score

@@ -1,5 +1,9 @@
 def authenticate_admin!
-  redirect_to new_user_session_path unless current_user && current_user.admin
+  if current_user && current_user.admin == false
+    redirect_to distrikts_path
+  elsif !current_user
+    redirect_to root_path(sign_in: true)
+  end
 end
 
 ActiveAdmin.setup do |config|
