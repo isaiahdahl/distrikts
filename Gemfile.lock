@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/Instagram/instagram-ruby-gem.git
+  revision: ff498d8c2fc95b3a8ea8de51d955be976e2a8b66
+  specs:
+    instagram (1.1.6)
+      faraday (>= 0.7, < 0.10)
+      faraday_middleware (>= 0.8, < 0.10)
+      hashie (>= 0.4.0)
+      multi_json (~> 1.0, >= 1.0.3)
+
+GIT
   remote: git://github.com/activeadmin/activeadmin.git
   revision: 9af04e7516fc8b34bb126990a1b1a05b57f3b0c7
   specs:
@@ -126,8 +136,10 @@ GEM
     execjs (2.7.0)
     faker (1.8.4)
       i18n (~> 0.5)
-    faraday (0.12.2)
+    faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.2)
+      faraday (>= 0.7.4, < 0.10)
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -373,6 +385,7 @@ DEPENDENCIES
   http
   httparty
   inherited_resources!
+  instagram!
   jbuilder (~> 2.0)
   jquery-fileupload-rails
   jquery-rails

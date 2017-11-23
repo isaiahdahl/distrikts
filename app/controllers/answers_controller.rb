@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
     else
       add_to_cookie(params[:score_id])
     end
-    
+
     @question = Question.find(params[:question_id].next)
     authorize @question
 
@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
     @score_id = @score.id
 
     @scores = top_four
-    
+
     @styles = Style.all.sort {|a,b| Compare.new(b.score, @score).average<=>Compare.new(a.score, @score).average }
   end
 

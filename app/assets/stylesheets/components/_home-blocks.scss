@@ -4,13 +4,15 @@
 #steps {
   min-height: 400px;
   padding: 40px 0px;
-  // flex-direction: column;
+  flex-direction: column;
   background-color: white;
+  display: flex;
   align-items: center;
 }
 
 .info-container {
   display: flex;
+  max-width: 1200px;
   justify-content: space-between;
   margin-top: 50px;
 }
@@ -36,6 +38,7 @@
 
 .reasons-container {
   display: flex;
+  max-width: 1200px;
   margin-top: 40px;
   flex-direction: row;
   flex-wrap: wrap;
