@@ -1,11 +1,11 @@
 .btn-solid {
   text-decoration: none;
-  color: white !important;
-  padding: 15px 25px;
-  // border-radius: 4px;
-  font-weight: 500;
-  background-color: #648791;
-  border: 0px solid transparent !important;
+  color: #757575 !important;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-weight: 100;
+  background-color: transparent;
+  border: 0px solid #f8c504 !important;
 }
 
 .btn-outline {
@@ -77,7 +77,7 @@
 
 .btn-solid:hover {
   text-decoration: none;
-  background-color: #375C69;
+  background-color: transparent;
 }
 
 .btn-banner {

@@ -4,27 +4,30 @@
 
     <div class="card-filters-left">
       <%= search_form_for @q do |f| %>
-      <%= f.select :city_name_cont, @cities, placeholder: true %>
-      <%= f.submit %>
+          <%= image_tag 'downarrow.png', class: "down-arrow"  %>
+          <%= f.select :city_name_cont, @cities %>
+          <%= f.submit class: :hidden %>
       <% end %>
 
       <%= search_form_for @q do |f| %>
+          <%= image_tag 'downarrow.png', class: "down-arrow"  %>
       <%= f.select :city_country_cont, @countries %>
-      <%= f.submit %>
+
+          <%= f.submit  class: :hidden%>
       <% end %>
 
       <%= search_form_for @q do |f| %>
+          <%= image_tag 'downarrow.png', class: "down-arrow"  %>
       <%= f.select :city_continent_cont, @continents %>
-      <%= f.submit %>
+          <%= f.submit class: :hidden %>
       <% end %>
-      <%= link_to "Clear Search", request.path, class:"btn btn-default" %>
+      <%= link_to "Clear Search", request.path, class:"btn-solid" %>
     </div>
 
     <div class="card-filters-right">
       <%= search_form_for @q do |f| %>
-      <%= f.label :name_cont %>
-      <%= f.search_field :name_cont, placeholder: "Search for distrikts" %>
-      <%= f.submit %>
+      <%= f.search_field :name_or_city_name_or_city_country_cont, placeholder: "Search", class: "btn-outline" %>
+      <%= f.submit class: "btn-outline", placeholder: false%>
       <% end %>
     </div>
 

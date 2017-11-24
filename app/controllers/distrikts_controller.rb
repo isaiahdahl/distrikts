@@ -95,21 +95,25 @@ class DistriktsController < ApplicationController
   end
 
   def cities
-    @cities = [""]
+    @cities = []
     City.all.each { |city| @cities << city.name }
     @cities.sort!
+    @cities.unshift('City')
+
   end
 
   def countries
-    @countries = [""]
+    @countries = []
     City.all.each { |city| @countries << city.country }
     @countries.sort!
+    @countries.unshift('Country')
   end
 
   def continents
-    @continents = [""]
+    @continents = []
     City.all.each { |city| @continents << city.continent }
     @continents.sort!
+    @continents.unshift('Continent')
   end
 
   def place_coordinates

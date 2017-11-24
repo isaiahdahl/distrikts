@@ -479,18 +479,18 @@ answers = [{
 
 def q_score_attrs
   {
-      artsy: (0..10).to_a.sample,
-      authentic: (0..10).to_a.sample,
-      trendy: (0..10).to_a.sample,
-      foodie: (0..10).to_a.sample,
-      walkability: (0..10).to_a.sample,
-      touristy: (0..10).to_a.sample,
-      shopping: (0..10).to_a.sample,
-      nightlife: (0..10).to_a.sample,
-      outdoor: (0..10).to_a.sample,
-      luxury: (0..10).to_a.sample,
-      weather: (0..10).to_a.sample,
-      zen: (0..10).to_a.sample
+      artsy: (0..30).to_a.sample,
+      authentic: (0..30).to_a.sample,
+      trendy: (0..30).to_a.sample,
+      foodie: (0..30).to_a.sample,
+      walkability: (0..30).to_a.sample,
+      touristy: (0..30).to_a.sample,
+      shopping: (0..30).to_a.sample,
+      nightlife: (0..30).to_a.sample,
+      outdoor: (0..30).to_a.sample,
+      luxury: (0..30).to_a.sample,
+      weather: (0..30).to_a.sample,
+      zen: (0..30).to_a.sample
   }
 end
 
