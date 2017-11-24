@@ -1,5 +1,19 @@
-<div class="banner-results" style="background-image: linear-gradient(-180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%), url('http://blog.foodexperiential.com/site/assets/files/4112/shutterstock_159755636.jpg');">
-
+  <div class="banner-results">
+  <div class="overlay-results"></div>
+  <% if @styles.first.name == "Luxury Scavenger" %>
+    <video autoplay muted preload="auto" class="banner__video-results" loop>
+    <source src="<%= asset_path('luxury.mp4') %>" type="video/mp4">
+  <% elsif @styles.first.name == "Urban Explorer" %>
+    <video autoplay muted preload="auto" class="banner__video-results" loop>
+    <source src="<%= asset_path('NYC.mp4') %>" type="video/mp4">
+  <% elsif @styles.first.name == "Cultural Ninja" %>
+    <video autoplay muted preload="auto" class="banner__video-results" loop>
+    <source src="<%= asset_path('ninja.mp4') %>" type="video/mp4">
+  <% else %>
+      <video autoplay muted preload="auto" class="banner__video-results" loop>
+      <source src="<%= asset_path('home.mp4') %>" type="video/mp4">
+  <% end %>
+  </video>
 
   <div class="banner-results-content">
     <h3 class="gold light upper">You are a</h3>

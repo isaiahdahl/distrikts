@@ -1,6 +1,24 @@
-.explore-distrikts {
+#features {
   width: 50%;
+  overflow-y: scroll;
+  position: relative;
   background-color: white;
+  section {
+    padding: 70px 50px;
+    min-height: calc(100vh - 70px);
+    border-bottom: 1px solid #e5e5e5;
+  }
+  section.active {
+    opacity: 1;
+  }
+  // section:last-child {
+  //   margin-bottom: 200px;
+  // }
+}
+
+.hex-explore {
+  width: 52px;
+  height: 60px
 }
 
 .explore-filters {
@@ -16,22 +34,85 @@
   z-index: 1;
 }
 
+// .explore-distrikts {
+//   width: 50%;
+//   background-color: white;
+// }
+
 .card-explore {
-  background-position: center;
-  border-radius: 6px;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  margin: 40px;
-  position: relative;
+  // position: relative;
   top: -20px;
   height: 100%;
-  width: 70vh;
-  opacity: 0.85;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2));
-  // box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  background-size: cover !important;
-  &:hover {
-    box-shadow: 0 0 12px rgba(0,0,0,0.6);
-  }
+  // width: 100vh;
+  // opacity: 0.85;
+  background-color: white;
+}
+
+.card-body-explore {
+  height: 100%;
+  background-size: cover;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-label-left {
+  flex: 1 1 auto;
+}
+
+.card-label-right {
+  flex: 1 1 auto;
+}
+
+.card-description {
+margin-top: 20px;
+}
+
+.explore-score {
+  margin-top: -44px;
+  color: white;
+}
+.explore-match {
+  margin-top: 25px;
+}
+
+.explore-ig {
+  // width: 600px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // border-bottom: 1px solid #B4B4B4;
+}
+.ig-image {
+  max-width: 85%;
+  display: inline-block;
+  // flex: 1 1 auto;
+}
+
+.rule {
+  margin-top: 20px;
+}
+.ig-label {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.ig-block {
+  margin-bottom: 20px;
+}
+.ig-logo {
+  display: inline;
+  width: 20px;
+  height: 20px;
+}
+.ig-name {
+  text-transform:lowercase;
+  display: inline;
 }

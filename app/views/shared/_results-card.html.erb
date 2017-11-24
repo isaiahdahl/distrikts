@@ -1,5 +1,5 @@
 <% @sorted[0...4].each do |distrikt| %>
-<a data-toggle="modal" data-target="#modalSignUp">
+<%= link_to distrikt_path(id: distrikt.id) do %>
 <div class="col-xs-6 col-sm-3">
   <% if distrikt.photos.first.nil? %>
   <div class="card" style="background-image: linear-gradient(-180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7)), url('https://static.pexels.com/photos/397434/pexels-photo-397434.jpeg');">
@@ -24,5 +24,6 @@
   </div>
 </div>
 </a>
+<% end %>
 <% end %>
 
