@@ -7,9 +7,11 @@
         <%= link_to "Distrikts", distrikts_path, class: "navbar-wagon-brand" %>
       </div>
 
-       <!-- Links when logged in -->
-       <%= link_to "Explore", distrikts_explore_path, class: "navbar-wagon-item navbar-wagon-link" %>
-       <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+      <!-- Links when logged in -->
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to "Explore", distrikts_explore_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Dashboard", distrikts_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
 
         <!-- Avatar with dropdown menu when logged in-->
         <div class="navbar-wagon-item">
@@ -35,6 +37,7 @@
             </ul>
           </div>
         </div>
+      </div>
 
       <!-- If user is NOT sign-in -->
       <% else %>

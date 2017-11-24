@@ -9,8 +9,8 @@
 
 .dash-container {
   display: flex;
-  max-width: 1200px;
-  padding: 0 50px 0 50px;
+  min-width: 1050px;
+  // padding: 0 0 0 0;
   background-color: #ffffff;
   justify-content: space-between;
   align-items: center;
@@ -66,4 +66,10 @@
 
 .wishlist{
   margin-top: 0;
+}
+.avatar-lg {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
