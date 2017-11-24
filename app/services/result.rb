@@ -42,7 +42,6 @@ class Result
 
     @score = Score.create(
       artsy: artsy,
-      outdoor: outdoor,
       authentic: authentic,
       trendy: trendy,
       foodie: foodie,
