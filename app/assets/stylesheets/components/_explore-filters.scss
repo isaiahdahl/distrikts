@@ -4,8 +4,9 @@
   position: relative;
   background-color: white;
   section {
-    padding: 50px 50px;
-    height: calc(100vh - 70px);
+    padding: 70px 50px;
+    min-height: calc(100vh - 70px);
+    border-bottom: 1px solid #e5e5e5;
   }
   section.active {
     opacity: 1;
@@ -69,7 +70,7 @@
 }
 
 .card-description {
-margin-top: 50px;
+margin-top: 20px;
 }
 
 .explore-score {
@@ -98,7 +99,7 @@ margin-top: 50px;
   margin-top: 20px;
 }
 .ig-label {
-  margin-top: 100px;
+  margin-top: 60px;
   display: flex;
   align-items: center;
   justify-content: space-around;
