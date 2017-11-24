@@ -172,12 +172,24 @@
 }
 
 .profile-left-score {
+  width: 80px;
   margin-bottom: 40px;
   padding-right: 20px !important;
-  h4 {
-    font-size: 28px;
+  h2 {
+    color: white;
+    // font-size: 28px;
     font-weight:400;
+    margin-left: 18px;
+    margin-top: -68px;
   }
+ h5 {
+    margin-top: 30px;
+    margin-left: 14px;
+  }
+}
+
+.left-score {
+
 }
 
 .profile-left-header {

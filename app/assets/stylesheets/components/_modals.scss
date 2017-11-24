@@ -17,7 +17,6 @@
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/397434/pexels-photo-397434.jpeg') !important;
   background-size: cover;
   background-position: center;
-
 }
 
 .modal-container-right {
@@ -93,4 +92,49 @@
 }
 
 
+// profile modal
+.profile-modal-container {
+  display: flex;
+  height: 600px;
+}
 
+.profile-modal-container-left {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  padding: 0 15px;
+  width: 40%;
+  margin: 0;
+  background-color: #FEE795;
+  color: #555452 !important;
+}
+
+.profile-modal-container-right {
+  width: 60%;
+}
+
+// share modal
+.share-modal-container {
+  display: flex;
+  height: 600px;
+}
+
+.share-modal-container-left {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  width: 50%;
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6)), url('https://static.pexels.com/photos/397434/pexels-photo-397434.jpeg') !important;
+  background-size: cover;
+  background-position: center;
+}
+
+.share-modal-container-right {
+  width: 50%;
+}

@@ -27,8 +27,17 @@
 <% content_for :after_js do %>
 <script language="javascript" type="text/javascript">
      $(window).load(function() {
-     setTimeout(function(){ $('#loading').hide(); }, 2000);     
+     setTimeout(function(){ $('#loading').hide(); }, 2000);
 window.history.replaceState({}, document.title, "/answers/results");
   });
 </script>
 <% end %>
+
+<% content_for :head do %>
+  <meta property="og:type"   content="profile" /> 
+  <meta property="og:url"    content="http://www.distrikts.co/" 
+  <meta property="og:title"  content="My travel profile is: <%= @styles.first.name %>" /> 
+  <meta property="og:image"  content="http://blog.foodexperiential.com/site/assets/files/4112/shutterstock_159755636.jpg" /> 
+<% end %>
+<!-- Share Modal -->
+<%= render 'shared/share-modal' %>
