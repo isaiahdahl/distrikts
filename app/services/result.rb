@@ -10,7 +10,6 @@ class Result
     end
 
     artsy = 0
-    outdoor = 0
     authentic = 0
     trendy = 0
     foodie = 0
@@ -26,7 +25,6 @@ class Result
     @scores.each do |score|
 
     artsy += score.artsy
-    outdoor += score.outdoor
     authentic += score.authentic
     trendy += score.trendy
     foodie += score.foodie
