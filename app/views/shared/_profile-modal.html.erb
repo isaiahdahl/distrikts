@@ -16,13 +16,7 @@
 
     <div class="modal-content profile-modal-container-right">
       <h3>Your Profile Breakdown</h3>
-      <% @user.score.each do |score| %>
-      <div class="breakdown-box text-center">
-        <%= image_tag "score-icons/#{score.first}.png", class: "type-icon" %>
-        <h1 class="bold gold"><%= score.last %></h1>
-        <h4 class="upper"><%= score.first.capitalize %></h4>
-      </div>
-      <% end %>
+
 
     </div>
   </div>
