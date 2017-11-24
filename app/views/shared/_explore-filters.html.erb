@@ -1,46 +1,108 @@
 <div id='features'>
-    <section id='<%= @distrikts.first.name %>'>
-      <% if @distrikts.first.photos.first.nil? %>
-          <div class="card-explore" style = "background-color: gainsboro">
-      <% else %>
-          <div class="card-explore" style = "background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path @distrikts.first.photos.first.path, height: 281, width: 222, crop: :fill %>')">
-      <% end %>
+  <section id='<%= @distrikts.first.name %>'>
+
+    <div class="card-explore">
       <div class="card-body-explore">
-        <div class="card-category text-center gold">
-          <h4><%= compare(@user.score, @distrikts.first.score) %></h4>
-          <p>MATCH</p>
+
+        <div class="card-label-container">
+
+          <div class="card-label-left heading">
+            <h1 class="bold upper touch"><%= @distrikts.first.name %></h1>
+            <p class="upper"><%= @distrikts.first.city.name %>, <%= @distrikts.first.city.country %></p>
+          </div>
+
+          <div class="card-label-right text-center gold">
+            <%= image_tag "hexagons/hex-solid.png", class: "hex-explore" %>
+            <h4 class="explore-score"><%= compare(@user.score, @distrikts.first.score) %></h4>
+            <h5 class="explore-match">MATCH</h5>
+          </div>
         </div>
+
         <div class="card-description">
-          <p><%= @distrikts.first.description %></p>
+          <p class="light spaced"><%= @distrikts.first.description %></p>
         </div>
-        <div class="card-desc">
-          <h4 class="bold"><%= @distrikts.first.name %></h4>
-          <p class><%= @distrikts.first.city.name %>, <%= @distrikts.first.city.country %></p>
+
+        <div class="ig-label text-center">
+          <div class="ig-block">
+          <%= image_tag "instagram.png", class: "ig-logo" %>
+          <h5 class="ig-name">#<%= @distrikts.first.name %></h5>
+           </div>
         </div>
+
+        <div class="explore-ig">
+          <div>
+            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
+          </div>
+          <div>
+            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
+          </div>
+          <div>
+            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
+          </div>
+          <div>
+            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
+          </div>
+        </div>
+
       </div>
-      </div>
+    </div>
+
   </section>
+
+<!-- after first city -->
+
   <% @distrikts.drop(1).each do |distrikt| %>
-  <section id='<%= distrikt.name %>'>
-    <% if distrikt.photos.first.nil? %>
-        <div class="card-explore" style = "background-color: gainsboro">
-    <% else %>
-        <div class="card-explore" style = "background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_path distrikt.photos.first.path, height: 281, width: 222, crop: :fill %>')">
-    <% end %>
-    <div class="card-body-explore">
-      <div class="card-category text-center gold">
-        <h4><%= compare(@user.score, distrikt.score) %></h4>
-        <p>MATCH</p>
-      </div>
-      <div class="card-description">
-        <p><%= distrikt.description %></p>
-      </div>
-      <div class="card-desc">
-        <h4 class="bold"><%= distrikt.name %></h4>
-        <p class><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
+
+    <section id='<%= distrikt.name %>'>
+
+    <div class="card-explore">
+      <div class="card-body-explore">
+
+        <div class="card-label-container">
+
+          <div class="card-label-left heading">
+            <h1 class="bold upper touch"><%= distrikt.name %></h1>
+            <p class="upper"><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
+          </div>
+
+          <div class="card-label-right text-center gold">
+            <%= image_tag "hexagons/hex-solid.png", class: "hex-explore" %>
+            <h4 class="explore-score"><%= compare(@user.score, distrikt.score) %></h4>
+            <h5 class="explore-match">MATCH</h5>
+          </div>
+        </div>
+
+        <div class="card-description">
+          <p class="light spaced"><%= distrikt.description %></p>
+        </div>
+
+        <div class="ig-label text-center">
+          <div class="ig-block">
+          <%= image_tag "instagram.png", class: "ig-logo" %>
+          <h5 class="ig-name">#<%= distrikt.name %></h5>
+           </div>
+        </div>
+
+        <div class="explore-ig">
+          <div>
+            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
+          </div>
+          <div>
+            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
+          </div>
+          <div>
+            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
+          </div>
+          <div>
+            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
+          </div>
+        </div>
+        <hr class="rule">
+
       </div>
     </div>
-    </div>
+
   </section>
+
   <% end %>
 </div>
