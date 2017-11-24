@@ -27,8 +27,11 @@
 <% content_for :after_js do %>
 <script language="javascript" type="text/javascript">
      $(window).load(function() {
-     setTimeout(function(){ $('#loading').hide(); }, 2000);     
+     setTimeout(function(){ $('#loading').hide(); }, 2000);
 window.history.replaceState({}, document.title, "/answers/results");
   });
 </script>
 <% end %>
+
+<!-- Share Modal -->
+<%= render 'shared/share-modal' %>

@@ -57,6 +57,7 @@ class DistriktsController < ApplicationController
         format.html
       end
     end
+    @distrikts = Distrikt.all
     @user = current_user
   end
 
