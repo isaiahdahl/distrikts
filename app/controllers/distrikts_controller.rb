@@ -59,6 +59,7 @@ class DistriktsController < ApplicationController
     end
     @distrikts = Distrikt.all
     @user = current_user
+    @score = @user.score
   end
 
   def new
