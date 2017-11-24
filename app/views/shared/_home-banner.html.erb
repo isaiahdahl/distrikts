@@ -1,12 +1,7 @@
  <div class="banner">
   <div class="overlay"></div>
-  <% if [1, 2].sample == 1 %>
-    <video autoplay muted preload="auto" class="banner__video" poster="<%= asset_path('home.jpg') %>">
+    <video autoplay muted preload="auto" class="banner__video" loop>
       <source src="<%= asset_path('home.mp4') %>" type="video/mp4">
-  <% else %>
-    <video autoplay muted preload="auto" class="banner__video" poster="<%= asset_path('home2.jpg') %>">
-      <source src="<%= asset_path('home2.mp4') %>" type="video/mp4">
-  <% end %>
     </video>
 
   <div class="banner-content">

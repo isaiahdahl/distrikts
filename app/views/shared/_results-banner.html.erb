@@ -1,16 +1,16 @@
   <div class="banner-results">
   <div class="overlay-results"></div>
   <% if @styles.first.name == "Luxury Scavenger" %>
-    <video autoplay muted preload="auto" class="banner__video-results" poster="<%= asset_path('luxury.mp4') %>">
+    <video autoplay muted preload="auto" class="banner__video-results" loop>
     <source src="<%= asset_path('luxury.mp4') %>" type="video/mp4">
   <% elsif @styles.first.name == "Urban Explorer" %>
-    <video autoplay muted preload="auto" class="banner__video-results" poster="<%= asset_path('NYC.mp4') %>">
+    <video autoplay muted preload="auto" class="banner__video-results" loop>
     <source src="<%= asset_path('NYC.mp4') %>" type="video/mp4">
   <% elsif @styles.first.name == "Cultural Ninja" %>
-    <video autoplay muted preload="auto" class="banner__video-results" poster="<%= asset_path('ninja.mp4') %>">
+    <video autoplay muted preload="auto" class="banner__video-results" loop>
     <source src="<%= asset_path('ninja.mp4') %>" type="video/mp4">
   <% else %>
-      <video autoplay muted preload="auto" class="banner__video-results" poster="<%= asset_path('home.mp4') %>">
+      <video autoplay muted preload="auto" class="banner__video-results" loop>
       <source src="<%= asset_path('home.mp4') %>" type="video/mp4">
   <% end %>
   </video>
