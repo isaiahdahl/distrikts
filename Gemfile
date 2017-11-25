@@ -34,6 +34,7 @@ gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem "pundit"
 
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'better_errors'
