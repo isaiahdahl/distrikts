@@ -399,6 +399,7 @@ DEPENDENCIES
   coffee-rails
   devise
   faker
+  faraday
   figaro
   font-awesome-sass
   geocoder
