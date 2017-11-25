@@ -32,7 +32,8 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-gem "pundit"
+gem 'pundit'
+gem 'faraday'
 
 
 group :development, :test do

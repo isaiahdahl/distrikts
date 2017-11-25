@@ -1,0 +1,25 @@
+<div class="modal fade" id="placeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg quiz-modal-container" role="document">
+
+    <div class="modal-content quiz-modal-container-left";">
+
+      <div class="top-text">
+        <h3>Add your favorite places to <%= @distrikt.name %></h3>
+        <h4 class="light">Didn't see your favorite place in Distrikts? Add them here, and leave a travel tip too if you hve one.</h4>
+      </div>
+
+      <div class="bottom-text">
+        <h5 class="light">Please note: New places will not appear in search results until they have been reviewed by our moderators.</h5>
+      </div>
+    </div>
+    <div class="modal-content quiz-modal-container-right">
+      <div class="navbar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+        <%= render "shared/add-place" %>
+      </div>
+    </div>
+  </div>
+</div>
