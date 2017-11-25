@@ -33,6 +33,7 @@ gem 'rails_admin', '>= 1.0.0.rc'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem "pundit"
+gem 'sticky-rails'
 
 
 group :development, :test do

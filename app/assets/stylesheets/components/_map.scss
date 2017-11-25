@@ -1,7 +1,3 @@
-.map-places-container {
-  display: flex;
-}
-
 .map-container {
   width: 65%;
 }
@@ -18,7 +14,7 @@
 
 .map-places-container {
   display: flex;
-  height: 80vh;
+  height: calc(100vh - 46px);
 }
 
 .map-left {

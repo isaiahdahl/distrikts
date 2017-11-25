@@ -1,6 +1,6 @@
 <!-- If user is signed in -->
 <% if user_signed_in? %>
-    <div class="navbar-wagon">
+    <div class="navbar-wagon" id="top">
       <!-- Logo -->
       <div class="navbar-left">
         <%= image_tag "logo.png", class: "navbar-logo" %>
@@ -42,7 +42,7 @@
       <!-- If user is NOT sign-in -->
       <% else %>
       <!-- Login link (when logged out) -->
-      <div class="navbar-wagon">
+      <div class="navbar-wagon" id="top">
       <!-- Logo -->
         <div class="navbar-left">
           <%= image_tag "logo.png", class: "navbar-logo" %>
