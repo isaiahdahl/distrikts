@@ -4,7 +4,7 @@
   position: relative;
   background-color: white;
   section {
-    padding: 70px 50px;
+    padding: 40px 40px;
     min-height: calc(100vh - 70px);
     border-bottom: 1px solid #e5e5e5;
   }
@@ -41,7 +41,6 @@
 
 .card-explore {
   // position: relative;
-  top: -20px;
   height: 100%;
   // width: 100vh;
   // opacity: 0.85;
@@ -115,4 +114,18 @@ margin-top: 20px;
 .ig-name {
   text-transform:lowercase;
   display: inline;
+}
+
+.next-distrikt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #ffe890;
+  color: black;
+  width: 100%;
+  height: 10vh;
+  text-decoration: none;
+  list-style-type: none;
+  bottom: 0px;
 }
