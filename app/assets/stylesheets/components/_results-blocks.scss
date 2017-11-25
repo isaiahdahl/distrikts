@@ -115,7 +115,7 @@ display: inline-block;
 }
 
 #show-cards {
-  min-height: 400px;
+  height: calc(100vh - 46px);
   padding: 40px 0px;
   background-color: #fff;
   display: flex;

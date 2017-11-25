@@ -2,7 +2,7 @@
   background-color: #F2F2F2;
   display: flex;
   justify-content: space-between;
-  min-height: 400px;
+  height: calc(100vh - 46px);
   color: #2A2927;
   align-items: center;
 }

@@ -66,3 +66,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.filters-bottom-container {
+  padding: 10px 0 0 0;
+  background-color: #FEE795;
+  height: 7%;
+  -webkit-box-shadow: 0px -4px 9px -1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px -4px 9px -1px rgba(0,0,0,0.2);
+  box-shadow: 0px -4px 9px -1px rgba(0,0,0,0.2);
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  overflow: hidden;
+  text-decoration: none;
+}

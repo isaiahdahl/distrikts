@@ -1,0 +1,12 @@
+<div class="form-container">
+  <div class="upper-form form-inline text-center">
+    <h5>Autofill a new place with Foursquare</h5>
+    <div class="form-search">
+      <%= form_tag do %>
+        <%= text_field_tag :filter, nil ,placeholder: "Name" %>
+        <%= submit_tag 'Search', class: "btn-search", value: "Find" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
