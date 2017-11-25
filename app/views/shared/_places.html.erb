@@ -2,7 +2,48 @@
   <div class="filter-title">
     <h4>Top Picks in <%= @distrikt.name %></h4>
   </div>
-
+  <div class="filter-tags">
+    <%= link_to distrikt_path, remote: true do %>
+    <div class="filter-icon" id="all">
+      <%= image_tag "all-dark", class: "filter-img" %>
+    </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "nightlife"), remote: true do %>
+    <div class="filter-icon" id="bar">
+      <%= image_tag "bar-dark.png", class: "filter-img" %>
+    </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "cafe"), remote: true do %>
+    <div class="filter-icon" id="coffee">
+      <%= image_tag "coffee-dark.png", class: "filter-img" %>
+    </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "culture"), remote: true do %>
+      <div class="filter-icon" id="culture">
+        <%= image_tag "culture-dark.png", class: "filter-img" %>
+      </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "dessert"), remote: true do %>
+      <div class="filter-icon" id="dessert">
+        <%= image_tag "dessert-dark.png", class: "filter-img" %>
+      </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "outdoors"), remote: true do %>
+       <div class="filter-icon" id="outdoors">
+          <%= image_tag "outdoors-dark.png", class: "filter-img" %>
+       </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "restaurant"), remote: true do %>
+      <div class="filter-icon" id="resto">
+        <%= image_tag "resto-dark.png", class: "filter-img" %>
+      </div>
+    <% end %>
+    <%= link_to distrikt_path(category: "shopping"), remote: true do %>
+      <div class="filter-icon" id="shopping">
+        <%= image_tag "shopping-dark.png", class: "filter-img" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="places">
   <ul id="places-search">
