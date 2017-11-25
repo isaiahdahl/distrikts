@@ -1,5 +1,7 @@
 <%= render 'shared/distrikt-banner' %>
-<div class="map-places-container">
+<%= render 'shared/show-nav' %>
+
+<div class="map-places-container" id="map-container">
   <div class="map-left" id="map-left">
     <%= render 'shared/map' %>
   </div>
@@ -8,8 +10,14 @@
   </div>
 </div>
 
+<div id="quotes">
 <%= render 'shared/home-quotes' %>
-
+</div>
+<div id="show-cards">
 <%= render "shared/show-cards" %>
+</div>
 
-<%= render 'shared/instagram-block' %>
+<div id="instagram-block">
+  <%= render 'shared/instagram-block' %>
+</div>
+

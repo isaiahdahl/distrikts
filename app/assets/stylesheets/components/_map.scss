@@ -14,7 +14,7 @@
 
 .map-places-container {
   display: flex;
-  height: 80vh;
+  height: calc(100vh - 46px);
   position: relative;
 }
 
