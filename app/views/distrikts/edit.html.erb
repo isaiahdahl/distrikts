@@ -1,0 +1,6 @@
+<%= simple_form_for(@distrikt) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :photos, as: :attachinary %>
+    <%= f.submit %>
+<% end %>

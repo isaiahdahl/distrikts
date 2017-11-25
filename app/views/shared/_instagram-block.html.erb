@@ -1,0 +1,16 @@
+<div class="insta-block">
+  <h3 class="heading text-center"><i class="fa fa-instagram" aria-hidden="true"></i> #<%= @distrikt.name.downcase %></h3>
+  <div id="instafeed"></div>
+</div> 
+  
+<% content_for :after_js do %>
+<script type="text/javascript">
+  var feed = new Instafeed({
+    get: 'user',
+    userId: "37005293",
+    accessToken: "37005293.7d28e1e.82095e8ca0474e0faf075ca9196c97bd",
+    limit: 5
+  });
+  feed.run();
+</script>
+<% end %>

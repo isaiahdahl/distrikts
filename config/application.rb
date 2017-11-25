@@ -10,6 +10,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
+require "attachinary/orm/active_record"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -25,6 +26,8 @@ module Distrikts
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.action_controller.permit_all_parameters = true
+    config.autoload_paths << Rails.root.join('lib')
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

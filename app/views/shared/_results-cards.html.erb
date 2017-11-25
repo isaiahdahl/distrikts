@@ -1,0 +1,16 @@
+<div id="result-cards">
+
+  <div class="result-cards-container text-center">
+
+      <h3 class="heading upper">A few sample Distrikts...</h3>
+
+        <div class="cards">
+          <div class="row">
+            <% @sorted = @distrikts.sort {|a,b| compare(b.score, @score)<=>compare(a.score, @score) } %>
+            <%= render 'shared/results-card' %>
+          </div>
+        </div>
+
+  </div>
+
+</div>

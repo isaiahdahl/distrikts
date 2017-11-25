@@ -1,0 +1,10 @@
+
+
+$('#places-search').html("<%= j render @places %>");
+$('#map-left').html("<%= j render 'shared/map' %>");
+var jsonCoordinates = <%= raw @places_coordinates.to_json %>
+//$('.places-right').html(placesHTML)
+
+//$('.places-right').innerHTML(placesHTML);
+//const mapDOM = document.querySelector('.map-left');
+//mapDOM.innerHTML(mapHTML);

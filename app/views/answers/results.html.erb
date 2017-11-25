@@ -1,0 +1,43 @@
+<%= render "shared/results-banner" %>
+
+<%= render "shared/results-type" %>
+
+<%= render "shared/results-breakdown" %>
+
+<%= render "shared/quiz_modal" %>
+
+<%= render "shared/results-cards" %>
+
+<div class="link-block" >
+
+  <h3 class="upper">Build your travel profile</h3>
+
+  <a class="btn btn-sm animated-button thar-black" data-toggle="modal" data-target="#modalSignUp">Save Your Profile</a>
+
+</div>
+
+<div class="spinner-layer" id="loading">
+  <div class="spinner">
+    <div class="spinner">
+  <div class="double-bounce1"></div>
+  <div class="double-bounce2"></div>
+</div>
+  </div>
+</div>
+<% content_for :after_js do %>
+<script language="javascript" type="text/javascript">
+     $(window).load(function() {
+     setTimeout(function(){ $('#loading').hide(); }, 2000);
+window.history.replaceState({}, document.title, "/answers/results");
+  });
+</script>
+<% end %>
+
+<% content_for :head do %>
+  <meta property="og:type"   content="profile" /> 
+  <meta property="og:url"    content="http://www.distrikts.co/" 
+  <meta property="og:title"  content="My travel profile is: <%= @styles.first.name %>" /> 
+  <meta property="og:image"  content="http://blog.foodexperiential.com/site/assets/files/4112/shutterstock_159755636.jpg" /> 
+<% end %>
+<!-- Share Modal -->
+<%= render 'shared/share-modal' %>

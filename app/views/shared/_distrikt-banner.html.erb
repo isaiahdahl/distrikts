@@ -1,0 +1,71 @@
+<div class="banner-show">
+  <!-- Top-Left -->
+
+  <div class="distrikt-profile-left">
+
+    <div class="profile-left-score gold bold">
+      <%= image_tag "hexagons/hex-solid.png", class: "distrikt-hex-match" %>
+      <h2 class="text-center"><%= compare(@user.score, @distrikt.score) %></h2>
+      <h5 class="text-center bold">MATCH</h5>
+    </div>
+
+    <div class = "profile-left-header">
+      <% if policy(Distrikt).edit? %>
+          <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
+      <% end %>
+      <h3 class="light">Welcome to</h3>
+      <h1 class = "bold upper"><%= @distrikt.name %></h1>
+      <h5 class="upper"><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h5>
+    </div>
+    <p class="light spaced"><%= @distrikt.description %></p>
+  </div>
+
+  <!-- Top-Right(CAROUSEL) -->
+  <div class="distrikt-profil-right">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <% if @distrikt.photos.first.nil? %>
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="https://images.pexels.com/photos/9253/sea-city-landscape-sky.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb">
+          </div>
+        </div>
+
+      <% else %>
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <% @distrikt.photos[1..@distrikt.photos.count - 1].each do |photo| %>
+            <li data-target="#myCarousel" data-slide-to="<%= @distrikt.photos.index(photo) %>"></li>
+          <% end %>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+              <%= cl_image_tag @distrikt.photos.first.path, crop: :fill %>
+          </div>
+            <% @distrikt.photos[1..@distrikt.photos.count - 1].each do |photo| %>
+              <div class="item">
+                <%= cl_image_tag photo.path, crop: :fill %>
+              </div>
+            <% end %>
+        </div>
+      <% end %>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>

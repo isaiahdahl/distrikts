@@ -1,0 +1,30 @@
+.map-places-container {
+  display: flex;
+}
+
+.map-container {
+  width: 65%;
+}
+
+#map { 
+  width: 100%;
+  height: 100%;
+}
+
+#geocoder-container > div {
+      min-width:50%;
+      margin-left:25%;
+      }
+
+.map-places-container {
+  display: flex;
+  height: 80vh;
+}
+
+.map-left {
+  width: 60%;
+}
+
+.places-right {
+  width: 40%;
+}

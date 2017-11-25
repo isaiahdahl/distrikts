@@ -1,0 +1,68 @@
+.filters-top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 20px 0;
+  background-color: #f2f2f2;
+  height: 20%;
+  -webkit-box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.2);
+  z-index: 1;
+  position: relative;
+}
+
+.filter-title {
+  margin: 10px;
+}
+
+.places {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 20%);
+  overflow: scroll;
+  background-color: white;
+}
+
+.place {
+  height: 100px;
+  width: 100%;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 10px;
+  :last-child {
+    border-bottom: none !important;
+  }
+  p {
+    color: #b4b4b4;
+    font-size: 13px;
+  }
+}
+
+.filter-tags {
+  width: 100%;
+  padding: 0 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-img-active {
+  height: 24px;
+  filter: invert(100%);
+}
+
+.filter-img {
+  height: 24px;
+}
+
+.filter-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 1px solid #555452;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

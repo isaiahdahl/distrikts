@@ -1,0 +1,82 @@
+.cards {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0px !important;
+  max-width: 1026px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background-position: center;
+  border-radius: 6px;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+  position: relative;
+  top: -20px;
+  height: 281px;
+  width: 222px;
+  opacity: 0.85;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+  // box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  background-size: cover !important;
+  &:hover {
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+ }
+}
+
+
+.card-body {
+  height: 300px;
+  position: relative;
+  background-size: cover;
+  text-align: left;
+}
+
+.card-category {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  h4 {
+    font-size: 28px;
+    font-weight:400;
+    margin-bottom: -4px;
+  }
+}
+
+.card-match {
+  position: absolute;
+  top: 24px;
+  left: 8px;
+  h4 {
+    font-size: 28px;
+    font-weight:400;
+    margin-bottom: -4px;
+  }
+}
+
+.card-desc {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  h4, p, a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.hex-match {
+  width: 56%; height: 56%;
+}
+
+.match-block {
+  margin-top: -40px;
+}
+.match {
+  margin-top: 25px !important;
+}
+.country {
+  margin-top: 3px;
+}

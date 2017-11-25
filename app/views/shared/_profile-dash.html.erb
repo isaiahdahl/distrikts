@@ -1,0 +1,57 @@
+<div id="dash">
+
+  <div class="dash-container">
+
+    <div class="dash-details">
+
+      <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <%= image_tag avatar_url, class: "avatar-lg" %>
+      <div class="dash-details-information">
+        <h2 class="touch upper bold"><%= @user.first_name %> <%= @user.last_name %></h2>
+        <h4 class="upper light bumpdown"><%= @user.style.name %></h4>
+        <div class="style-details">
+          <a class="btn btn-outline" data-toggle="modal" data-target="#modalDetails">Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-filters gold">
+
+
+      <div class="users-filter text-center">
+        <div class="hexagon-filter">
+          <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
+          <div class="filter-block">
+            <h2 class="filter-num">23</h2>
+            <h5 class="wishlist upper">Wishlist</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="users-filter text-center">
+        <div class="hexagon-filter">
+          <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
+          <div class="filter-block">
+            <h2 class="filter-num">16</h2>
+            <h5 class="wishlist upper">Visited</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="users-filter text-center">
+        <div class="hexagon-filter">
+          <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
+          <div class="filter-block">
+            <h2 class="filter-num">45</h2>
+            <h5 class="wishlist upper">Following</h5>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Details Modal -->
+<%= render 'shared/profile-modal' %>
+
