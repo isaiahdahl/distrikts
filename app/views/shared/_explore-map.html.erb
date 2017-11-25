@@ -1,4 +1,5 @@
 <div id='map-explore'></div>
+<% content_for(:after_js) do %>
 <script>
   mapboxgl.accessToken = "<%= ENV['MAPBOX-API'] %>";
 
@@ -10,8 +11,6 @@
     bearing: 27,
     pitch: 45
   });
-
-  map.addControl(new mapboxgl.NavigationControl());
 
 
   var chapters = {
@@ -68,3 +67,4 @@
   }
 
 </script>
+<% end %>

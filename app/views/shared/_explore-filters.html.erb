@@ -51,7 +51,7 @@
 
 <!-- after first city -->
 
-  <% @distrikts.drop(1).each do |distrikt| %>
+  <% @distrikts.drop(0).each do |distrikt| %>
 
     <section id='<%= distrikt.name %>'>
 
@@ -97,7 +97,6 @@
             <%= image_tag "ig_sample.jpg", class: "ig-image" %>
           </div>
         </div>
-ga .
       </div>
     </div>
 
