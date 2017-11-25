@@ -60,6 +60,7 @@ class DistriktsController < ApplicationController
     @distrikts = Distrikt.all
     @user = current_user
     @score = @user.score
+    @place = Place.new
   end
 
   def new

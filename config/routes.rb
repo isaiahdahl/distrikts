@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   ActiveAdmin.routes(self)
   mount Attachinary::Engine => "/attachinary"
 
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   get 'distrikts/explore', to: 'distrikts#explore'
   get 'answers/quiz', to: 'answers#quiz'
   get 'answers/results', to: 'answers#results'
-  resources :distrikts, only: [:index, :show, :new, :create, :edit, :update]
+  resources :distrikts, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :places, only: [:new, :create]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
