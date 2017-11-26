@@ -51,7 +51,13 @@
   align-items: center;
 }
 
-.dashboard-position {
+.active-filter {
+  color: white;
+  background-color: #f8c604;
+}
+
+.filter-block {
+  color: #f8c604;
   // position: relative;
   // top: 30px;
 }

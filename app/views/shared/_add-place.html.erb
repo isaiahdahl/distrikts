@@ -1,22 +1,12 @@
 <div class="form-container">
   <div class="upper-form form form-inline text-center">
     <h5>Autofill a new place with Foursquare</h5>
-    <%= simple_form_for :search, url: new_distrikt_place_path(@distrikt), method: :get do |f| %>
+    <%= simple_form_for :search, url: new_distrikt_place_path(@distrikt), method: :get, remote: true do |f| %>
     <%= f.input :filter, label: false, placeholder: "Name" %>
     <%= f.button :submit, "Find", class: "btn-submit" %>
     <% end %>
   </div>
-
-  <div class="lower-form form text-center">
-    <div class="form-inputs">
-      <%= simple_form_for([@distrikt, @place]) do |f| %>
-      <%= f.input :name, label: false, placeholder: "Name" %>
-      <%= f.input :address, label: false, placeholder: "Address" %>
-      <%= f.input :category, label: false, collection: ["nightlife", "restaurant", "dessert", "shopping", "culture", "outdoors", "cafe"], prompt: "Category"  %>
-    </div>
-    <div class="form-actions">
-      <%= f.button :submit, "Add place", class: "btn-submit" %>
-    </div>
-    <% end %>
+  <div id="place_form">
+    <%= render 'shared/place_new_form' %>
   </div>
 </div>

@@ -23,6 +23,7 @@ gem 'ransack'
 gem 'ransack_ui'
 gem "geocoder"
 gem 'kaminari'
+gem 'typing'
 gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'

@@ -5,24 +5,32 @@ class PlacesController < ApplicationController
     @distrikt = Distrikt.find(params[:distrikt_id])
     result = FourSquare.new(@distrikt, @filter)
     @places = result.establishments
-
     @place = Place.new(
       name: @places.first["name"],
-      address: @places.first["location"]["formattedAddress"].join(" ")
+      address: @places.first["location"]["formattedAddress"].join(" "),
+      phone: @places.first["contact"]["phone"]
       )
     authorize @place
+
+    respond_to do |format|
+      format.js
+      format.html { redirect_back fallback_location: root_path }
+    end
   end
 
   def create
-    @place = Place.new
+    @place = Place.new(place_params)
+    if @place.save
+      redirect_to distrikt_path(@distrikt.id)
+    else
+      # GO BACK TO THE FORM
+      render :new
+    end
   end
 
   private
 
-  def restaurant_params
+  def place_params
     params.require(:place).permit(:name, :address, :category, :phone, :img_url, :filter)
-  end
-
-  def search_params
   end
 end

@@ -1,12 +1,11 @@
 <%= render 'shared/profile-dash' %>
 <%= render 'shared/card-filters' %>
 
-<div class="cards" id="cards">
-  <div class="row">
-    <% @sorted = @distrikts.sort {|a,b| compare(b.score, @user.score)<=>compare(a.score, @user.score) } %>
-      <%= render 'shared/card' %>
-  </div>
+<div id="index-cards">
+  <%= render 'shared/index-cards' %>
 </div>
+
+
 
 <div class="paginate">
   <%= paginate @distrikts %>
