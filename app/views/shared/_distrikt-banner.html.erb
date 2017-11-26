@@ -2,14 +2,31 @@
   <!-- Top-Left -->
 
   <div class="distrikt-profile-left">
-
-    <div class="profile-left-score gold bold">
-      <%= image_tag "hexagons/hex-solid.png", class: "distrikt-hex-match" %>
-      <h2 class="text-center"><%= compare(@user.score, @distrikt.score) %></h2>
-      <h5 class="text-center bold">MATCH</h5>
+    <div class="show-left-top">
+      <div class="profile-left-score gold bold">
+        <%= image_tag "hexagons/hex-solid.png", class: "distrikt-hex-match" %>
+        <h2 class="text-center"><%= compare(@user.score, @distrikt.score) %></h2>
+        <h5 class="text-center bold">MATCH</h5>
+      </div>
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <button class="btn-outline-save dropdown-toggle" type="button" data-toggle="dropdown">SAVE: <i class="fa fa-angle-down" aria-hidden="true" data-toggle="dropdown"></i></button>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to wishlist_distrikt_path, method: :put do %>
+                  <i class="fa fa-flag"></i> <%= t(".profile", default: "Want to go") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to visit_distrikt_path, method: :put do %>
+                  <i class="fa fa-check"></i>  <%= t(".profile", default: "Visited") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-    <div class = "profile-left-header">
+    <div class="profile-left-header">
       <% if policy(Distrikt).edit? %>
           <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
       <% end %>

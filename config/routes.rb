@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     resources :places, only: [:new, :create] do
       resources :reviews, only: [ :new, :create ]
     end
+    member do
+      put 'visit', to: "distrikts#visit"
+      put 'wishlist', to: "distrikts#wishlist"
+    end
   end
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

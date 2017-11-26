@@ -25,6 +25,19 @@
   }
 }
 
+.btn-outline-save {
+  border-radius: 2px;
+  padding: 5px 10px;
+  border: 1px solid $gold;
+  // border-radius: 4px;
+  color: $gold;
+  background-color: Transparent;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
 .btn-outline-black {
   padding: 15px 25px;
   border: 2px solid $black;

@@ -145,16 +145,15 @@
 }
 
 .distrikt-profile-left {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 35%;
-  margin: 25px 40px 25px 50px;
-  h1 {
-    margin-bottom: -10px;
-  }
-  h5 {
-    // margin-top: -10px;
-    margin-bottom: 50px;
-  }
+  margin: 25px 30px 25px 30px;
+}
+
+.show-left-top {
+  display: flex;
+  justify-content: space-between;
 }
 
 .distrikt-match {
@@ -188,11 +187,25 @@
   }
 }
 
-.left-score {
-
+.profile-save-dropdown {
+  width: 80px;
+  margin-bottom: 40px;
+  padding-left: 20px !important;
+  h2 {
+    color: white;
+    // font-size: 28px;
+    font-weight:400;
+    margin-right: 18px;
+    margin-top: -68px;
+  }
+  h5 {
+    margin-top: 30px;
+    margin-right: 14px;
+  }
 }
 
 .profile-left-header {
+  margin-top: 10px;
   color: black;
 }
 

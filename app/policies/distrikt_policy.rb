@@ -15,7 +15,6 @@ class DistriktPolicy < ApplicationPolicy
 
   def create?
     user.admin?
-    raise
   end
 
   def edit?
@@ -32,5 +31,13 @@ class DistriktPolicy < ApplicationPolicy
 
   def new?
     user.admin?
+  end
+
+  def visit?
+    true
+  end
+
+  def wishlist?
+    true
   end
 end

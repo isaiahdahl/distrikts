@@ -3,7 +3,6 @@ class PlacePolicy < ApplicationPolicy
     def resolve
       scope
     end
-
   end
 
   def new?
@@ -12,5 +11,9 @@ class PlacePolicy < ApplicationPolicy
 
   def create?
     true
+  end
+
+  def show?
+    return true
   end
 end
