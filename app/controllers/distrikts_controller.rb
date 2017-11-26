@@ -18,6 +18,7 @@ class DistriktsController < ApplicationController
     @countries = countries
     @continents = continents
     assign_style(@user)
+    @scores = top_four
   end
 
   def explore
@@ -86,6 +87,16 @@ class DistriktsController < ApplicationController
   end
 
   private
+
+  def top_four
+    scores = @score.attributes
+    scores.delete("id")
+    scores.delete("created_at")
+    scores.delete("updated_at")
+    sorted_scores = scores.sort_by{|k,v| v}.reverse
+    sorted_scores[0...4]
+  end
+
   def distrikt_params
     params.require(:distrikt).permit(:name, :description, photos: [])
   end
