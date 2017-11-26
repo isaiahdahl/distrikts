@@ -1,6 +1,6 @@
 class DistriktsController < ApplicationController
-  before_action :distrikt, only: [:edit, :show, :update, :destroy]
-  before_action :authorize_distrikt, only: [:edit, :show, :update, :destroy]
+  before_action :distrikt, only: [:edit, :show, :update, :destroy, :visit, :wishlist]
+  before_action :authorize_distrikt, only: [:edit, :show, :update, :destroy, :visit, :wishlist]
   before_action :load_ransack_search, :only => :index
 
 
@@ -18,6 +18,8 @@ class DistriktsController < ApplicationController
     @countries = countries
     @continents = continents
     assign_style(@user)
+    wishlisted
+    visited
     @scores = top_four
   end
 
@@ -83,6 +85,18 @@ class DistriktsController < ApplicationController
 
   def destroy
     @distrikt.destroy
+    redirect_to distrikts_path
+  end
+
+  def visit
+    user = current_user
+    user.favorite @distrikt, scope: [:visited]
+    redirect_to distrikts_path
+  end
+
+  def wishlist
+    user = current_user
+    user.favorite @distrikt, scope: [:wishlist]
     redirect_to distrikts_path
   end
 
@@ -157,5 +171,13 @@ class DistriktsController < ApplicationController
 
   def authorize_distrikt
     authorize @distrikt
+  end
+
+  def wishlisted
+    @wishlisted = @user.favorites.where(scope: "wishlist").count
+  end
+
+  def visited
+    @visited = @user.favorites.where(scope: "visited").count
   end
 end

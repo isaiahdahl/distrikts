@@ -184,6 +184,7 @@ new_york_distrikts.each do |attributes|
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
+  distrikt.address = "#{distrikt.name} #{distrikt.city.name}, #{distrikt.city.country}"
   distrikt.save
   sleep(1)
 end
@@ -224,6 +225,7 @@ paris_distrikts.each do |attributes|
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
+  distrikt.address = "#{distrikt.name} #{distrikt.city.name}, #{distrikt.city.country}"
   distrikt.save
   sleep(1)
 end
@@ -263,6 +265,7 @@ rio_distrikts.each do |attributes|
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
+  distrikt.address = "#{distrikt.name} #{distrikt.city.name}, #{distrikt.city.country}"
   distrikt.save
   sleep(1)
 end
@@ -303,6 +306,7 @@ tokyo_distrikts.each do |attributes|
   score = Score.create(score_attrs)
   distrikt.city = city.first
   distrikt.score = score
+  distrikt.address = "#{distrikt.name} #{distrikt.city.name}, #{distrikt.city.country}"
   distrikt.save
 end
 
@@ -364,7 +368,7 @@ Distrikt.all.each do |distrikt|
         score_id: ""
     )
     place.save
-    sleep(2)
+    sleep(1.2)
     puts "#{biz["name"]} created"
   end
 end
@@ -383,7 +387,7 @@ Distrikt.all.each do |distrikt|
         score_id: ""
     )
     place.save
-    sleep(2)
+    sleep(1.2)
     puts "#{biz["name"]} created"
   end
 end
