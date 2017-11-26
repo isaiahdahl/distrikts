@@ -21,6 +21,38 @@
 }
 
 
+
+// simple 50/50
+.simple-container {
+  min-height: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.simple-left {
+  background-color: #E1E1E1;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.simple-left-content {
+  min-width: 350px;
+  flex: 0 0 auto;
+  padding-left: 60px;
+}
+
+.simple-right {
+  background-color: black;
+  flex: 1 1 auto;
+}
+
+
+
+
 // steps block
 
 #sample-wrapper {

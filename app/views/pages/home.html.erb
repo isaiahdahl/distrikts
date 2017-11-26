@@ -1,18 +1,27 @@
 <%= render "shared/home-banner" %>
 
-<%= render "shared/home-steps" %>
-
-<%= render 'shared/home-quotes' %>
-
-<%= render "shared/home-reasons" %>
-
-<div class="link-block" >
-
-  <h3 class="upper">Build your travel profile</h3>
-
-  <a class="btn btn-sm animated-button thar-black" data-toggle="modal" data-target="#modalQuiz">Take the Quiz</a>
-
+<div class="about-block" >
+  <div class="about-container">
+    <h2 class="bumpdown">Say hello to Distrikts</h2>
+    <h4 class="light">A different take on how to explore cities, based on your travel style</h4>
+  </div>
 </div>
+
+
+<%= render 'shared/home-takequiz' %>
+
+<%= render 'shared/home-cardstack' %>
+
+<%= render 'shared/home-dkpage' %>
+
+<%= render 'shared/home-mapblock' %>
+
+<%= render 'shared/home-tourists' %>
+
+<%= render 'shared/home-startquiz' %>
+
+<%= render 'shared/home-scout' %>
+
 
 <!-- Quiz Modal -->
 <%= render 'shared/quiz_modal' %>
