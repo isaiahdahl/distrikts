@@ -7,6 +7,8 @@
 //= require cable.js
 //= require init_attachinary.js
 //= require instafeed.min.js
+//= require typing
+//= require scrollreveal.js
 //= require jquery.sticky.js
 
 $(function() {

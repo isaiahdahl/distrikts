@@ -12,6 +12,4 @@ class Distrikt < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  scope :wishlist, -> { where(favorited: "nightlife")}
-  scope :visited, -> { where(category: "restaurant")}
 end
