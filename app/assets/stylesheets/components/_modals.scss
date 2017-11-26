@@ -112,14 +112,20 @@
   color: #555452 !important;
 }
 
-
-
 .small-style-icon {
-  width: 45px;
-  height: 45px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 14px;
 }
 .style-top {
-
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 40px;
+  h2 {
+    margin-bottom: 28px;
+  }
 }
 
 
