@@ -1,4 +1,3 @@
-require 'byebug'
 class DistriktsController < ApplicationController
   before_action :distrikt, only: [:edit, :show, :update, :destroy, :visit, :wishlist]
   before_action :authorize_distrikt, only: [:edit, :show, :update, :destroy, :visit, :wishlist]
