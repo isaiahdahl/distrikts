@@ -1,10 +1,10 @@
 #features {
-  width: 50%;
+  flex: 0 0 560px;
   overflow-y: scroll;
   position: relative;
   background-color: white;
   section {
-    padding: 40px 40px;
+    padding: 60px 60px;
     min-height: calc(100vh - 70px);
     border-bottom: 1px solid #e5e5e5;
   }
@@ -65,7 +65,7 @@
 }
 
 .card-label-right {
-  flex: 1 1 auto;
+  flex: 0 0 100px;
 }
 
 .card-description {

@@ -3,7 +3,7 @@
 }
 
 #map-explore {
-  width: 50%;
+  flex: 1 1 auto;
   background-color: #96B3BB;
   height: calc(100vh);
   position: sticky !important; /* !important to override Gmaps inline CSS */
