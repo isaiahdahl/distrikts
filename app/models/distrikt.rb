@@ -7,6 +7,11 @@ class Distrikt < ApplicationRecord
   has_attachments :photos, maximum: 6
   max_paginates_per 50
 
-  geocoded_by :name
+  acts_as_favoritable
+
+  geocoded_by :address
   after_validation :geocode
+
+  scope :wishlist, -> { where(favorited: "nightlife")}
+  scope :visited, -> { where(category: "restaurant")}
 end

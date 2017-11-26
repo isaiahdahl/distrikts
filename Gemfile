@@ -35,6 +35,7 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'sticky-rails'
 gem 'pundit'
 gem 'faraday'
+gem 'acts_as_favoritor', github: 'slooob/acts_as_favoritor'
 
 
 group :development, :test do

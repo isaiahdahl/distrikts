@@ -3,9 +3,9 @@ class PlacePolicy < ApplicationPolicy
     def resolve
       scope
     end
+  end
 
-    def show?
-      return true
-    end
+  def show?
+    return true
   end
 end
