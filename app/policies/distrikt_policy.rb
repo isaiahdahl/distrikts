@@ -40,4 +40,12 @@ class DistriktPolicy < ApplicationPolicy
   def wishlist?
     true
   end
+
+  def remove_visit?
+    true
+  end
+
+  def remove_wishlist?
+    true
+  end
 end

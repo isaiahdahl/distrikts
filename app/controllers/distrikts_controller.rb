@@ -1,3 +1,4 @@
+require 'byebug'
 class DistriktsController < ApplicationController
   before_action :distrikt, only: [:edit, :show, :update, :destroy, :visit, :wishlist]
   before_action :authorize_distrikt, only: [:edit, :show, :update, :destroy, :visit, :wishlist]
@@ -5,14 +6,17 @@ class DistriktsController < ApplicationController
 
 
   def index
+    @user = current_user
     q_param = params[:q]
     page = params[:page]
     per_page = params[:per_page]
-
     @q = Distrikt.ransack q_param
     @distrikts = @q.result.page(page).per(per_page)
     @distrikt = policy_scope(Distrikt)
-    @user = current_user
+    if params[:scope]
+      @distrikts = @user.favorited_by_type 'Distrikt', scope: [params[:scope]]
+      @scope = params[:scope]
+    end
     @score = @user.score
     @cities = cities
     @countries = countries
@@ -21,6 +25,14 @@ class DistriktsController < ApplicationController
     wishlisted
     visited
     @scores = top_four
+    respond_to do |format|
+      if request.xhr?
+        format.js
+      else
+        format.html
+      end
+    end
+    # @user.favorited_by_type 'Distrikt', scope: [:wishlist]
   end
 
   def explore
@@ -93,13 +105,25 @@ class DistriktsController < ApplicationController
 
   def visit
     user = current_user
-    user.favorite @distrikt, scope: [:visited]
+    user.favorite @distrikt, scope: [:visit]
     redirect_to distrikts_path
   end
 
   def wishlist
     user = current_user
     user.favorite @distrikt, scope: [:wishlist]
+    redirect_to distrikts_path
+  end
+
+  def remove_visit
+    user = current_user
+    user.remove_favorite @distrikt, scope: [:visit]
+    redirect_to distrikts_path
+  end
+
+  def remove_wish
+    user = current_user
+    user.remove_favorite @distrikt, scope: [:wishlist]
     redirect_to distrikts_path
   end
 
@@ -177,10 +201,10 @@ class DistriktsController < ApplicationController
   end
 
   def wishlisted
-    @wishlisted = @user.favorites.where(scope: "wishlist").count
+    @wishlisted = @user.favorites.where(scope: "wishlist")
   end
 
   def visited
-    @visited = @user.favorites.where(scope: "visited").count
+    @visited = @user.favorites.where(scope: "visit")
   end
 end

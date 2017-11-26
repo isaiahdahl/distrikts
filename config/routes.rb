@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     member do
       put 'visit', to: "distrikts#visit"
       put 'wishlist', to: "distrikts#wishlist"
+      put 'remove_visit', to: "distrikts#remove_visit"
+      put 'remove_wishlist', to: "distrikts#remove_wishlist"
     end
   end
 

@@ -1,0 +1,6 @@
+<div class="cards" id="cards">
+  <div class="row">
+    <% @sorted = @distrikts.sort {|a,b| compare(b.score, @user.score)<=>compare(a.score, @user.score) } %>
+    <%= render 'shared/card' %>
+  </div>
+</div>
