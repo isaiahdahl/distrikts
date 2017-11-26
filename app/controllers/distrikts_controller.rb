@@ -62,6 +62,9 @@ class DistriktsController < ApplicationController
     @place = Place.new
   end
 
+  def foursquare
+  end
+
   def new
     @distrikt = Distrikt.new(distrikt_params)
   end

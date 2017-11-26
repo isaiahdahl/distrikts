@@ -4,8 +4,13 @@ class PlacePolicy < ApplicationPolicy
       scope
     end
 
-    def show?
-      return true
-    end
+  end
+
+  def new?
+    true
+  end
+
+  def create?
+    true
   end
 end
