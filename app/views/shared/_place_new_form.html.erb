@@ -1,0 +1,13 @@
+<div class="lower-form form text-center">
+  <div class="form-inputs">
+    <%= simple_form_for [@distrikt, @place] do |f| %>
+    <%= f.input :name, label: false, placeholder: "Name" %>
+    <%= f.input :address, label: false, placeholder: "Address" %>
+    <%= f.input :category, label: false, collection: ["nightlife", "restaurant", "dessert", "shopping", "culture", "outdoors", "cafe"], prompt: "Category"  %>
+    <%= f.input :phone, as: :hidden %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Add place", class: "btn-submit" %>
+  </div>
+  <% end %>
+</div>
