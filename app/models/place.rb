@@ -4,6 +4,8 @@ class Place < ApplicationRecord
   validates :name, presence: true
   validates :category, presence: true
 
+  acts_as_favoritable
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 

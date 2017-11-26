@@ -1,0 +1,9 @@
+# ----------
+# ACTS AS FAVORITOR
+# ----------
+
+# Specify your default scope. Learn more about scopes here: https://github.com/slooob/acts_as_favoritor#scopes
+default_scope: favorite
+
+# Enable caching. Learn more about caching here: https://github.com/slooob/acts_as_favoritor#caching
+cache: false

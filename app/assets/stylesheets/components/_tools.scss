@@ -1,3 +1,47 @@
 // div {
 //   outline: 1px solid red;
 // }
+
+// * {
+//   outline: 1px solid red;
+// }
+
+
+// banner
+
+.sample-banner {
+  color: white;
+  text-align: center;
+  height: calc(75vh - 70px);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+// steps block
+
+#sample-wrapper {
+  min-height: 400px;
+  padding: 40px 0px;
+  flex-direction: column;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.sample-main-container {
+  display: flex;
+  max-width: 1200px;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.sample-box {
+  // flex: 1 1 25%;
+  margin: 0px 10px;
+  width: 25%;
+  height: 100px;
+}

@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :places, through: :reviews
 
+  acts_as_favoritor
+  acts_as_favoritable
+
   def self.find_for_facebook_oauth(auth, params)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
