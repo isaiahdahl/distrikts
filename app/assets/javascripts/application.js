@@ -8,7 +8,7 @@
 //= require init_attachinary.js
 //= require instafeed.min.js
 //= require typing
-//= require fadein
+//= require scrollreveal.js
 //= require jquery.sticky.js
 
 $(function() {

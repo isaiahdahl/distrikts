@@ -2,7 +2,7 @@
 
 <div class="about-block" >
   <div class="about-container">
-    <h2 class="bumpdown">Say hello to Distrikts</h2>
+    <h3 class="touch">Say hello to Distrikts</h3>
     <h4 class="light">A different take on how to explore cities, based on your travel style</h4>
   </div>
 </div>
@@ -12,7 +12,17 @@
 
 <%= render 'shared/home-cardstack' %>
 
-<%= render 'shared/home-dkpage' %>
+<div class="dkpage-container">
+  <div class="dkpage-left">
+        <h3 class="bumpdown">Dive into your Distrikts</h3>
+        <p class="spaced light">Our Scouts curate the best of what each Distrikt has to offer</p>
+  </div>
+
+  <div class="dkpage-right">
+      <%= image_tag 'dkpage.png', class: "dkpage-img"  %>
+  </div>
+
+</div>
 
 <%= render 'shared/home-mapblock' %>
 
