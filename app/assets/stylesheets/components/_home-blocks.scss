@@ -60,3 +60,256 @@
   margin-bottom: 20px;
 }
 
+// about block
+.about-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: center;
+  min-height: 180px;
+  background-color: white;
+  padding-left: 100px
+}
+
+
+// take quiz block
+
+.takequiz-container {
+  min-height: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.takequiz-left {
+  background-color: #E1E1E1;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.takequiz-left-content {
+  min-width: 350px;
+  flex: 0 0 auto;
+  padding-left: 100px;
+  a {
+    max-width: 150px;
+  }
+}
+
+.takequiz-right {
+  background-image: url('quizbg.png');
+  background-size: cover !important;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  span :last-child {
+    color: $gold !important;
+   background-color: transparent !important;
+ }
+}
+
+.takequiz-right-content {
+  min-width: 350px;
+  flex: 0 0 auto;
+}
+
+// card stacks
+.cardstack-container {
+  min-height: 500px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.cardstack-content {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  h3 {
+    padding-left: 60px;
+  }
+}
+
+.cardstack-img {
+  max-width: 700px;
+}
+
+// dk page
+.dkpage-container {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: center;
+  background-color: $light-gold;
+}
+
+.dkpage-left {
+  align-self: center;
+  width: 300px;
+  margin-right: 60px;
+}
+
+.dkpage-right {
+
+}
+
+.dkpage-img {
+  max-width: 650px;
+  // margin-bottom: 0;
+}
+.dkpage-text {
+  margin-right: 100px;
+}
+
+// map block
+
+.mapblock-container {
+  min-height: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mapblock-left {
+  background-color: white;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.mapblock-left-content {
+  max-width: 450px;
+  flex: 0 0 auto;
+  padding-left: 100px;
+  margin-right: 60px;
+}
+
+.mapblock-right {
+  background-image: url('map-placeholder.png');
+  background-size: cover !important;
+  flex: 1 1 50%;
+}
+
+.mapblock-right-content {
+
+}
+
+// tourists
+
+.tourists-container {
+  min-height: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tourists-left {
+  background-image: url('tourists.png');
+  background-size: cover !important;
+  flex: 1 1 50%;
+}
+
+.tourists-left-content {
+
+}
+
+.tourists-right {
+  background-color: $light-gold;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.tourists-right-content {
+  max-width: 500px;
+  flex: 0 0 auto;
+  padding-left: 140px;
+  margin-right: 60px;
+}
+
+
+// start quiz
+
+.startquiz-container {
+  background-color: #555452;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.startquiz-content {
+  color: white;
+  margin-left: 100px;
+  h1 {
+    margin-bottom: 20px;
+  }
+  a {
+    max-width: 150px;
+  }
+}
+
+// scout apply
+
+.scout-container {
+  min-height: 220px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scout-left {
+  background-color: #F2F2F2;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  padding-left: 100px;
+}
+
+.scout-left-content {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.scout-right {
+  background-color: #E1E1E1;
+  width: 350px;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  a {
+    min-width: 200px;
+    align-self: center;
+  }
+  h4 {
+    align-self: center;
+  }
+}
+
+.scout-img {
+  width: 130px;
+  margin-right: 30px;
+}
+

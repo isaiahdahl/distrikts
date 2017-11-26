@@ -14,6 +14,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -42,5 +43,6 @@
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>
+
   </body>
 </html>
