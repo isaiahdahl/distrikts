@@ -9,11 +9,11 @@ class FourSquare
 
   def venue_search_url
     BASE_URL + "venues/explore?" + {
-      client_id: ENV["FS-CLIENT_ID"],
-      client_secret: ENV["FS-CLIENT_SECRET"],
+      client_id: ENV["FS_ID"],
+      client_secret: ENV["FS_SECRET"],
       v: "20170801",
       ll: "#{@distrikt.latitude},#{@distrikt.longitude}",
-      query: "coffee",
+      query: @filter,
       limit: 10
     }.to_query
   end
