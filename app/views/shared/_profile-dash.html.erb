@@ -16,26 +16,29 @@
     </div>
 
     <div class="user-filters gold">
-
-      <div class="users-filter text-center">
-        <div class="hexagon-filter">
-          <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
-          <div class="filter-block">
-            <h2 class="filter-num"><%= @wishlisted %></h2>
-            <h5 class="wishlist upper">Wishlist</h5>
+      <%= link_to distrikts_path(scope: "wishlist"), remote: true do %>
+        <div class="users-filter active filter text-center">
+          <div class="hexagon-filter" id="wishlist">
+            <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
+            <div class="filter-block">
+              <h2 class="filter-num"><%= @wishlisted.count %></h2>
+              <h5 class="wishlist upper">Wishlist</h5>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
 
-      <div class="users-filter text-center">
-        <div class="hexagon-filter">
-          <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
-          <div class="filter-block">
-            <h2 class="filter-num"><%= @visited %></h2>
-            <h5 class="wishlist upper">Visited</h5>
+      <%= link_to distrikts_path(scope: "visit"), remote: true do %>
+        <div class="users-filter text-center">
+          <div class="hexagon-filter" id="visit">
+            <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
+            <div class="filter-block">
+              <h2 class="filter-num"><%= @visited.count %></h2>
+              <h5 class="wishlist upper">Visited</h5>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
 
       <div class="users-filter text-center">
         <div class="hexagon-filter">
