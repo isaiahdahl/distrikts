@@ -24,24 +24,10 @@
 
         <div class="ig-label text-center">
           <div class="ig-block">
-          <%= image_tag "instagram.png", class: "ig-logo" %>
-          <h5 class="ig-name">#<%= @distrikts.first.name %></h5>
+            <%= image_tag "instagram.png", class: "ig-logo" %>
+            <h5 class="ig-name">#<%= @distrikts.first.name %></h5>
            </div>
-        </div>
-
-        <div class="explore-ig">
-          <div>
-            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
-          </div>
-          <div>
-            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
-          </div>
-          <div>
-            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
-          </div>
-          <div>
-            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
-          </div>
+          <%= render 'shared/instagram-explore-block' %>
         </div>
 
       </div>
@@ -84,25 +70,14 @@
 
         <div class="ig-label text-center">
           <div class="ig-block">
-          <%= image_tag "instagram.png", class: "ig-logo" %>
-          <h5 class="ig-name">#<%= distrikt.name %></h5>
+            <%= image_tag "instagram.png", class: "ig-logo" %>
+            <h5 class="ig-name">#<%= distrikt.name %></h5>
            </div>
+          <%= render 'shared/instagram-explore-block' %>
+
         </div>
 
-        <div class="explore-ig">
-          <div>
-            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
-          </div>
-          <div>
-            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
-          </div>
-          <div>
-            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
-          </div>
-          <div>
-            <%= image_tag "ig_sample.jpg", class: "ig-image" %>
-          </div>
-        </div>
+
       </div>
     </div>
     </section>

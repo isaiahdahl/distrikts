@@ -2,7 +2,7 @@
   width: 65%;
 }
 
-#map { 
+#map {
   width: 100%;
   height: 100%;
 }
@@ -19,9 +19,9 @@
 }
 
 .map-left {
-  width: 60%;
+  flex: 1 1 auto;
 }
 
 .places-right {
-  width: 40%;
+  flex: 0 0 450px;
 }

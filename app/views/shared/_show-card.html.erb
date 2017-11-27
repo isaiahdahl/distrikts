@@ -1,4 +1,4 @@
-<% @sorted[1...5].each do |distrikt| %>
+<% @sorted[1...9].each do |distrikt| %>
 <%= link_to distrikt_path(id: distrikt.id) do %>
 <div class="col-xs-6 col-sm-3">
   <% if distrikt.photos.first.nil? %>

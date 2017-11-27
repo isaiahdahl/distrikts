@@ -1,10 +1,7 @@
-<div class="insta-block">
-  <h4 class="heading light text-center"><i class="fa fa-instagram" aria-hidden="true"></i>
-    <%= @distrikt.name.downcase %></h4>
-    <div class="gallery-container">
-      <div id="instafeed"></div>
-    </div>
-  </div>
+<div class="explore-ig-container">
+    <div id="instafeed"></div>
+</div>
+
 
   <% content_for :after_js do %>
   <script type="text/javascript">
@@ -12,7 +9,7 @@
       get: 'user',
       userId: "37005293",
       accessToken: "37005293.7d28e1e.82095e8ca0474e0faf075ca9196c97bd",
-      limit: 15
+      limit: 4
     });
     feed.run();
   </script>

@@ -1,4 +1,4 @@
-class FourSquare
+class Foursquare
 
   BASE_URL = "https://api.foursquare.com/v2/"
 
