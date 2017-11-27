@@ -14,7 +14,6 @@ class DistriktsController < ApplicationController
     end
     @q = @distrikts.ransack q_param
     @distrikts = @q.result
-
     @score = @user.score
     @cities = cities
     @countries = countries

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get 'answers/quiz', to: 'answers#quiz'
   get 'answers/results', to: 'answers#results'
   resources :distrikts, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :places, only: [:new, :create] do
+    get 'places/close', to: 'places#close'
+    resources :places, only: [:new, :create, :show] do
       resources :reviews, only: [ :new, :create ]
     end
     member do

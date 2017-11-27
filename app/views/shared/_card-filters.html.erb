@@ -20,7 +20,7 @@
       <%= f.select :city_continent_cont, @continents %>
           <%= f.submit class: :hidden %>
       <% end %>
-      <%= link_to "Clear Search", request.path, class:"btn-solid clear-search" %>
+      <%= link_to "Clear Search", request.path, class:"btn-solid clear-search", id: "clear-search" %>
     </div>
 
     <div class="card-filters-right">
