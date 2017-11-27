@@ -39,6 +39,28 @@ class PlacesController < ApplicationController
     end
   end
 
+  def show
+    @place = Place.find(params[:id])
+    @distrikt = Distrikt.find(params[:distrikt_id])
+
+    authorize @place
+    respond_to do |format|
+      format.js
+      format.html { redirect_back fallback_location: root_path }
+    end
+  end
+
+  def close
+    @distrikt = Distrikt.find(params[:distrikt_id])
+    @place = Place.new
+
+    authorize @place
+    respond_to do |format|
+      format.js
+      format.html { redirect_back fallback_location: root_path }
+    end
+  end
+
   private
 
   def place_params

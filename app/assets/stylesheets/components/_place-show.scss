@@ -1,0 +1,22 @@
+.place-show-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #F2F2F2;
+  height: 100%;
+}
+
+.place-show-top {
+  flex: 1 1 350px;
+  background-size: cover;
+}
+
+.place-show-bottom {
+  flex: 1 1 auto;
+  padding: 20px;
+}
+
+.place-icon {
+  height: 20px;
+  margin-bottom: 5px;
+}
