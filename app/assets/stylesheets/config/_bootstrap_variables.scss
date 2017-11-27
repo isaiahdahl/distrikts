@@ -29,3 +29,7 @@ $link-color:            $black !default;
 $link-hover-color:      darken($link-color, 15%) !default;
 //** Link hover decoration.
 $link-hover-decoration: none !default;
+
+//** Border color for inputs on focus
+$input-border-focus:             #F8C603 !default;
+
