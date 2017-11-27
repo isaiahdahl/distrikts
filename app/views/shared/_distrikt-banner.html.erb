@@ -12,28 +12,30 @@
         <div class="dropdown">
           <button class="btn-outline-save dropdown-toggle" type="button" data-toggle="dropdown">SAVE <i class="bold fa fa-angle-down" aria-hidden="true" data-toggle="dropdown"></i></button>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <% if @user.favorited? @distrikt, scope: ["wishlist"] %>
-                  <%= link_to remove_wishlist_distrikt_path, method: :put do %>
-                      <i class="fa fa-flag"></i><i class="fa fa-times gold save-icon"></i> <%= t(".profile", default: " Remove from wishlist") %>
-                  <% end %>
-              <% else %>
-                  <%= link_to wishlist_distrikt_path, method: :put do %>
-                      <i class="fa fa-flag gold save-icon"></i> <%= t(".profile", default: " Want to go") %>
-                  <% end %>
-              <% end %>
-            </li>
-            <li>
-              <% if @user.favorited? @distrikt, scope: ["visit"] %>
+            <% if @user.favorites.pluck(:favoritable_id, :scope).include?([@distrikt.id, 'visit']) %>
+                <li>
                   <%= link_to remove_visit_distrikt_path, method: :put do %>
                       <i class="fa fa-times gold save-icon"></i>  <%= t(".profile", default: " Actually haven't Visited ") %>
                   <% end %>
-              <% else %>
+                </li>
+                <% else %>
+                <li>
+                  <% if @user.favorites.pluck(:favoritable_id, :scope).include?([@distrikt.id, 'wishlist']) %>
+                      <%= link_to remove_wishlist_distrikt_path, method: :put do %>
+                          <i class="fa fa-flag"></i><i class="fa fa-times gold save-icon"></i> <%= t(".profile", default: " Remove from wishlist") %>
+                          <% end  %>
+                  <% else %>
+                      <%= link_to wishlist_distrikt_path, method: :put do %>
+                          <i class="fa fa-flag gold save-icon"></i> <%= t(".profile", default: " Want to go") %>
+                      <% end %>
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to visit_distrikt_path, method: :put do %>
                       <i class="fa fa-check gold save-icon"></i>  <%= t(".profile", default: " Visited") %>
                   <% end %>
-              <% end %>
-            </li>
+                </li>
+            <% end %>
           </ul>
         </div>
       </div>

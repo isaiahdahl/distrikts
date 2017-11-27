@@ -7,19 +7,20 @@ class PlacesController < ApplicationController
     # Foursquare results
     foursquare = Foursquare.new(@distrikt, @filter)
     @fs_places = foursquare.establishments
-
-    # Yelp results
-    yelp = Yelp.new(@filter, @distrikt.address)
-    @yelp_places = yelp.yelp_search
+    @fs_photos = foursquare.photo_search_url(@fs_places.first["id"])
 
     @place = Place.new(
       name: @fs_places.first["name"],
       address: @fs_places.first["location"]["formattedAddress"].join(" "),
       phone: @fs_places.first["contact"]["phone"],
-      img_url: @yelp_places["businesses"].first["image_url"]
+      url: @fs_places.first["url"],
+      hour: @fs_places.first["hours"]["status"],
+      price: @fs_places.last["price"]["tier"],
+      latitude: @fs_places.first["location"]["lat"],
+      longitude: @fs_places.first["location"]["lng"],
+      img_url: @fs_photos["prefix"] + "original" + @fs_photos["suffix"]
       )
     authorize @place
-    
     respond_to do |format|
       format.js
       format.html { redirect_back fallback_location: root_path }
@@ -30,7 +31,6 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.distrikt_id = params[:distrikt_id]
     authorize @place
-    raise
     if @place.save
       redirect_to distrikt_path(params[:distrikt_id])
     else
@@ -64,6 +64,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :address, :category, :phone, :img_url, :filter, :distrikt_id)
+    params.require(:place).permit(:name, :address, :category, :phone, :img_url, :filter, :distrikt_id, :url, :hour, :price, :latitude, :longitude)
   end
 end

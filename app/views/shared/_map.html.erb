@@ -21,9 +21,7 @@
         container: 'map',
         style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',
         pitch: 60,
-        <% unless @coordinates.compact.empty? %>
-        center: <%= @coordinates.compact.sample %>,
-        <% end %>
+        center: [<%= @distrikt.longitude %>, <%= @distrikt.latitude %>],
         bearing: -17.6,
         zoom: 14,
       });

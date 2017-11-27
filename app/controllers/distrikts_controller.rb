@@ -100,6 +100,9 @@ class DistriktsController < ApplicationController
   def visit
     user = current_user
     user.favorite @distrikt, scope: [:visit]
+    unless user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).empty?
+      user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).first.destroy
+    end
     redirect_to distrikts_path
   end
 
@@ -110,14 +113,18 @@ class DistriktsController < ApplicationController
   end
 
   def remove_visit
+    @distrikt = Distrikt.find(params[:id])
+    authorize @distrikt
     user = current_user
-    user.remove_favorite @distrikt, scope: [:visit]
+    user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["visit"]).first.destroy
     redirect_to distrikts_path
   end
 
-  def remove_wish
+  def remove_wishlist
+    @distrikt = Distrikt.find(params[:id])
+    authorize @distrikt
     user = current_user
-    user.remove_favorite @distrikt, scope: [:wishlist]
+    user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).first.destroy
     redirect_to distrikts_path
   end
 
@@ -167,6 +174,16 @@ class DistriktsController < ApplicationController
       lng = place.longitude unless place.longitude.nil?
       lat =  place.latitude unless place.latitude.nil?
       feature = { "type": "Feature",
+                  "properties": {
+                    "description": 
+                    "<div class=\"popup-top\">
+                    <img src=\"#{place.img_url}\" class=\"img-rounded\">
+                    </div>
+                    <div class=\"popup-bottom\">
+                    <h5 class=\"bold\">#{place.name}</h5>
+                    <h5 class=\"light\">#{place.category.capitalize} | #{place.description}</h5> 
+                    </div>"
+                  },
                   "geometry": {
                       "type": "Point",
                       "coordinates": [lng, lat]
