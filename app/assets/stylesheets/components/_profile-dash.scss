@@ -51,9 +51,12 @@
   align-items: center;
 }
 
-.active-filter {
+.outline-hex.hidden + div {
   color: white;
-  background-color: #f8c604;
+}
+
+.active-filter {
+  color: white !important;
 }
 
 .filter-block {

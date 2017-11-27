@@ -1,1 +1,18 @@
 $('#index-cards').html("<%= j render 'shared/index-cards' %>");
+
+if ($("#<%= params[:scope] %>:has(img.outline-hex.hidden)")[0]) {
+  console.log($('#clear-search'));
+  $('#clear-search')[0].click();
+}
+
+$('.hexagon-filter').removeClass('active-filter');
+
+$('img.full-hex').addClass('hidden');
+$('img.outline-hex').removeClass('hidden');
+$('#<%= params[:scope] %> img.full-hex').removeClass('hidden');
+$('#<%= params[:scope] %> img.outline-hex').addClass('hidden');
+
+if ($("#<%= params[:scope] %>:has(img.outline-hex.hidden)")[0]) {
+  $('.filter-block').removeClass('active-filter');
+  $('#<%= params[:scope] %>-text').addClass('active-filter');
+}
