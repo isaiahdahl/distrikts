@@ -100,6 +100,9 @@ class DistriktsController < ApplicationController
   def visit
     user = current_user
     user.favorite @distrikt, scope: [:visit]
+    if user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"])
+      user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).first.destroy
+    end
     redirect_to distrikts_path
   end
 
@@ -110,14 +113,18 @@ class DistriktsController < ApplicationController
   end
 
   def remove_visit
+    @distrikt = Distrikt.find(params[:id])
+    authorize @distrikt
     user = current_user
-    user.remove_favorite @distrikt, scope: [:visit]
+    user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["visit"]).first.destroy
     redirect_to distrikts_path
   end
 
-  def remove_wish
+  def remove_wishlist
+    @distrikt = Distrikt.find(params[:id])
+    authorize @distrikt
     user = current_user
-    user.remove_favorite @distrikt, scope: [:wishlist]
+    user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).first.destroy
     redirect_to distrikts_path
   end
 
