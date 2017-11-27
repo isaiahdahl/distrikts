@@ -25,6 +25,23 @@
   }
 }
 
+.btn-outline-darkgold {
+  padding: 10px 20px;
+  border: 2px solid $dark-gold;
+  // border-radius: 4px;
+  color: $gold;
+  background-color: Transparent;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .08em;
+  &:hover {
+    background-color: $dark-gold;
+    color: $black;
+    // border: 2px solid $gold;
+  }
+}
+
 .btn-outline-save {
   border-radius: 2px;
   padding: 5px 10px;
@@ -288,5 +305,48 @@ a.animated-button.thar-gold:before {
   content: '';
   color: white !important;
   background: $gold;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+
+// thar dark gold
+
+a.animated-button.thar-darkgold {
+  color: $dark-gold;
+  font-weight: 700;
+  padding: 14px 15px;
+  background-color: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .08em;
+  display: block;
+  z-index: 1;
+// border-radius: 4px;
+  position: relative;
+  border: 2px solid $dark-gold;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+a.animated-button.thar-darkgold:hover {
+  color: black !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+a.animated-button.thar-darkgold:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+a.animated-button.thar-darkgold:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: '';
+  color: white !important;
+  background: $dark-gold;
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
