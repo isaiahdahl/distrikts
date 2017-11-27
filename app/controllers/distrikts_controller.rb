@@ -175,13 +175,10 @@ class DistriktsController < ApplicationController
       lat =  place.latitude unless place.latitude.nil?
       feature = { "type": "Feature",
                   "properties": {
-                    "description": 
-                    "<div class=\"popup-top\">
-                    <img src=\"#{place.img_url}\" class=\"img-rounded\">
-                    </div>
-                    <div class=\"popup-bottom\">
-                    <h5 class=\"bold\">#{place.name}</h5>
-                    <h5 class=\"light\">#{place.category.capitalize} | #{place.description}</h5> 
+                    "description":
+                    "<div class=\"popup-bottom\">
+                    <h4 class=\"bold\">#{place.name}</h4>
+                    <h5 class=\"light\">#{place.category.capitalize} | #{place.description}</h5>
                     </div>"
                   },
                   "geometry": {
