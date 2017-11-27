@@ -48,6 +48,8 @@
 
   <% @distrikts.drop(0).each_with_index do |distrikt, index| %>
 
+  <% if distrikt == @distrikts.first %>
+  <% else %>
     <section id='<%= distrikt.name.delete(' ') %>'>
 
       <div class="card-explore">
@@ -84,8 +86,8 @@
       </div>
     </div>
     </section>
-      <% if @distrikts[index + 1].nil? %>
-          <a href="#<%= @distrikts[1].name.delete(' ') %>">
+      <% if @distrikts[index + 1].nil? || @distrikts[index + 1] == @distrikts.first %>
+          <a href="#top">
             <div class="next-distrikt">
               <h4>Back to top </h4>
               <i class="fa fa-arrow-up" aria-hidden="true"></i>
@@ -99,6 +101,7 @@
             </div>
           </a>
       <% end %>
+    <% end %>
   <% end %>
 </div>
 
