@@ -16,7 +16,7 @@
     </div>
 
     <div class="user-filters gold">
-      <%= link_to distrikts_path(scope: "wishlist"), remote: true do %>
+      <%= link_to distrikts_path(scope: "wishlist", q: params[:q]), remote: true do %>
         <div class="users-filter active filter text-center">
           <div class="hexagon-filter" id="wishlist">
             <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>
@@ -28,7 +28,7 @@
         </div>
       <% end %>
 
-      <%= link_to distrikts_path(scope: "visit"), remote: true do %>
+      <%= link_to distrikts_path(scope: "visit",  q: params[:q]), remote: true do %>
         <div class="users-filter text-center">
           <div class="hexagon-filter" id="visit">
             <%= image_tag "hexagons/hex-outline.png", class: "hex-filter" %>

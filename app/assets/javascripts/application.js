@@ -15,9 +15,11 @@ $(function() {
   if (window.location.search.match(/sign_in=true/)) {
     $(".btn-nav[data-target='#modalSignIn']").click()
   }
-});
 
-$(document).ready(function(){
   $("#sticker").sticky({topSpacing:0});
+
+  $(".card-filters-container select").on("change", function() {
+    $(this).parents('form').submit();
+  })
 });
 
