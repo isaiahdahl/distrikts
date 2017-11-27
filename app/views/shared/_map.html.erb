@@ -107,6 +107,14 @@
             }
         });
     });
+
+        map.on('click', 'points', function (e) {
+        new mapboxgl.Popup()
+            .setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(e.features[0].properties.description)
+            .addTo(map);
+        });
+
         map.on('click', 'points', function (e) {
           map.flyTo({center: e.features[0].geometry.coordinates});
         });
@@ -123,9 +131,8 @@
         map.scrollZoom.disable();
 });
 
-// create the popup
-var popup = new mapboxgl.Popup()
-    .setText('Construction on the Washington Monument began in 1848.');
+    // When a click event occurs on a feature in the places layer, open a popup at the
+    // location of the feature, with description HTML from its properties.
 
 
 </script>
