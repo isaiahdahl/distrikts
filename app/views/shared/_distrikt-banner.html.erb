@@ -8,29 +8,29 @@
         <h2 class="text-center"><%= compare(@user.score, @distrikt.score) %></h2>
         <h5 class="text-center bold">MATCH</h5>
       </div>
-      <div class="navbar-wagon-item">
+      <div class="left-top-save">
         <div class="dropdown">
           <button class="btn-outline-save dropdown-toggle" type="button" data-toggle="dropdown">SAVE <i class="bold fa fa-angle-down" aria-hidden="true" data-toggle="dropdown"></i></button>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <% if @user.favorited? @distrikt, scope: ["wishlist"] %>
                   <%= link_to remove_wishlist_distrikt_path, method: :put do %>
-                      <i class="fa fa-flag"></i><i class="fa fa-times"></i> <%= t(".profile", default: " Remove from wishlist") %>
+                      <i class="fa fa-flag"></i><i class="fa fa-times gold save-icon"></i> <%= t(".profile", default: " Remove from wishlist") %>
                   <% end %>
               <% else %>
                   <%= link_to wishlist_distrikt_path, method: :put do %>
-                      <i class="fa fa-flag"></i> <%= t(".profile", default: " Want to go") %>
+                      <i class="fa fa-flag gold save-icon"></i> <%= t(".profile", default: " Want to go") %>
                   <% end %>
               <% end %>
             </li>
             <li>
               <% if @user.favorited? @distrikt, scope: ["visit"] %>
                   <%= link_to remove_visit_distrikt_path, method: :put do %>
-                      <i class="fa fa-times"></i>  <%= t(".profile", default: " Actually havn't Visited ") %>
+                      <i class="fa fa-times gold save-icon"></i>  <%= t(".profile", default: " Actually haven't Visited ") %>
                   <% end %>
               <% else %>
                   <%= link_to visit_distrikt_path, method: :put do %>
-                      <i class="fa fa-check"></i>  <%= t(".profile", default: " Visited") %>
+                      <i class="fa fa-check gold save-icon"></i>  <%= t(".profile", default: " Visited") %>
                   <% end %>
               <% end %>
             </li>
