@@ -1,23 +1,26 @@
 <div class="place-show-container">
   <div class="place-show-top" style="background-image: url('<%= @place.img_url %>')">
-    <div id="close-icon">
+
+    <div id="close">
       <%= link_to distrikt_places_close_path(@distrikt.id), class: "close", remote: true do %>
-        <span aria-hidden="true">&times;</span>
+        <%= image_tag "close-white-lg.png", class: "x-icon" %>
       <% end %>
     </div>
+
   </div>
+
   <div class="place-show-bottom">
-    <div class="place-category">
-      <p id="<%= @place.category %>"><%= @place.category.upcase %> | $$</p>
+    <div class="place-show-category">
+      <h5 class=" " id="<%= @place.category %>"><%= @place.category.upcase %> | $$</h5>
     </div>
-    <div class="place-name">
-      <h3><%= @place.name %></h3>
+    <div class="place-name bold">
+      <h2><%= @place.name %></h2>
     </div>
     <hr>
-    <ul class="li"><%= image_tag "place-marker.png", class: "place-icon" %> <%= @place.address %></ul>
-    <ul class="li"><%= image_tag "place-earth.png", class: "place-icon" %> www.distrikts.co</ul>
-    <ul class="li"><%= image_tag "place-phone.png", class: "place-icon" %> <%= @place.phone %></ul>
-    <ul class="li"><%= image_tag "place-hours.png", class: "place-icon" %> Open now: 9AM-11PM</ul>
+    <ul class="li"><%= image_tag "place-marker.png", class: "place-icon text-center" %> <%= @place.address %></ul>
+    <ul class="li"><%= image_tag "place-earth.png", class: "place-icon text-center" %> www.distrikts.co</ul>
+    <ul class="li"><%= image_tag "place-phone.png", class: "place-icon text-center" %> <%= @place.phone %></ul>
+    <ul class="li"><%= image_tag "place-hours.png", class: "place-icon text-center" %> Open now: 9AM-11PM</ul>
   </div>
 </div>
 
