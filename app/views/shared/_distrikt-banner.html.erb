@@ -38,15 +38,32 @@
         </div>
       </div>
     </div>
+
     <div class="profile-left-header">
-      <% if policy(Distrikt).edit? %>
-          <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
-      <% end %>
-      <h3 class="light">Welcome to</h3>
-      <h1 class = "bold upper"><%= @distrikt.name %></h1>
-      <h5 class="upper"><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h5>
+      <div class="copy-blocks">
+        <% if policy(Distrikt).edit? %>
+            <a href="<%= edit_distrikt_path(@distrikt.id) %>"><i class="fa fa-edit"></i></a>
+        <% end %>
+        <h3 class="light">Welcome to</h3>
+        <h1 class = "bold upper"><%= @distrikt.name %></h1>
+        <h5 class="upper"><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h5>
+        <p class="light spaced"><%= @distrikt.description %></p>
+      </div>
+
     </div>
-    <p class="light spaced"><%= @distrikt.description %></p>
+      <div class="show-nav-buttons">
+          <a href="#map-container">
+            <%= image_tag "show-banner-icons/show-map.png", class: "show-button" %>
+          </a>
+
+          <a href="#show-cards">
+            <%= image_tag "show-banner-icons/show-distrikts.png", class: "show-button" %>
+          </a>
+
+          <a href="#instagram-block">
+            <%= image_tag "show-banner-icons/show-instagram.png", class: "show-button" %>
+          </a>
+      </div>
   </div>
 
   <!-- Top-Right(CAROUSEL) -->
@@ -98,3 +115,35 @@
     </div>
   </div>
 </div>
+
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function(){
+    // Add smooth scrolling to all links
+
+    $(".show-nav-buttons a").on('click', function(event) {
+      var self = this;
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top - 46
+        }, 600, function(){
+          $(".show-nav-buttons .show-nav-link").removeClass('active');
+          $(self).find('.show-nav-link').addClass('active');
+          // Add hash (#) to URL when done scrolling (default click behavior)
+//          window.location.hash = hash;
+          window.history.replaceState("", document.title, window.location.href.replace(window.location.hash, "") + hash);
+        });
+      } // End if
+    });
+  });
+</script>
+<% end %>
