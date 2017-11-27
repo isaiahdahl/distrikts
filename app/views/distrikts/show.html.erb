@@ -1,20 +1,22 @@
-<%= render 'shared/distrikt-banner' %>
-<%= render 'shared/show-nav' %>
+<div class="distrik-container">
+  <%= render 'shared/distrikt-banner' %>
+  <%= render 'shared/show-nav' %>
 
-<div class="map-places-container" id="map-container">
-  <div class="map-left" id="map-left">
-    <%= render 'shared/map' %>
+  <div class="map-places-container" id="map-container">
+    <div class="map-left" id="map-left">
+      <%= render 'shared/map' %>
+    </div>
+    <div class="places-right" id="places-right">
+      <%= render 'shared/places' %>
+    </div>
   </div>
-  <div class="places-right" id="places-right">
-    <%= render 'shared/places' %>
+
+  <div id="show-cards">
+  <%= render "shared/show-cards" %>
   </div>
-</div>
 
-<div id="show-cards">
-<%= render "shared/show-cards" %>
-</div>
+  <div id="instagram-block">
+    <%= render 'shared/instagram-block' %>
+  </div>
 
-<div id="instagram-block">
-  <%= render 'shared/instagram-block' %>
 </div>
-

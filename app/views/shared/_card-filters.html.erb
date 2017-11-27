@@ -10,10 +10,9 @@
       <% end %>
 
       <%= search_form_for @q do |f| %>
-          <%= image_tag 'downarrow.png', class: "down-arrow"  %>
-      <%= f.select :city_country_cont, @countries %>
-
-          <%= f.submit  class: :hidden%>
+        <%= image_tag 'downarrow.png', class: "down-arrow"  %>
+        <%= f.select :city_country_cont, @countries %>
+        <%= f.submit  class: :hidden%>
       <% end %>
 
       <%= search_form_for @q do |f| %>
@@ -21,7 +20,7 @@
       <%= f.select :city_continent_cont, @continents %>
           <%= f.submit class: :hidden %>
       <% end %>
-      <%= link_to "Clear Search", request.path, class:"btn-solid" %>
+      <%= link_to "Clear Search", request.path, class:"btn-solid clear-search" %>
     </div>
 
     <div class="card-filters-right">
@@ -30,6 +29,5 @@
       <%= f.submit class: "btn-outline", placeholder: false%>
       <% end %>
     </div>
-
   </div>
 </div>
