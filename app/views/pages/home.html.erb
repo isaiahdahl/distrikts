@@ -128,7 +128,7 @@
       });
     });
 
-    map.on('click', function (e) {
+    map.on('mouseenter', function (e) {
       map.flyTo({
         center: end,
         zoom: 13.5,
@@ -158,5 +158,21 @@
     });
     map.scrollZoom.disable();
   });
+
+
+
+  if (isElementOnScreen('map'))  {
+    window.onscroll = function () {
+      console.log("hey");
+      // point a or b
+    };
+
+  }
+
+  function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    return bounds.top < window.innerHeight && bounds.bottom > 0;
+  }
 
 </script>
