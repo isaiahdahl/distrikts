@@ -100,7 +100,7 @@ class DistriktsController < ApplicationController
   def visit
     user = current_user
     user.favorite @distrikt, scope: [:visit]
-    if user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"])
+    unless user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).empty?
       user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).first.destroy
     end
     redirect_to distrikts_path
