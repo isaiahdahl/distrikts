@@ -16,4 +16,8 @@ class PlacePolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def close?
+    show?
+  end
 end

@@ -1,13 +1,16 @@
 <li>
-  <div class="place">
-    <div class="place-category">
-      <p id="<%= place.category %>"><%= place.category.upcase %> | $$</p>
+  <%= link_to distrikt_place_path(id: place.id, distrikt_id: place.distrikt_id), remote: true do %>
+    <div class="place">
+      <div class="place-category">
+        <p id="<%= place.category %>"><%= place.category.upcase %> | $$</p>
+      </div>
+      <div class="place-name">
+        <h3><%= place.name %></h3>
+      </div>
+      <div class="place-description">
+        <p><%= place.address %></p>
+      </div>
     </div>
-    <div class="place-name">
-      <h3><%= place.name %></h3>
-    </div>
-    <div class="place-description">
-      <p><%= place.address %></p>
-    </div>
-  </div>
+  <% end %>
+  
 </li>
