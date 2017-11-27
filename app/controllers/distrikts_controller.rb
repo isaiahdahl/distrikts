@@ -1,3 +1,4 @@
+require 'byebug'
 class DistriktsController < ApplicationController
   before_action :distrikt, only: [:edit, :show, :update, :destroy, :visit, :wishlist]
   before_action :authorize_distrikt, only: [:edit, :show, :update, :destroy, :visit, :wishlist]
@@ -14,7 +15,6 @@ class DistriktsController < ApplicationController
     end
     @q = @distrikts.ransack q_param
     @distrikts = @q.result
-
     @score = @user.score
     @cities = cities
     @countries = countries
