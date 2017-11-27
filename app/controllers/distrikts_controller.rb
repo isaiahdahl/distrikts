@@ -7,10 +7,8 @@ class DistriktsController < ApplicationController
   def index
     @user = current_user
     q_param = params[:q]
-    page = params[:page]
-    per_page = params[:per_page]
     @q = Distrikt.ransack q_param
-    @distrikts = @q.result.page(page).per(per_page)
+    @distrikts = @q.result
     @distrikt = policy_scope(Distrikt)
     if params[:scope]
       @distrikts = @user.favorited_by_type 'Distrikt', scope: [params[:scope]]
