@@ -7,13 +7,14 @@ class DistriktsController < ApplicationController
   def index
     @user = current_user
     q_param = params[:q]
-    @q = Distrikt.ransack q_param
-    @distrikts = @q.result
-    @distrikt = policy_scope(Distrikt)
+    @distrikts = policy_scope(Distrikt)
     if params[:scope]
       @distrikts = @user.favorited_by_type 'Distrikt', scope: [params[:scope]]
       @scope = params[:scope]
     end
+    @q = @distrikts.ransack q_param
+    @distrikts = @q.result
+
     @score = @user.score
     @cities = cities
     @countries = countries
@@ -144,7 +145,7 @@ class DistriktsController < ApplicationController
     @cities = []
     City.all.each { |city| @cities << city.name }
     @cities.sort!
-    @cities.unshift('City')
+    @cities.unshift(['City', ''])
 
   end
 
@@ -152,14 +153,14 @@ class DistriktsController < ApplicationController
     @countries = []
     City.all.each { |city| @countries << city.country }
     @countries.sort!
-    @countries.unshift('Country')
+    @countries.unshift(['Country', ''])
   end
 
   def continents
     @continents = []
     City.all.each { |city| @continents << city.continent }
     @continents.sort!
-    @continents.unshift('Continent')
+    @continents.unshift(['Continent', ''])
   end
 
   def place_coordinates
