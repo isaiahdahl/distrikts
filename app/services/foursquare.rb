@@ -1,6 +1,8 @@
 class Foursquare
 
   BASE_URL = "https://api.foursquare.com/v2/"
+  FS_CLIENT_ID = ENV["FS_ID"]
+  FS_CLIENT_SECRET = ENV["FS_SECRET"]
 
   def initialize(distrikt, filter)
     @distrikt = distrikt
@@ -9,13 +11,26 @@ class Foursquare
 
   def venue_search_url
     BASE_URL + "venues/explore?" + {
-      client_id: ENV["FS_ID"],
-      client_secret: ENV["FS_SECRET"],
+      client_id: FS_CLIENT_ID,
+      client_secret: FS_CLIENT_SECRET,
       v: "20170801",
       ll: "#{@distrikt.latitude},#{@distrikt.longitude}",
       query: @filter,
       limit: 10
     }.to_query
+  end
+
+  def photo_search_url(venue_id)
+    url = BASE_URL + "venues/" + venue_id + "/photos?" + {
+      client_id: FS_CLIENT_ID,
+      client_secret: FS_CLIENT_SECRET,
+      v: "20170801",
+      limit: 1
+    }.to_query
+
+    raw = connect.get url
+    result = JSON.load(raw.body)
+    result["response"]["photos"]["items"].first
   end
 
   def connect
