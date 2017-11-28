@@ -2,6 +2,7 @@
   "name": "distrikts",
   "private": true,
   "dependencies": {
-    "instafeed.js": "^1.4.1"
+    "instafeed.js": "^1.4.1",
+    "toastr": "^2.1.2"
   }
 }
