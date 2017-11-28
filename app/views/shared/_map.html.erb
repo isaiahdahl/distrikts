@@ -135,18 +135,34 @@
             });
           });
 
-
-
-        map.on('click', 'points', function (e) {
-          map.flyTo({center: e.features[0].geometry.coordinates});
+        var popups = new mapboxgl.Popup({
+          closeButton: false,
+          closeOnClick: true
         });
 
-        map.on('click', 'points', function (e) {
-          new mapboxgl.Popup()
-            .setLngLat(e.features[0].geometry.coordinates)
+        map.on('click', 'points', function(e) {
+          // Change the cursor style as a UI indicator.
+          map.flyTo({
+            center: e.features[0].geometry.coordinates,
+            zoom: 14,
+            pitch: 50
+          });
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          popups.setLngLat(e.features[0].geometry.coordinates)
             .setHTML(e.features[0].properties.description)
             .addTo(map);
         });
+
+        map.on('mouseleave', 'points', function() {
+          setTimeout(function() {
+            map.getCanvas().style.cursor = '';
+            popups.remove();
+          }, 1500);
+        });
+
+
+
 
         // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
         map.on('mouseenter', 'points', function () {
