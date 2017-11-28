@@ -8,7 +8,7 @@ class DistriktsController < ApplicationController
     @user = current_user
     q_param = params[:q]
     @distrikts = policy_scope(Distrikt)
-    if params[:scope]
+    if !params[:scope].blank?
       @distrikts = @user.favorited_by_type 'Distrikt', scope: [params[:scope]]
       @scope = params[:scope]
     end
@@ -174,6 +174,7 @@ class DistriktsController < ApplicationController
       lng = place.longitude unless place.longitude.nil?
       lat =  place.latitude unless place.latitude.nil?
       feature = { "type": "Feature",
+                  "id": "#{place.id}",
                   "properties": {
                     "description":
                     "<div class=\"popup-bottom\">
