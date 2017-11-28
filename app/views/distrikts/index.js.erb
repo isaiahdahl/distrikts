@@ -1,5 +1,38 @@
 $('#index-cards').html("<%= j render 'shared/index-cards' %>");
 
+function parseUrl() {
+  var obj = window.location.search.split("&").reduce(function(prev, curr, i, arr) {
+    var p = curr.split("=");
+    prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
+    return prev;
+  }, {});
+  return obj;
+}
+
+function toUrl(obj) {
+  var str = [];
+  for(var p in obj)
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    }
+  return str.join("&");
+}
+
+<% if !params[:scope].blank? %>
+  if (window.location.search != "") {
+    var jsParams = parseUrl(window.location.search.substring(1));
+  } else {
+    var jsParams = {};
+  }
+
+  jsParams.scope = '<%= params[:scope] %>';
+
+  var urlParams = toUrl(jsParams);
+  window.history.replaceState(null, null, window.location.pathname + "?" + urlParams);
+  $(".card-filters-left input[name='scope']").val(jsParams.scope);
+
+<% end %>
+
 if ($("#<%= params[:scope] %>:has(img.outline-hex.hidden)")[0]) {
   console.log($('#clear-search'));
   $('#clear-search')[0].click();

@@ -1,4 +1,4 @@
-<div id='map'>
+<div id='map' style="width: calc(100vw - 450px);">
 </div>
 
 <% content_for :after_js do %>
@@ -25,6 +25,8 @@
         bearing: -17.6,
         zoom: 14,
       });
+
+      features = <%= raw @places_coordinates.to_json %>
 
       map.addControl(new mapboxgl.NavigationControl());
 
@@ -106,16 +108,61 @@
         });
     });
 
-        map.on('click', 'points', function (e) {
-        new mapboxgl.Popup()
-            .setLngLat(e.features[0].geometry.coordinates)
+
+          window._mapPopups = [];
+          features.forEach(function (feature, index){
+            var place = document.getElementById('place-' + feature.id);
+            var popup = new mapboxgl.Popup()
+              .setLngLat(features[index].geometry.coordinates)
+              .setHTML(features[index].properties.description)
+
+            window._mapPopups.push(popup);
+            place.addEventListener('mouseover', function (e) {
+              map.flyTo({
+                center: features[index].geometry.coordinates,
+                zoom: 14,
+                pitch: 50
+              });
+                popup.addTo(map);
+            });
+            place.addEventListener('mouseleave', function (e) {
+              map.flyTo({
+                center: [<%= @distrikt.longitude %>, <%= @distrikt.latitude %>],
+                zoom: 14,
+                pitch: 60
+              });
+              popup.remove();
+            });
+          });
+
+        var popups = new mapboxgl.Popup({
+          closeButton: false,
+          closeOnClick: true
+        });
+
+        map.on('click', 'points', function(e) {
+          // Change the cursor style as a UI indicator.
+          map.flyTo({
+            center: e.features[0].geometry.coordinates,
+            zoom: 14,
+            pitch: 50
+          });
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          popups.setLngLat(e.features[0].geometry.coordinates)
             .setHTML(e.features[0].properties.description)
             .addTo(map);
         });
 
-        map.on('click', 'points', function (e) {
-          map.flyTo({center: e.features[0].geometry.coordinates});
+        map.on('mouseleave', 'points', function() {
+          setTimeout(function() {
+            map.getCanvas().style.cursor = '';
+            popups.remove();
+          }, 1500);
         });
+
+
+
 
         // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
         map.on('mouseenter', 'points', function () {

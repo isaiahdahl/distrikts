@@ -1,1 +1,40 @@
 document.getElementById("places-right").innerHTML = "<%= j render 'shared/places-index' %>";
+
+features = <%= raw @places_coordinates.to_json %>
+
+window._mapPopups.forEach(function (popup, index){
+  popup.remove();
+});
+window._mapPopups = [];
+
+
+features.forEach(function (feature, index){
+  var place = document.getElementById('place-' + feature.id);
+  var popup = new mapboxgl.Popup()
+    .setLngLat(features[index].geometry.coordinates)
+    .setHTML(features[index].properties.description)
+
+  window._mapPopups.push(popup);
+
+  place.addEventListener('mouseover', function (e) {
+    window._mapPopups.forEach(function (popup, index){
+      popup.remove();
+    });
+    window._mapPopups = [];
+    map.flyTo({
+      center: features[index].geometry.coordinates,
+      zoom: 14,
+      pitch: 50
+    });
+    popup.addTo(map);
+    window._mapPopups.push(popup);
+  });
+  place.addEventListener('mouseleave', function (e) {
+    map.flyTo({
+      center: [<%= @distrikt.longitude %>, <%= @distrikt.latitude %>],
+      zoom: 14,
+      pitch: 60
+    });
+    popup.remove();
+  });
+});
