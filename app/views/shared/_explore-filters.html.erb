@@ -1,26 +1,6 @@
 <div id='features'>
 
-  <div class="dk-nav-main">
-
-    <div class="dk-nav-left">
-      <a href="#1">
-        <div class="previous-distrikt">
-          <h5 class="upper light">Previous Distrikt</h5>
-        </div>
-      </a>
-    </div>
-
-    <div class="dk-nav-right">
-      <a href="#1">
-        <div class="next-distrikt">
-          <h5 class="upper light">Next Distrikt</h5>
-        </div>
-      </a>
-    </div>
-  </div>
-
-
-  <section id='<%= @distrikts.first.name.delete(' ') %>'>
+  <section id='<%= @distrikts.first.name.delete(' ') %>' class="active" >
 
     <div class="card-explore">
       <div class="card-body-explore">
@@ -46,10 +26,10 @@
       </div>
 
       <div class="top-spots-main">
-        <h5 class="upper bumpdown text-center">Top Spots in <%=@distrikts.first.name %></h5>
+        <h5 class="upper bold text-center">Top Spots in <%=@distrikts.first.name %></h5>
 
         <div class="top-spots-cards">
-          <% @distrikts.first.places[0..5].each do |place| %>
+          <% @distrikts.first.places[0..8].each do |place| %>
             <div class="top-spots-card">
               <div class="top-spots-top" style="background-image: url('<%= place.img_url %>')">
               </div>
@@ -66,7 +46,7 @@
 
 <!-- after first city -->
 
-  <% @distrikts.drop(0).each_with_index do |distrikt, index| %>
+  <% @distrikts.drop(1).each_with_index do |distrikt, index| %>
 
     <section id='<%= index %>'>
 
@@ -94,10 +74,10 @@
         </div>
 
         <div class="top-spots-main">
-          <h5 class="upper bumpdown text-center">Top Spots in <%=distrikt.name %></h5>
+          <h5 class="upper bold bumpdown text-center">Top Spots in <%=distrikt.name %></h5>
 
           <div class="top-spots-cards">
-            <% distrikt.places[0..5].each do |place| %>
+            <% distrikt.places[0..8].each do |place| %>
               <div class="top-spots-card">
                 <div class="top-spots-top" style="background-image: url('<%= place.img_url %>')">
                 </div>
