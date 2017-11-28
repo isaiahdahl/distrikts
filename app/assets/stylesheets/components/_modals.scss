@@ -54,6 +54,8 @@
 
 .bottom-text {
   margin-bottom: 30px;
+  margin-left: 30px;
+  margin-right: 20px;
 }
 
 .modal-content  {
@@ -85,10 +87,6 @@
 
 .intro {
   color: white;
-}
-
-.close {
-  margin: 5px 10px 0 0;
 }
 
 
@@ -196,4 +194,13 @@
 
 .upper-form {
   margin-bottom: 20px;
+}
+
+// search modal
+.search-modal-body {
+  // background-color: $black;
+}
+
+#places-results {
+  border-top: 1px solid $mid-gray !important;
 }
