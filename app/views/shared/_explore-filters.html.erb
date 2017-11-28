@@ -7,7 +7,7 @@
 
         <div class="card-label-container">
 
-          <div class="card-label-left heading" id="distrikt-<%= @distrikts.first.id %>">
+          <div class="card-label-left heading" id="distrikt-<%= @distrikts.first.name.delete(' ') %>">
             <h1 class="bold upper touch"><%= @distrikts.first.name %></h1>
             <p class="upper"><%= @distrikts.first.city.name %>, <%= @distrikts.first.city.country %></p>
           </div>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="top-spots-main">
-        <h5 class="upper bold text-center">Top Spots in <%=@distrikts.first.name %></h5>
+        <h5 class="upper bold text-center">Top Spots in <%=@distrikts.first.name.delete(' ') %></h5>
 
         <div class="top-spots-cards">
           <% @distrikts.first.places[0..8].each do |place| %>
@@ -46,16 +46,16 @@
 
 <!-- after first city -->
 
-  <% @distrikts.drop(1).each_with_index do |distrikt, index| %>
+  <% @distrikts.drop(1).each do |distrikt| %>
 
-    <section id='<%= index %>'>
+    <section id='<%= distrikt.name.delete(' ') %>'>
 
       <div class="card-explore">
         <div class="card-body-explore">
 
           <div class="card-label-container">
 
-            <div class="card-label-left heading" id="distrikt-<%= distrikt.id %>">
+            <div class="card-label-left heading" id="distrikt-<%= distrikt.name%>">
               <h1 class="bold upper touch"><%= distrikt.name %></h1>
               <p class="upper"><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
             </div>
@@ -94,38 +94,3 @@
   <% end %>
 
 </div>
-
-
-<% content_for :after_js do %>
-  <script>
-    $(document).ready(function(){
-      // Add smooth scrolling to all links
-      $("a:has(h5)").on('click', function(event) {
-        var self = this;
-        var next = parseInt($(this).attr('href').replace('#', ''));
-
-        $($("a:has(h5)")[0]).attr('href', "#" + String(next - 1));
-        $($("a:has(h5)")[1]).attr('href', "#" + String(next + 1));
-        console.log(next)
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-          // Prevent default anchor click behavior
-          event.preventDefault();
-
-          // Store hash
-          var hash = this.hash;
-
-          // Using jQuery's animate() method to add smooth page scroll
-          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-          $('html, body').animate({
-            scrollTop: $(hash).offset().top + 50
-          }, 600, function(){
-
-            // Add hash (#) to URL when done scrolling (default click behavior)
-            window.location.hash = hash;
-          });
-        } // End if
-      });
-    });
-  </script>
-<% end %>
