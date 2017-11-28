@@ -313,7 +313,7 @@ end
 puts "creating places for all distrikts with nightlife"
 Distrikt.all.each do |distrikt|
   foursquare = Foursquare.new(distrikt: distrikt, category: "4d4b7105d754a06376d81259")
-  foursquare.establishments.each do |biz|
+  foursquare.establishments.uniq.each do |biz|
     photo = foursquare.photo_search_url(biz["id"])
     place = Place.new(
         name: biz["name"],
@@ -329,16 +329,18 @@ Distrikt.all.each do |distrikt|
     place.hour = biz["hours"]["status"] unless biz["hours"].nil?
     place.price = biz["price"]["tier"] unless biz["price"].nil?
     place.img_url = photo["prefix"] + "original" + photo["suffix"] unless photo.nil?
-    place.save
-    sleep(1.2)
-    puts "#{biz["name"]} created"
+    if Place.where(name: place.name).empty?
+      place.save 
+      sleep(0.6)
+      puts "#{biz["name"]} created"
+    end
   end
 end
 
 puts "creating places for all distrikts with cafe"
 Distrikt.all.each do |distrikt|
   foursquare = Foursquare.new(distrikt: distrikt, category: "4bf58dd8d48988d16d941735")
-  foursquare.establishments.each do |biz|
+  foursquare.establishments.uniq.each do |biz|
     photo = foursquare.photo_search_url(biz["id"])
     place = Place.new(
         name: biz["name"],
@@ -354,9 +356,11 @@ Distrikt.all.each do |distrikt|
     place.hour = biz["hours"]["status"] unless biz["hours"].nil?
     place.price = biz["price"]["tier"] unless biz["price"].nil?
     place.img_url = photo["prefix"] + "original" + photo["suffix"] unless photo.nil?
-    place.save
-    sleep(1.2)
-    puts "#{biz["name"]} created"
+    if Place.where(name: place.name).empty?
+      place.save
+      sleep(0.6)
+      puts "#{biz["name"]} created"
+    end
   end
 end
 
