@@ -26,6 +26,8 @@
         zoom: 14,
       });
 
+      features = <%= raw @places_coordinates.to_json %>
+
       map.addControl(new mapboxgl.NavigationControl());
 
       map.on('load', function() {
@@ -106,15 +108,42 @@
         });
     });
 
-        map.on('click', 'points', function (e) {
-        new mapboxgl.Popup()
-            .setLngLat(e.features[0].geometry.coordinates)
-            .setHTML(e.features[0].properties.description)
-            .addTo(map);
-        });
+          features.forEach(function (feature, index){
+            var place = document.getElementById('place-' + feature.id);
+            var popup = new mapboxgl.Popup()
+              .setLngLat(features[index].geometry.coordinates)
+              .setHTML(features[index].properties.description)
+            place.addEventListener('mouseover', function (e) {
+              map.flyTo({
+                center: features[index].geometry.coordinates,
+                zoom: 16,
+                pitch: 30
+              });
+                popup.addTo(map);
+            });
+            place.addEventListener('mouseleave', function (e) {
+              map.flyTo({
+                center: [<%= @distrikt.longitude %>, <%= @distrikt.latitude %>],
+                zoom: 14,
+                pitch: 60
+
+              });
+              popup.remove();
+            });
+          });
+
+
+
 
         map.on('click', 'points', function (e) {
           map.flyTo({center: e.features[0].geometry.coordinates});
+        });
+
+        map.on('click', 'points', function (e) {
+          new mapboxgl.Popup()
+            .setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(e.features[0].properties.description)
+            .addTo(map);
         });
 
         // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
