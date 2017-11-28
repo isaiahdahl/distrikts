@@ -1,5 +1,17 @@
+#instafeed {
+  display: flex;
+  justify-content: space-around;
+}
+
+.insta-block {
+  background-color: white;
+  padding: 50px 100px;
+  height: calc(100vh - 46px);
+}
+
+
 #instagram-block {
-  height: calc(100vh - 146px);
+  height: calc(100vh - 46px);
 }
 
 #instafeed {

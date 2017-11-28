@@ -68,7 +68,7 @@
       <%= yield %>
     </div>
 
-    <% unless action_name == "explore" %>
+    <% unless action_name == "explore" || "show" %>
       <%= render 'shared/footer' %>
     <% end %>
 
