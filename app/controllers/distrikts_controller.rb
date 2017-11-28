@@ -174,6 +174,7 @@ class DistriktsController < ApplicationController
       lng = place.longitude unless place.longitude.nil?
       lat =  place.latitude unless place.latitude.nil?
       feature = { "type": "Feature",
+                  "id": "#{place.id}",
                   "properties": {
                     "description":
                     "<div class=\"popup-bottom\">

@@ -1,6 +1,6 @@
 <li>
   <%= link_to distrikt_place_path(id: place.id, distrikt_id: place.distrikt_id), remote: true do %>
-    <div class="place">
+    <div class="place" id="place-<%= place.id %>">
       <div class="place-category">
         <p id="<%= place.category %>"><%= place.category.upcase %> | <%= "$" * place.price unless place.price.nil?%></p>
       </div>
