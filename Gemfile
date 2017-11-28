@@ -38,6 +38,7 @@ gem 'sticky-rails'
 gem 'pundit'
 gem 'faraday'
 gem 'acts_as_favoritor', github: 'slooob/acts_as_favoritor'
+gem 'country_select'
 
 
 group :development, :test do

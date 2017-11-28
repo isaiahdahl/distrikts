@@ -7,6 +7,7 @@ window._mapPopups.forEach(function (popup, index){
 });
 window._mapPopups = [];
 
+
 features.forEach(function (feature, index){
   var place = document.getElementById('place-' + feature.id);
   var popup = new mapboxgl.Popup()
@@ -16,12 +17,17 @@ features.forEach(function (feature, index){
   window._mapPopups.push(popup);
 
   place.addEventListener('mouseover', function (e) {
+    window._mapPopups.forEach(function (popup, index){
+      popup.remove();
+    });
+    window._mapPopups = [];
     map.flyTo({
       center: features[index].geometry.coordinates,
       zoom: 14,
       pitch: 50
     });
     popup.addTo(map);
+    window._mapPopups.push(popup);
   });
   place.addEventListener('mouseleave', function (e) {
     map.flyTo({

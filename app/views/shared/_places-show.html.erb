@@ -11,16 +11,16 @@
 
   <div class="place-show-bottom">
     <div class="place-category">
-      <p id="<%= @place.category %>"><%= @place.category.upcase %> | <%= "$" * @place.price unless @place.price.nil? %></p>
+      <p id="<%= @place.category %>"><%= @place.category.upcase %> | <%= "$" * @place.price %></p>
     </div>
     <div class="place-name bold">
       <h2><%= @place.name %></h2>
     </div>
     <hr>
     <ul class="li"><%= image_tag "place-marker.png", class: "place-icon" %>  <%= @place.address %></ul>
-    <ul class="li"><%= image_tag "place-earth.png", class: "place-icon" %>  <%= link_to @place.url.sub(/^https?\:\/\/(www.)?/,''), @place.url, target: "_blank" unless @place.url.nil? %></ul>
-    <ul class="li"><%= image_tag "place-phone.png", class: "place-icon" %>  <%= @place.phone unless @place.phone.nil? %></ul>
-    <ul class="li"><%= image_tag "place-hours.png", class: "place-icon" %>  <%= @place.hour unless @place.hour.nil? %></ul>
+    <ul class="li"><%= image_tag "place-earth.png", class: "place-icon" %>  <%= link_to @place.url || "N/A", @place.url, target: "_blank" %></ul>
+    <ul class="li"><%= image_tag "place-phone.png", class: "place-icon" %>  <%= @place.phone || "N/A" %></ul>
+    <ul class="li"><%= image_tag "place-hours.png", class: "place-icon" %>  <%= @place.hour || "N/A" %></ul>
   </div>
 </div>
 

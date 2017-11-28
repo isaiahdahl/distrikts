@@ -1,33 +1,13 @@
 <div id='features'>
 
-  <div class="dk-nav-main">
-
-    <div class="dk-nav-left">
-      <a href="#<%= @distrikts[0].name.delete(' ') %>">
-        <div class="previous-distrikt">
-          <h5 class="upper light">Previous Distrikt</h5>
-        </div>
-      </a>
-    </div>
-
-    <div class="dk-nav-right">
-      <a href="#<%= @distrikts[0].name.delete(' ') %>">
-        <div class="next-distrikt">
-          <h5 class="upper light">Next Distrikt</h5>
-        </div>
-      </a>
-    </div>
-
-  </div>
-
-  <section id='<%= @distrikts.first.name.delete(' ') %>'>
+  <section id='<%= @distrikts.first.name.delete(' ') %>' class="active" >
 
     <div class="card-explore">
       <div class="card-body-explore">
 
         <div class="card-label-container">
 
-          <div class="card-label-left heading">
+          <div class="card-label-left heading" id="distrikt-<%= @distrikts.first.name.delete(' ') %>">
             <h1 class="bold upper touch"><%= @distrikts.first.name %></h1>
             <p class="upper"><%= @distrikts.first.city.name %>, <%= @distrikts.first.city.country %></p>
           </div>
@@ -43,14 +23,13 @@
         <div class="card-description">
           <p class="light spaced"><%= @distrikts.first.description %></p>
         </div>
-
       </div>
 
       <div class="top-spots-main">
-        <h5 class="upper bumpdown text-center">Top Spots in <%=@distrikts.first.name %></h5>
+        <h5 class="upper bold text-center">Top Spots in <%=@distrikts.first.name.delete(' ') %></h5>
 
         <div class="top-spots-cards">
-          <% @distrikts.first.places[0..5].each do |place| %>
+          <% @distrikts.first.places[0..8].each do |place| %>
             <div class="top-spots-card">
               <div class="top-spots-top" style="background-image: url('<%= place.img_url %>')">
               </div>
@@ -61,18 +40,14 @@
           <% end %>
         </div>
       </div>
-
     </div>
-
   </section>
 
 
 <!-- after first city -->
 
-  <% @distrikts.drop(0).each_with_index do |distrikt, index| %>
+  <% @distrikts.drop(1).each do |distrikt| %>
 
-  <% if distrikt == @distrikts.first %>
-  <% else %>
     <section id='<%= distrikt.name.delete(' ') %>'>
 
       <div class="card-explore">
@@ -80,7 +55,7 @@
 
           <div class="card-label-container">
 
-            <div class="card-label-left heading">
+            <div class="card-label-left heading" id="distrikt-<%= distrikt.name%>">
               <h1 class="bold upper touch"><%= distrikt.name %></h1>
               <p class="upper"><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
             </div>
@@ -90,77 +65,32 @@
               <h4 class="explore-score"><%= compare(@user.score, distrikt.score) %></h4>
               <h5 class="explore-match">MATCH</h5>
             </div>
+
           </div>
 
           <div class="card-description">
             <p class="light spaced"><%= distrikt.description %></p>
           </div>
-
         </div>
 
-      <div class="top-spots-main">
-        <h5 class="upper bumpdown text-center">Top Spots in <%=distrikt.name %></h5>
+        <div class="top-spots-main">
+          <h5 class="upper bold bumpdown text-center">Top Spots in <%=distrikt.name %></h5>
 
-        <div class="top-spots-cards">
-          <% distrikt.places[0..5].each do |place| %>
-            <div class="top-spots-card">
-              <div class="top-spots-top" style="background-image: url('<%= place.img_url %>')">
+          <div class="top-spots-cards">
+            <% distrikt.places[0..8].each do |place| %>
+              <div class="top-spots-card">
+                <div class="top-spots-top" style="background-image: url('<%= place.img_url %>')">
+                </div>
+                <div class="top-spots-bottom">
+                  <h5 class="text-center light"><%= place.name %></h5>
+                </div>
               </div>
-              <div class="top-spots-bottom">
-                <h5 class="text-center light"><%= place.name %></h5>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
-
       </div>
     </section>
 
-      <% if @distrikts[index + 1].nil? || @distrikts[index + 1] == @distrikts.first %>
-          <a href="#top">
-            <div class="next-distrikt">
-              <h4>Back to top </h4>
-              <i class="fa fa-arrow-up" aria-hidden="true"></i>
-            </div>
-          </a>
-      <% else %>
-          <a href="#<%= @distrikts[index + 1].name.delete(' ') %>">
-            <div class="next-distrikt">
-              <h4>Next Distrikt: <%= @distrikts[index + 1].name %></h4>
-              <i class="fa fa-arrow-down" aria-hidden="true"></i>
-            </div>
-          </a>
-      <% end %>
-    <% end %>
   <% end %>
+
 </div>
-
-<% content_for :after_js do %>
-<script>
-  $(document).ready(function(){
-    // Add smooth scrolling to all links
-    $("a").on('click', function(event) {
-
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-        // Prevent default anchor click behavior
-        event.preventDefault();
-
-        // Store hash
-        var hash = this.hash;
-
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top -46
-        }, 600, function(){
-
-          // Add hash (#) to URL when done scrolling (default click behavior)
-          window.location.hash = hash;
-        });
-      } // End if
-    });
-  });
-</script>
-<% end %>
