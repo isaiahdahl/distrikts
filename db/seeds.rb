@@ -331,7 +331,7 @@ Distrikt.all.each do |distrikt|
     place.img_url = photo["prefix"] + "original" + photo["suffix"] unless photo.nil?
     if Place.where(name: place.name).empty?
       place.save 
-      sleep(0.6)
+      sleep(1.5)
       puts "#{biz["name"]} created"
     end
   end
@@ -358,7 +358,7 @@ Distrikt.all.each do |distrikt|
     place.img_url = photo["prefix"] + "original" + photo["suffix"] unless photo.nil?
     if Place.where(name: place.name).empty?
       place.save
-      sleep(0.6)
+      sleep(1.5)
       puts "#{biz["name"]} created"
     end
   end
