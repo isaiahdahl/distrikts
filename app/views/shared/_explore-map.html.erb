@@ -24,11 +24,27 @@
     <% end %>
   };
 
+  var chapterIds = {
+    <% @distrikts.each do |distrikt| %>
+    'distrikt-<%= distrikt.id %>': {
+      bearing:  <%= [45, 13.4, 70, 80, 12].sample %>,
+      center: [<%= distrikt.longitude %>, <%= distrikt.latitude %>],
+      zoom: 14,
+      pitch: <%= [30, 50, 40, 45, 60, 30].sample %>
+    },
+    <% end %>
+  };
+
+  console.log(chapterIds);
+
   window.onload = function() {
     var chapterNames = Object.keys(chapters);
+    var chapterIds = Object.keys(chapterIds);
+
     for (var i = 0; i < chapterNames.length; i++) {
+      var chapterId = chapterIds[i];
       var chapterName = chapterNames[i];
-      if (isElementOnScreen(chapterName)) {
+      if (isElementOnScreen(chapterId)) {
         setActiveChapter(chapterName);
         break;
       }
@@ -37,10 +53,13 @@
 
   // On every scroll event, check which element is on screen
   window.onscroll = function() {
+    var chapterIds = Object.keys(chapterIds);
     var chapterNames = Object.keys(chapters);
+
     for (var i = 0; i < chapterNames.length; i++) {
+      var chapterId = chapterIds[i];
       var chapterName = chapterNames[i];
-      if (isElementOnScreen(chapterName)) {
+      if (isElementOnScreen(chapterId)) {
         setActiveChapter(chapterName);
         break;
       }
@@ -51,7 +70,7 @@
 
   function setActiveChapter(chapterName) {
     if (chapterName === activeChapterName) return;
-
+    console.log("hello");
     map.flyTo(chapters[chapterName]);
 
     document.getElementById(chapterName).setAttribute('class', 'active');
@@ -62,6 +81,7 @@
 
   function isElementOnScreen(id) {
     var element = document.getElementById(id);
+    console.log(element);
     var bounds = element.getBoundingClientRect();
     return bounds.top < window.innerHeight && bounds.bottom > 0;
   }

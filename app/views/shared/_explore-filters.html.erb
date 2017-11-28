@@ -7,7 +7,7 @@
 
         <div class="card-label-container">
 
-          <div class="card-label-left heading">
+          <div class="card-label-left heading" id="distrikt-<%= @distrikts.first.id %>">
             <h1 class="bold upper touch"><%= @distrikts.first.name %></h1>
             <p class="upper"><%= @distrikts.first.city.name %>, <%= @distrikts.first.city.country %></p>
           </div>
@@ -55,7 +55,7 @@
 
           <div class="card-label-container">
 
-            <div class="card-label-left heading">
+            <div class="card-label-left heading" id="distrikt-<%= distrikt.id %>">
               <h1 class="bold upper touch"><%= distrikt.name %></h1>
               <p class="upper"><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
             </div>
