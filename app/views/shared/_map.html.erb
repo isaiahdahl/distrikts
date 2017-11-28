@@ -1,4 +1,4 @@
-<div id='map'>
+<div id='map' style="width: calc(100vw - 450px);">
 </div>
 
 <% content_for :after_js do %>
@@ -108,16 +108,20 @@
         });
     });
 
+
+          window._mapPopups = [];
           features.forEach(function (feature, index){
             var place = document.getElementById('place-' + feature.id);
             var popup = new mapboxgl.Popup()
               .setLngLat(features[index].geometry.coordinates)
               .setHTML(features[index].properties.description)
+
+            window._mapPopups.push(popup);
             place.addEventListener('mouseover', function (e) {
               map.flyTo({
                 center: features[index].geometry.coordinates,
-                zoom: 16,
-                pitch: 30
+                zoom: 14,
+                pitch: 50
               });
                 popup.addTo(map);
             });
@@ -126,7 +130,6 @@
                 center: [<%= @distrikt.longitude %>, <%= @distrikt.latitude %>],
                 zoom: 14,
                 pitch: 60
-
               });
               popup.remove();
             });

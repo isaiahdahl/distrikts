@@ -53,11 +53,34 @@ class PlacesController < ApplicationController
   def close
     @distrikt = Distrikt.find(params[:distrikt_id])
     @place = Place.new
+    place_coordinates
 
     authorize @place
     respond_to do |format|
       format.js
       format.html { redirect_back fallback_location: root_path }
+    end
+  end
+
+  def place_coordinates
+    @places_coordinates = @distrikt.places.map do |place|
+      lng = place.longitude unless place.longitude.nil?
+      lat =  place.latitude unless place.latitude.nil?
+      feature = { "type": "Feature",
+                  "id": "#{place.id}",
+                  "properties": {
+                      "description":
+                          "<div class=\"popup-bottom\">
+                    <h4 class=\"bold\">#{place.name}</h4>
+                    <h5 class=\"light\">#{place.category.capitalize} | #{place.description}</h5>
+                    </div>"
+                  },
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [lng, lat]
+                  }
+      }
+      feature
     end
   end
 
