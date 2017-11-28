@@ -106,15 +106,17 @@
         });
     });
 
-        map.on('click', 'points', function (e) {
-        new mapboxgl.Popup()
-            .setLngLat(e.features[0].geometry.coordinates)
-            .setHTML(e.features[0].properties.description)
-            .addTo(map);
-        });
 
         map.on('click', 'points', function (e) {
           map.flyTo({center: e.features[0].geometry.coordinates});
+          map.flyTo({center: e.features[0].geometry.coordinates});
+        });
+
+        map.on('click', 'points', function (e) {
+          new mapboxgl.Popup()
+            .setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(e.features[0].properties.description)
+            .addTo(map);
         });
 
         // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
