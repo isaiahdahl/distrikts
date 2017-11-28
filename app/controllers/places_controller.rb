@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
     @distrikt = Distrikt.find(params[:distrikt_id])
     
     # Foursquare results
-    foursquare = Foursquare.new(@distrikt, @filter)
+    foursquare = Foursquare.new(distrikt: @distrikt, filter: @filter)
     @fs_places = foursquare.establishments
     @fs_photos = foursquare.photo_search_url(@fs_places.first["id"])
 
@@ -15,7 +15,7 @@ class PlacesController < ApplicationController
       phone: @fs_places.first["contact"]["phone"],
       url: @fs_places.first["url"],
       hour: @fs_places.first["hours"]["status"],
-      price: @fs_places.last["price"]["tier"],
+      price: @fs_places.first["price"]["tier"],
       latitude: @fs_places.first["location"]["lat"],
       longitude: @fs_places.first["location"]["lng"],
       img_url: @fs_photos["prefix"] + "original" + @fs_photos["suffix"]

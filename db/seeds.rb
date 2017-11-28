@@ -310,85 +310,57 @@ tokyo_distrikts.each do |attributes|
   distrikt.save
 end
 
-API_HOST = "https://api.yelp.com"
-SEARCH_PATH = "/v3/businesses/search"
-BUSINESS_PATH = "/v3/businesses/"  # trailing / because we append the business id to the path
-TOKEN_PATH = "/oauth2/token"
-GRANT_TYPE = "client_credentials"
-
-
-DEFAULT_BUSINESS_ID = "yelp-san-francisco"
-DEFAULT_TERM = "dinner"
-DEFAULT_LOCATION = "San Francisco, CA"
-SEARCH_LIMIT = 7
-
-
-def bearer_token
-  # Put the url together
-  url = "#{API_HOST}#{TOKEN_PATH}"
-
-
-  # Build our params hash
-  params = {
-      client_id: ENV["CLIENT_ID"],
-      client_secret: ENV["CLIENT_SECRET"],
-      grant_type: GRANT_TYPE
-  }
-
-  response = HTTP.post(url, params: params)
-  parsed = response.parse
-
-  "#{parsed['token_type']} #{parsed['access_token']}"
-end
-
-def search(term, location)
-  url = "#{API_HOST}#{SEARCH_PATH}"
-  params = {
-      term: term,
-      location: location,
-      limit: SEARCH_LIMIT
-  }
-
-  response = HTTP.auth(bearer_token).get(url, params: params)
-  response.parse
-end
-
-
 puts "creating places for all distrikts with nightlife"
 Distrikt.all.each do |distrikt|
-  response = search("club", "#{distrikt.name}")
-  response["businesses"].each do |biz|
+  foursquare = Foursquare.new(distrikt: distrikt, category: "4d4b7105d754a06376d81259")
+  foursquare.establishments.uniq.each do |biz|
+    photo = foursquare.photo_search_url(biz["id"])
     place = Place.new(
         name: biz["name"],
         category: "nightlife",
-        address: biz["location"]["display_address"].join(" "),
-        phone: biz["phone"],
-        img_url: biz["image_url"],
+        address: biz["location"]["formattedAddress"].join(" "),
+        phone: biz["contact"]["phone"],
         distrikt_id: distrikt.id,
+        url: biz["url"],
+        latitude: biz["location"]["lat"],
+        longitude: biz["location"]["lng"],
         score_id: ""
     )
-    place.save
-    sleep(1.2)
-    puts "#{biz["name"]} created"
+    place.hour = biz["hours"]["status"] unless biz["hours"].nil?
+    place.price = biz["price"]["tier"] unless biz["price"].nil?
+    place.img_url = photo["prefix"] + "original" + photo["suffix"] unless photo.nil?
+    if Place.where(name: place.name).empty?
+      place.save 
+      sleep(0.6)
+      puts "#{biz["name"]} created"
+    end
   end
 end
 
-puts "creating places for all distrikts with nightlife"
+puts "creating places for all distrikts with cafe"
 Distrikt.all.each do |distrikt|
-  response = search("cafe", "#{distrikt.name}")
-  response["businesses"].each do |biz|
+  foursquare = Foursquare.new(distrikt: distrikt, category: "4bf58dd8d48988d16d941735")
+  foursquare.establishments.uniq.each do |biz|
+    photo = foursquare.photo_search_url(biz["id"])
     place = Place.new(
         name: biz["name"],
         category: "cafe",
-        address: biz["location"]["display_address"].join(" "),
-        phone: biz["phone"],
-        img_url: biz["image_url"],
+        address: biz["location"]["formattedAddress"].join(" "),
+        phone: biz["contact"]["phone"],
         distrikt_id: distrikt.id,
+        url: biz["url"],
+        latitude: biz["location"]["lat"],
+        longitude: biz["location"]["lng"],
         score_id: ""
     )
-    place.save
-    sleep(1.2)
-    puts "#{biz["name"]} created"
+    place.hour = biz["hours"]["status"] unless biz["hours"].nil?
+    place.price = biz["price"]["tier"] unless biz["price"].nil?
+    place.img_url = photo["prefix"] + "original" + photo["suffix"] unless photo.nil?
+    if Place.where(name: place.name).empty?
+      place.save
+      sleep(0.6)
+      puts "#{biz["name"]} created"
+    end
   end
 end
 
