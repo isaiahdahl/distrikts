@@ -96,4 +96,7 @@
   a {
     flex: 1 1 auto;
   }
+  &:hover {
+    cursor:pointer;
+  }
 }

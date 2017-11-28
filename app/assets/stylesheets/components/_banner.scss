@@ -237,8 +237,31 @@
 }
 
 .profile-left-header {
-  margin-top: 00px;
-  color: black;
+  // margin-top: 00px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.copy-blocks {
+  flex: 1 1 auto;
+}
+
+.show-nav-buttons {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 26px;
+  a &:hover {
+    opacity: .5;
+  }
+}
+
+.show-button {
+  flex: 0 0 auto;
+  height: 32px !important;
+  padding-right: 20px;
 }
 
 .distrikt-profil-right {

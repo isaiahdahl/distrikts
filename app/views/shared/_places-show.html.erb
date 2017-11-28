@@ -1,17 +1,20 @@
 <div class="place-show-container">
   <div class="place-show-top" style="background-image: url('<%= @place.img_url %>')">
-    <div id="close-icon">
+
+    <div id="close">
       <%= link_to distrikt_places_close_path(@distrikt.id), class: "close", remote: true do %>
-        <span aria-hidden="true">&times;</span>
+        <%= image_tag "close-white-lg.png", class: "x-icon" %>
       <% end %>
     </div>
+
   </div>
+
   <div class="place-show-bottom">
     <div class="place-category">
       <p id="<%= @place.category %>"><%= @place.category.upcase %> | <%= "$" * @place.price unless @place.price.nil? %></p>
     </div>
-    <div class="place-name">
-      <h3><%= @place.name %></h3>
+    <div class="place-name bold">
+      <h2><%= @place.name %></h2>
     </div>
     <hr>
     <ul class="li"><%= image_tag "place-marker.png", class: "place-icon" %>  <%= @place.address %></ul>

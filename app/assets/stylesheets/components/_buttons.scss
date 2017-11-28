@@ -53,6 +53,27 @@
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: .08em;
+  &:hover {
+    background-color: $gold;
+    border: 1px solid $gold;
+    color: $dark-gray;
+  }
+}
+
+.btn-outline-retake {
+  border-radius: 2px;
+  padding: 7px 10px;
+  border: 1px solid $dark-gray;
+  color: $dark-gray;
+  background-color: Transparent;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: .08em;
+  &:hover {
+    border: 1px solid $black;
+    color: $black;
+  }
 }
 
 .btn-outline-black {
