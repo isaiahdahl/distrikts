@@ -24,7 +24,9 @@
     <% end %>
   };
 
-  window.onload = function() {
+  var features = document.getElementById('features');
+
+  features.onscroll = function() {
     var chapterNames = Object.keys(chapters);
     for (var i = 0; i < chapterNames.length; i++) {
       var chapterName = chapterNames[i];
@@ -35,20 +37,7 @@
     }
   };
 
-  // On every scroll event, check which element is on screen
-  window.onscroll = function() {
-    var chapterNames = Object.keys(chapters);
-    for (var i = 0; i < chapterNames.length; i++) {
-      var chapterName = chapterNames[i];
-      if (isElementOnScreen(chapterName)) {
-        setActiveChapter(chapterName);
-        break;
-      }
-    }
-  };
-
-  var activeChapterName = '<%= @distrikts.first.name.delete(' ') %>';
-
+  var activeChapterName = '<%= @distrikts[1].name.delete(' ') %>';
   function setActiveChapter(chapterName) {
     if (chapterName === activeChapterName) return;
 
@@ -63,7 +52,7 @@
   function isElementOnScreen(id) {
     var element = document.getElementById(id);
     var bounds = element.getBoundingClientRect();
-    return bounds.top < window.innerHeight && bounds.bottom > 0;
+    return bounds.top < 400 && bounds.bottom > 400;
   }
 
 </script>
