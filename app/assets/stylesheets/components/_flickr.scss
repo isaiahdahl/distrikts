@@ -5,10 +5,10 @@
 }
 .gallery-container-flickr {
   display: flex;
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 
 .flickr-img {
