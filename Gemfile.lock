@@ -144,6 +144,7 @@ GEM
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
+    flickraw (0.9.9)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     font-awesome-sass (4.7.0)
@@ -411,6 +412,7 @@ DEPENDENCIES
   faker
   faraday
   figaro
+  flickraw
   font-awesome-sass
   geocoder
   http

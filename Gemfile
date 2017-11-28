@@ -7,6 +7,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
+gem 'flickraw'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
