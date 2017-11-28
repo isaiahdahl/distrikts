@@ -1,0 +1,15 @@
+<% @fs_places.each do |place| %>
+  <%= link_to distrikt_places_path(distrikt_id: @distrikt.id, place_id: place["id"]), method: :post do %>
+  <div class="place">
+    <div class="place-category">
+      <p><%= place["categories"].first["name"] unless place["categories"].nil? %></p>
+    </div>
+    <div class="place-name">
+      <h3><%= place["name"] %></h3>
+    </div>
+    <div class="place-description">
+      <p><%= place["location"]["address"] unless place["location"].nil? %></p>
+    </div>
+  </div>
+  <% end %>
+<% end %>

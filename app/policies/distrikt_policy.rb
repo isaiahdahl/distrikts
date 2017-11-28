@@ -48,4 +48,8 @@ class DistriktPolicy < ApplicationPolicy
   def remove_wishlist?
     true
   end
+
+  def search?
+    return true
+  end
 end
