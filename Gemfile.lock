@@ -375,6 +375,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    toastr-rails (1.0.3)
+      railties (>= 3.1.0)
     typing (0.1.3)
       rails
     tzinfo (1.2.4)
@@ -442,6 +444,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sticky-rails
+  toastr-rails
   typing
   uglifier
   web-console (>= 3.3.0)

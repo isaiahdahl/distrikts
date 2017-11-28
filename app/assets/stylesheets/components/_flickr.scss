@@ -1,17 +1,21 @@
 .flickr-block {
   background-color: white;
   padding: 50px 100px;
-  height: calc(100vh - 46px);
+  height: calc(100vh - 50px);
 }
 .gallery-container-flickr {
+  display: flex;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  align-content: center;
-  img {
-    height: 100px;
-    width: 100px;
-    margin-bottom: 10px;
-  }
 }
+
+.flickr-img {
+    height: 130px;
+    width: 130px;
+    margin: 6px 6px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
