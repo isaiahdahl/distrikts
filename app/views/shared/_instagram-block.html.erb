@@ -1,19 +1,9 @@
-<div class="insta-block">
-  <h4 class="heading light text-center"><i class="fa fa-instagram" aria-hidden="true"></i>
+<div class="flickr-block">
+  <h4 class="heading light text-center"><i class="fa fa-flickr" aria-hidden="true"></i>
     <%= @distrikt.name.downcase %></h4>
-    <div class="gallery-container">
-      <div id="instafeed"></div>
+    <div class="gallery-container-flickr">
+        <% Flickr.new.search(@distrikt.latitude, @distrikt.longitude)[0..39].each do |url| %>
+          <%= image_tag "#{url}", id: "logo", class: "img-rounded" %>
+        <% end %>
     </div>
   </div>
-
-  <% content_for :after_js do %>
-  <script type="text/javascript">
-    var feed = new Instafeed({
-      get: 'user',
-      userId: "37005293",
-      accessToken: "37005293.7d28e1e.82095e8ca0474e0faf075ca9196c97bd",
-      limit: 4
-    });
-    feed.run();
-  </script>
-  <% end %>
