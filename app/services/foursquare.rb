@@ -4,9 +4,10 @@ class Foursquare
   FS_CLIENT_ID = ENV["FS_ID"]
   FS_CLIENT_SECRET = ENV["FS_SECRET"]
 
-  def initialize(distrikt, filter)
-    @distrikt = distrikt
-    @filter = filter
+  def initialize(attributes = {})
+    @distrikt = attributes[:distrikt]
+    @filter = attributes[:filter] || ""
+    @category = attributes[:category] || ""
   end
 
   def venue_search_url
@@ -16,7 +17,8 @@ class Foursquare
       v: "20170801",
       ll: "#{@distrikt.latitude},#{@distrikt.longitude}",
       query: @filter,
-      limit: 10
+      categoryId: @category,
+      limit: 7
     }.to_query
   end
 
