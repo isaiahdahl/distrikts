@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20171127232304) do
     t.float "outline", default: [], array: true
     t.float "latitude"
     t.float "longitude"
-    t.string "address"
     t.index ["city_id"], name: "index_distrikts_on_city_id"
     t.index ["score_id"], name: "index_distrikts_on_score_id"
   end
