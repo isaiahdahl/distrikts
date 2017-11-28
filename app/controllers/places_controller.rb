@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  
+
   def search
     @filter = params[:filter]
     @distrikt = Distrikt.find(params[:distrikt_id])
@@ -34,12 +34,18 @@ class PlacesController < ApplicationController
     @place.price = venue["price"]["tier"] unless venue["price"].nil?
     @place.img_url = venue["bestPhoto"]["prefix"] + "original" + venue["bestPhoto"]["suffix"] unless venue["bestPhoto"].nil?
     @place.distrikt_id = params[:distrikt_id]
+    @distrikt = Distrikt.find(@place.distrikt_id)
     authorize @place
     if @place.save
-      redirect_to distrikt_path(params[:distrikt_id])
+      respond_to do |format|
+        format.js { render :show }
+        format.html { redirect_back fallback_location: root_path }
+      end
     else
-      # GO BACK TO THE FORM
-      render :new
+      respond_to do |format|
+        format.js { render :search }
+        format.html { redirect_back fallback_location: root_path }
+      end
     end
   end
 

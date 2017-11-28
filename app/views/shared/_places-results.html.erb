@@ -1,5 +1,5 @@
 <% @fs_places.each do |place| %>
-  <%= link_to distrikt_places_path(distrikt_id: @distrikt.id, place_id: place["id"]), method: :post do %>
+  <%= link_to distrikt_places_path(distrikt_id: @distrikt.id, place_id: place["id"]), method: :post, remote: true do %>
   <div class="place">
     <div class="place-category">
       <p><%= place["categories"].first["name"] unless place["categories"].nil? %></p>

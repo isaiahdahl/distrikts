@@ -85,7 +85,7 @@
   z-index: 1;
   position: absolute;
   bottom: 0;
-  width: 450px;
+  width: 458.59px;
   overflow: hidden;
   text-decoration: none;
   h5 {
@@ -99,5 +99,11 @@
   &:hover {
     cursor:pointer;
   }
+}
+
+.place-name h3 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
