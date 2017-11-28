@@ -1,41 +1,51 @@
 class PlacesController < ApplicationController
-  def new
-    
-    @filter = params["search"]["filter"]
+
+  def search
+    @filter = params[:filter]
     @distrikt = Distrikt.find(params[:distrikt_id])
-    
+
     # Foursquare results
     foursquare = Foursquare.new(distrikt: @distrikt, filter: @filter)
-    @fs_places = foursquare.establishments
-    @fs_photos = foursquare.photo_search_url(@fs_places.first["id"])
+    @fs_places = foursquare.suggest
 
-    @place = Place.new(
-      name: @fs_places.first["name"],
-      address: @fs_places.first["location"]["formattedAddress"].join(" "),
-      phone: @fs_places.first["contact"]["phone"],
-      url: @fs_places.first["url"],
-      hour: @fs_places.first["hours"]["status"],
-      price: @fs_places.first["price"]["tier"],
-      latitude: @fs_places.first["location"]["lat"],
-      longitude: @fs_places.first["location"]["lng"],
-      img_url: @fs_photos["prefix"] + "original" + @fs_photos["suffix"]
-      )
-    authorize @place
+    authorize @distrikt
     respond_to do |format|
       format.js
       format.html { redirect_back fallback_location: root_path }
     end
   end
 
+  def new
+  end
+
   def create
-    @place = Place.new(place_params)
+    foursquare = Foursquare.new
+    venue = foursquare.get_venue(params["place_id"])
+    @place = Place.new(
+      name: venue["name"],
+      address: venue["location"]["address"],
+      category: venue["categories"].first["name"],
+      phone: venue["contact"]["phone"],
+      url: venue["url"],
+      latitude: venue["location"]["lat"],
+      longitude: venue["location"]["lng"]
+      )
+    @place.hour = venue["hours"]["status"] unless venue["hours"].nil?
+    @place.price = venue["price"]["tier"] unless venue["price"].nil?
+    @place.img_url = venue["bestPhoto"]["prefix"] + "original" + venue["bestPhoto"]["suffix"] unless venue["bestPhoto"].nil?
     @place.distrikt_id = params[:distrikt_id]
+    @distrikt = Distrikt.find(@place.distrikt_id)
     authorize @place
     if @place.save
-      redirect_to distrikt_path(params[:distrikt_id])
+      respond_to do |format|
+        format.js { render :show }
+        format.html { redirect_back fallback_location: root_path }
+      end
     else
-      # GO BACK TO THE FORM
-      render :new
+      respond_to do |format|
+        format.js { render :search }
+        format.html { redirect_back fallback_location: root_path }
+      end
     end
   end
 

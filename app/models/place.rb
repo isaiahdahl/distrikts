@@ -6,9 +6,6 @@ class Place < ApplicationRecord
 
   acts_as_favoritable
 
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
-
   scope :nightlife, -> { where(category: "nightlife")}
   scope :restaurant, -> { where(category: "restaurant")}
   scope :dessert, -> { where(category: "dessert")}
