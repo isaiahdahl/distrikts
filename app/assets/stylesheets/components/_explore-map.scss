@@ -1,5 +1,8 @@
 .explore {
   display: flex;
+  z-index: -1;
+  height: 100vh;
+  margin-top: -30px;
 }
 
 #map-explore {

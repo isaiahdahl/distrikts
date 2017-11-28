@@ -1,6 +1,23 @@
 <div id='features'>
-<div id="sticker" class="filter-sticker">
-</div>
+
+  <div class="dk-nav-main">
+    <div class="dk-nav-left">
+      <a href="#<%= @distrikts[0].name.delete(' ') %>">
+        <div class="previous-distrikt">
+          <h5 class="upper light">Previous Distrikt</h5>
+        </div>
+      </a>
+    </div>
+
+    <div class="dk-nav-right">
+      <a href="#<%= @distrikts[0].name.delete(' ') %>">
+        <div class="next-distrikt">
+          <h5 class="upper light">Next Distrikt</h5>
+        </div>
+      </a>
+    </div>
+
+  </div>
 
   <section id='<%= @distrikts.first.name.delete(' ') %>'>
 
@@ -19,30 +36,35 @@
             <h4 class="explore-score"><%= compare(@user.score, @distrikts.first.score) %></h4>
             <h5 class="explore-match">MATCH</h5>
           </div>
+
         </div>
 
         <div class="card-description">
           <p class="light spaced"><%= @distrikts.first.description %></p>
         </div>
 
-        <div class="ig-label text-center">
-          <div class="ig-block">
-            <%= image_tag "instagram.png", class: "ig-logo" %>
-            <h5 class="ig-name">#<%= @distrikts.first.name %></h5>
-           </div>
-          <%= render 'shared/instagram-explore-block' %>
-        </div>
-
       </div>
+
+      <div class="top-spots-main">
+        <h5 class="upper bumpdown text-center">Top Spots in <%=@distrikts.first.name %></h5>
+
+        <div class="top-spots-cards">
+          <% @distrikts.first.places[0..5].each do |place| %>
+            <div class="top-spots-card">
+              <div class="top-spots-top" style="background-image: url('<%= place.img_url %>')">
+              </div>
+              <div class="top-spots-bottom">
+                <h5 class="text-center light"><%= place.name %></h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
     </div>
+
   </section>
 
-    <a href="#<%= @distrikts[0].name.delete(' ') %>">
-      <div class="next-distrikt">
-        <h4>Next Distrikt: <%= @distrikts[0].name %></h4>
-        <i class="fa fa-arrow-down" aria-hidden="true"></i>
-      </div>
-    </a>
 
 <!-- after first city -->
 
@@ -53,39 +75,48 @@
     <section id='<%= distrikt.name.delete(' ') %>'>
 
       <div class="card-explore">
-      <div class="card-body-explore">
+        <div class="card-body-explore">
 
-        <div class="card-label-container">
+          <div class="card-label-container">
 
-          <div class="card-label-left heading">
-            <h1 class="bold upper touch"><%= distrikt.name %></h1>
-            <p class="upper"><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
+            <div class="card-label-left heading">
+              <h1 class="bold upper touch"><%= distrikt.name %></h1>
+              <p class="upper"><%= distrikt.city.name %>, <%= distrikt.city.country %></p>
+            </div>
+
+            <div class="card-label-right text-center gold">
+              <%= image_tag "hexagons/hex-solid.png", class: "hex-explore" %>
+              <h4 class="explore-score"><%= compare(@user.score, distrikt.score) %></h4>
+              <h5 class="explore-match">MATCH</h5>
+            </div>
           </div>
 
-          <div class="card-label-right text-center gold">
-            <%= image_tag "hexagons/hex-solid.png", class: "hex-explore" %>
-            <h4 class="explore-score"><%= compare(@user.score, distrikt.score) %></h4>
-            <h5 class="explore-match">MATCH</h5>
+          <div class="card-description">
+            <p class="light spaced"><%= distrikt.description %></p>
           </div>
-        </div>
-
-        <div class="card-description">
-          <p class="light spaced"><%= distrikt.description %></p>
-        </div>
-
-        <div class="ig-label text-center">
-          <div class="ig-block">
-            <%= image_tag "instagram.png", class: "ig-logo" %>
-            <h5 class="ig-name">#<%= distrikt.name %></h5>
-           </div>
-          <%= render 'shared/instagram-explore-block' %>
 
         </div>
+
+      <div class="top-spots-main">
+        <h5 class="upper bumpdown text-center">Top Spots in <%=distrikt.name %></h5>
+
+        <div class="top-spots-cards">
+          <% distrikt.places[0..5].each do |place| %>
+            <div class="top-spots-card">
+              <div class="top-spots-top" style="background-image: url('<%= place.img_url %>')">
+              </div>
+              <div class="top-spots-bottom">
+                <h5 class="text-center light"><%= place.name %></h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
 
 
       </div>
-    </div>
     </section>
+
       <% if @distrikts[index + 1].nil? || @distrikts[index + 1] == @distrikts.first %>
           <a href="#top">
             <div class="next-distrikt">
