@@ -1,0 +1,21 @@
+<div class="upper-form form form-inline text-center">
+  <h5>Autosuggest a new place with Foursquare</h5>
+  <%= simple_form_for :search, url: distrikt_places_search_path(@distrikt), html: { method: :get, id: :search }, remote: true do |f| %>
+  <%= f.input :filter, label: false, placeholder: "Name"  %>
+  <% end %>
+</div>
+<div id="places-results"></div>
+
+<script>
+
+  const input = document.getElementById('search_filter');
+  input.addEventListener('keyup', function() { 
+    $.ajax({
+      url: '<%= distrikt_places_search_path(@distrikt) %>.js',
+      type: "GET",
+      data: { "filter": input.value },
+      dataType: "script"
+    });
+      
+  });
+</script>

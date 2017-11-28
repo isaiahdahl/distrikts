@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'answers/results', to: 'answers#results'
   resources :distrikts, only: [:index, :show, :new, :create, :edit, :update] do
     get 'places/close', to: 'places#close'
+    get 'places/search', to: 'places#search'
     resources :places, only: [:new, :create, :show] do
       resources :reviews, only: [ :new, :create ]
     end
