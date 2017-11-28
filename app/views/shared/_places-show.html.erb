@@ -8,16 +8,16 @@
   </div>
   <div class="place-show-bottom">
     <div class="place-category">
-      <p id="<%= @place.category %>"><%= @place.category.upcase %> | $$</p>
+      <p id="<%= @place.category %>"><%= @place.category.upcase %> | <%= "$" * @place.price unless @place.price.nil? %></p>
     </div>
     <div class="place-name">
       <h3><%= @place.name %></h3>
     </div>
     <hr>
-    <ul class="li"><%= image_tag "place-marker.png", class: "place-icon" %> <%= @place.address %></ul>
-    <ul class="li"><%= image_tag "place-earth.png", class: "place-icon" %> www.distrikts.co</ul>
-    <ul class="li"><%= image_tag "place-phone.png", class: "place-icon" %> <%= @place.phone %></ul>
-    <ul class="li"><%= image_tag "place-hours.png", class: "place-icon" %> Open now: 9AM-11PM</ul>
+    <ul class="li"><%= image_tag "place-marker.png", class: "place-icon" %>  <%= @place.address %></ul>
+    <ul class="li"><%= image_tag "place-earth.png", class: "place-icon" %>  <%= link_to @place.url.sub(/^https?\:\/\/(www.)?/,''), @place.url, target: "_blank" unless @place.url.nil? %></ul>
+    <ul class="li"><%= image_tag "place-phone.png", class: "place-icon" %>  <%= @place.phone unless @place.phone.nil? %></ul>
+    <ul class="li"><%= image_tag "place-hours.png", class: "place-icon" %>  <%= @place.hour unless @place.hour.nil? %></ul>
   </div>
 </div>
 
