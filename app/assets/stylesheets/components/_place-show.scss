@@ -32,11 +32,21 @@
 
 .x-icon {
   color: white;
-  width: 30px;
+  width: 26px;
   z-index: 100;
-  opacity: .9 !important;
   margin-left: 20px;
   margin-top: 20px;
+  opacity: .6;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.place-close {
+  margin: 5px 10px 0 0;
+  a {
+
+  }
 }
 
 .place-show-category {

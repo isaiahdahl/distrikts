@@ -17,7 +17,7 @@
 <div class="quiz-container">
   <% @question.answers.each do |answer| %>
   <%= link_to answers_quiz_path(score_id: answer.score_id, question_id: answer.question_id), remote: true do %>
-  <%= image_tag answer.img_url, class: "answer"  %>
+  <%= image_tag answer.img_url, class: "answer answer-img"  %>
   <% end %>
   <% end %>
 </div>
