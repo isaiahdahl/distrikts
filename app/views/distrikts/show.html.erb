@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do %>
+  Distrikts: Welcome to <%= @distrikt.name %>!
+<% end %>
+
 <div class="distrik-container">
   <%= render 'shared/distrikt-banner' %>
   <%= render 'shared/show-nav' %>
