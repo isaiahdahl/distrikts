@@ -127,7 +127,6 @@
             place.addEventListener('mouseleave', function (e) {
               map.flyTo({
                 center: [<%= @distrikt.longitude %>, <%= @distrikt.latitude %>],
-                zoom: 14,
                 pitch: 60
               });
               popup.remove();
@@ -143,7 +142,6 @@
           // Change the cursor style as a UI indicator.
           map.flyTo({
             center: e.features[0].geometry.coordinates,
-            zoom: 14,
             pitch: 50
           });
           // Populate the popup and set its coordinates
