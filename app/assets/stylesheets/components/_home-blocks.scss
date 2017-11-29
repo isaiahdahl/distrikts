@@ -111,7 +111,7 @@
   align-content: center;
   span :last-child {
     color: $gold !important;
-   background-color: transparent !important;
+    background-color: transparent !important;
  }
 }
 
@@ -165,6 +165,7 @@
 
 .dkpage-img {
   max-width: 650px;
+  padding-top: 40px;
   // margin-bottom: 0;
 }
 .dkpage-text {
@@ -194,6 +195,9 @@
   flex: 0 0 auto;
   padding-left: 100px;
   margin-right: 60px;
+  a {
+    max-width: 150px;
+  }
 }
 
 .mapblock-right {
@@ -235,7 +239,7 @@
 }
 
 .tourists-right-content {
-  max-width: 500px;
+  max-width: 600px;
   flex: 0 0 auto;
   padding-left: 140px;
   margin-right: 60px;
