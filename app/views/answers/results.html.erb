@@ -1,5 +1,6 @@
 <!-- Custom Header -->
 <% content_for :meta_title, "Discover your travel profile! - #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, "I just took Distrikts traveler profile quiz and I'm a #{@styles.first.name}" %>
 <!-- Custom Header -->
 
 <%= render "shared/results-banner" %>
@@ -37,11 +38,5 @@ window.history.replaceState({}, document.title, "/answers/results");
 </script>
 <% end %>
 
-<% content_for :head do %>
-  <meta property="og:type"   content="profile" />
-  <meta property="og:url"    content="http://www.distrikts.co/"
-  <meta property="og:title"  content="My travel profile is: <%= @styles.first.name %>" />
-  <meta property="og:image"  content="http://blog.foodexperiential.com/site/assets/files/4112/shutterstock_159755636.jpg" />
-<% end %>
 <!-- Share Modal -->
 <%= render 'shared/share-modal' %>
