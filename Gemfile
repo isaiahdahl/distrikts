@@ -39,6 +39,7 @@ gem 'pundit'
 gem 'faraday'
 gem 'acts_as_favoritor', github: 'slooob/acts_as_favoritor'
 gem 'country_select'
+gem 'non-stupid-digest-assets'
 
 
 group :development, :test do
