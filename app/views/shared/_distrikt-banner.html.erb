@@ -23,7 +23,7 @@
                 <li>
                   <% if @user.favorites.pluck(:favoritable_id, :scope).include?([@distrikt.id, 'wishlist']) %>
                       <%= link_to remove_wishlist_distrikt_path, method: :put do %>
-                          <i class="fa fa-flag"></i><i class="fa fa-times gold save-icon"></i> <%= t(".profile", default: " Remove from wishlist") %>
+                          <i class="fa fa-times gold"></i> <%= t(".profile", default: " Remove from wishlist") %>
                           <% end  %>
                   <% else %>
                       <%= link_to wishlist_distrikt_path, method: :put do %>
