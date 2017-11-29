@@ -268,16 +268,38 @@
 
 .distrikt-profil-right {
   flex: 1 1 auto;
+  display: flex;
+  height: 100% !important;
+}
+
+#myCarousel {
+  display: flex;
+  justify-content: center;
+  height: 100% !important;
+}
+
+.carousel-inner {
+  flex: 1 1 auto;
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  img {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+.item {
+  height: 100% !important;
+}
+.dk-hero {
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-.dk-hero {
-
-}
-
-
 
 .save-icon {
   margin-right: 7px;

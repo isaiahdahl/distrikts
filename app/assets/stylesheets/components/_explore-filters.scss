@@ -70,6 +70,16 @@
   flex: 1 1 auto;
 }
 
+.dk-name {
+  a {
+    color: $black !important;
+    &:hover {
+      color: #969696 !important;
+    }
+  }
+}
+
+
 .card-label-right {
   flex: 0 0 100px;
 }
