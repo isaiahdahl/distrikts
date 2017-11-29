@@ -26,6 +26,7 @@
   height: calc(100% - 20%);
   overflow: scroll;
   background-color: white;
+  width: 435px;
 }
 
 .place {
@@ -73,6 +74,11 @@
   align-items: center;
 }
 
+.filter-icon-active {
+  background-color: #555452 !important;
+}
+
+
 .filters-bottom-container {
   display: flex;
   // justify-content: space-between;
@@ -85,7 +91,7 @@
   z-index: 1;
   position: absolute;
   bottom: 0;
-  width: 458.59px;
+  width: 435px;
   overflow: hidden;
   text-decoration: none;
   h5 {
@@ -102,6 +108,12 @@
 }
 
 .place-name h3 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.place-description p {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;

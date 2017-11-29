@@ -1,3 +1,13 @@
+<!-- Custom Header -->
+<% content_for :meta_title, "Welcome to #{@distrikt.name} - #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @distrikt.description %>
+<% if @distrikt.photos.first.nil? %>
+  <% content_for :meta_image, image_path('https://images.pexels.com/photos/9253/sea-city-landscape-sky.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb') %>
+<% else %>
+  <% content_for :meta_image, cl_image_path(@distrikt.photos.first) %>
+<% end %>
+<!-- Custom Header -->
+
 <div class="distrik-container">
   <%= render 'shared/distrikt-banner' %>
   <%= render 'shared/show-nav' %>

@@ -371,3 +371,24 @@ a.animated-button.thar-darkgold:before {
   background: $dark-gold;
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
+
+
+// flash
+
+.dk-notice {
+  background-color: $gold !important;
+  color: $black;
+  border: 0px;
+  .span{
+    opacity: .6 !important;
+  }
+}
+
+.dk-alert {
+  background-color: #F54B61 !important;
+  border: 0px;
+  color: white;
+  .span{
+    opacity: .6 !important;
+  }
+}

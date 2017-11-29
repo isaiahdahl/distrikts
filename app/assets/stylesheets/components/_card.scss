@@ -1,3 +1,7 @@
+#index-cards {
+  background-color: white !important;
+}
+
 .cards {
   width: 100%;
   margin: 0 auto;
@@ -78,3 +82,22 @@
 .country {
   margin-top: 3px;
 }
+
+// on show page-break-inside:
+#show-cards {
+  height: calc(100vh - 46px);
+  padding: 40px 0px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#show-cards-panel {
+  height: 100vh;
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

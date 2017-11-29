@@ -8,6 +8,7 @@
         <h2 class="text-center"><%= compare(@user.score, @distrikt.score) %></h2>
         <h5 class="text-center bold">MATCH</h5>
       </div>
+
       <div class="left-top-save">
         <div class="dropdown">
           <button class="btn-outline-save dropdown-toggle" type="button" data-toggle="dropdown">SAVE <i class="bold fa fa-angle-down" aria-hidden="true" data-toggle="dropdown"></i></button>
@@ -51,18 +52,17 @@
         <h5 class="upper"><%= @distrikt.city.name %>, <%= @distrikt.city.country %></h5>
         <p class="light spaced"><%= @distrikt.description %></p>
       </div>
-
     </div>
-
   </div>
 
   <!-- Top-Right(CAROUSEL) -->
+
   <div class="distrikt-profil-right">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <% if @distrikt.photos.first.nil? %>
           <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+
         </ol>
 
         <!-- Wrapper for slides -->
@@ -74,10 +74,6 @@
 
       <% else %>
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <% @distrikt.photos[1..@distrikt.photos.count - 1].each do |photo| %>
-            <li data-target="#myCarousel" data-slide-to="<%= @distrikt.photos.index(photo) %>"></li>
-          <% end %>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -94,11 +90,11 @@
       <% end %>
 
       <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <a class="left carousel-control" style="background:none !important" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <a class="right carousel-control" style="background:none !important" href="#myCarousel" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -111,7 +107,7 @@
   $(document).ready(function(){
     // Add smooth scrolling to all links
 
-    $(".show-nav-buttons a").on('click', function(event) {
+    $(".show-nav a").on('click', function(event) {
       var self = this;
       // Make sure this.hash has a value before overriding default behavior
       if (this.hash !== "") {
@@ -126,7 +122,7 @@
         $('html, body').animate({
           scrollTop: $(hash).offset().top - 46
         }, 600, function(){
-          $(".show-nav-buttons .show-nav-link").removeClass('active');
+          $(".show-nav .show-nav-link").removeClass('active');
           $(self).find('.show-nav-link').addClass('active');
           // Add hash (#) to URL when done scrolling (default click behavior)
 //          window.location.hash = hash;

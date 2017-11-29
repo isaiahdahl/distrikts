@@ -2,7 +2,7 @@
 
 <div class="about-block" >
   <div class="about-container">
-    <h3 class="touch">Say hello to Distrikts</h3>
+    <h3 class="hp touch">Say hello to Distrikts</h3>
     <h4 class="light">A different take on how to explore cities, based on your travel style</h4>
   </div>
 </div>
@@ -14,8 +14,8 @@
 
 <div class="dkpage-container">
   <div class="dkpage-left">
-        <h3 class="bumpdown">Dive into your Distrikts</h3>
-        <p class="spaced light">Our Scouts curate the best of what each Distrikt has to offer</p>
+        <h2 class="bumpdown">Discover new places within your Distrikts</h2>
+        <h4 class="spaced light">Our Scouts curate the best of what each Distrikt has to offer</h4>
   </div>
 
   <div class="dkpage-right">
@@ -124,6 +124,16 @@
           "icon-size": 0.07,
           "icon-allow-overlap": true
         }
+      });
+    });
+
+    document.getElementById('fly').addEventListener('click', function () {
+      // Fly to a random location by offsetting the point -74.50, 40
+      // by up to 5 degrees.
+      map.flyTo({
+        center: end,
+        zoom: 13.5,
+        pitch: 60
       });
     });
 
