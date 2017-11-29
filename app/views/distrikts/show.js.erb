@@ -26,5 +26,6 @@ var jsonCoordinates = <%= raw @places_coordinates.to_json %>
   $('#all-icon').addClass('filter-icon-active');
   $('#all-icon img.fill-none').addClass('hidden');
   $('#all-icon img.fill-solid').removeClass('hidden');
+  $('#map-left').html("<%= j render 'shared/map' %>");
 <% end %>
 
