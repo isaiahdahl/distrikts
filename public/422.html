@@ -4,18 +4,43 @@
   <title>The change you wanted was rejected (422)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: #555452;
+    font-family: Lato, sans-serif;
+  }
   .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    background-color: #555452;
+    color: white;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: Lato, sans-serif;
     margin: 0;
   }
 
+  .dk-logo-error {
+    width: 150px;
+    padding: 60px;
+    margin-top: 60px;
+  }
   .rails-default-error-page div.dialog {
     width: 95%;
     max-width: 33em;
     margin: 4em auto 0;
+  }
+
+
+  .error-image{
+    margin-bottom: 40px;
+  }
+  .text-link {
+    font-size: 26px;
+    color: #FFF !important;
+    padding-top: 20px;
+    cursor: pointer;
   }
 
   .rails-default-error-page div.dialog > div {
@@ -51,17 +76,16 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
-  </style>
+</style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <img src="../app/assets/images/dk-logo-white.png" alt="dk-logo" class="dk-logo-error">
+  <img src="../app/assets/images/422.png" alt="404" class="error-image" >
+  <!-- This file lives in public/404.html -->
+  <div class="linkback">
+    <a class="text-link" href="http://distrikts.co" >FLY BACK HOME</a>
   </div>
 </body>
 </html>
