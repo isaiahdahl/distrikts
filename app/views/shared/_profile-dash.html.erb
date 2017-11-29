@@ -4,7 +4,11 @@
 
     <div class="dash-details">
 
+      <% if current_user.avatar? %>
+      <% avatar_url = cl_image_path(current_user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
+      <% else %>
       <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <% end %>
       <%= image_tag avatar_url, class: "avatar-lg" %>
       <div class="dash-details-information">
         <h2 class="touch upper bold"><%= @user.first_name %> <%= @user.last_name %></h2>
