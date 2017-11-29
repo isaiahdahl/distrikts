@@ -4,43 +4,51 @@
   </div>
   <div class="filter-tags">
     <%= link_to distrikt_path(@distrikt), remote: true do %>
-    <div class="filter-icon" id="all">
-      <%= image_tag "all-dark.png", class: "filter-img" %>
+    <div class="filter-icon filter-icon-active" id="all-icon">
+      <%= image_tag "all-dark.png", class: "filter-img fill-none hidden" %>
+      <%= image_tag "all-light.png", class: "filter-img fill-solid" %>
     </div>
     <% end %>
     <%= link_to distrikt_path(@distrikt, category: "nightlife"), remote: true do %>
-    <div class="filter-icon" id="bar">
-      <%= image_tag "bar-dark.png", class: "filter-img" %>
+    <div class="filter-icon" id="nightlife-icon">
+      <%= image_tag "bar-dark.png", class: "filter-img fill-none" %>
+      <%= image_tag "bar-light.png", class: "filter-img fill-solid hidden" %>
     </div>
     <% end %>
     <%= link_to distrikt_path(@distrikt, category: "cafe"), remote: true do %>
-    <div class="filter-icon" id="coffee">
-      <%= image_tag "coffee-dark.png", class: "filter-img" %>
+    <div class="filter-icon" id="cafe-icon">
+      <%= image_tag "coffee-dark.png", class: "filter-img fill-none" %>
+      <%= image_tag "coffee-light.png", class: "filter-img fill-solid hidden" %>
     </div>
     <% end %>
     <%= link_to distrikt_path(@distrikt, category: "culture"), remote: true do %>
-      <div class="filter-icon" id="culture">
-        <%= image_tag "culture-dark.png", class: "filter-img" %>
+      <div class="filter-icon" id="culture-icon">
+        <%= image_tag "culture-dark.png", class: "filter-img fill-none" %>
+        <%= image_tag "culture-light.png", class: "filter-img fill-solid hidden" %>
       </div>
     <% end %>
     <%= link_to distrikt_path(@distrikt, category: "dessert"), remote: true do %>
-      <div class="filter-icon" id="dessert">
-        <%= image_tag "dessert-dark.png", class: "filter-img" %>
+      <div class="filter-icon" id="dessert-icon">
+        <%= image_tag "dessert-dark.png", class: "filter-img fill-none" %>
+        <%= image_tag "dessert-light.png", class: "filter-img fill-solid hidden" %>
       </div>
     <% end %>
     <%= link_to distrikt_path(@distrikt, category: "outdoors"), remote: true do %>
-       <div class="filter-icon" id="outdoors">
-          <%= image_tag "outdoors-dark.png", class: "filter-img" %>
+       <div class="filter-icon" id="outdoors-icon">
+          <%= image_tag "outdoors-dark.png", class: "filter-img fill-none" %>
+          <%= image_tag "outdoors-light.png", class: "filter-img fill-solid hidden" %>
        </div>
     <% end %>
     <%= link_to distrikt_path(@distrikt, category: "restaurant"), remote: true do %>
-      <div class="filter-icon" id="resto">
-        <%= image_tag "resto-dark.png", class: "filter-img" %>
+      <div class="filter-icon" id="restaurant-icon">
+        <%= image_tag "resto-dark.png", class: "filter-img fill-none" %>
+        <%= image_tag "resto-light.png", class: "filter-img fill-solid hidden" %>
       </div>
     <% end %>
     <%= link_to distrikt_path(@distrikt, category: "shopping"), remote: true do %>
-      <div class="filter-icon" id="shopping">
-        <%= image_tag "shopping-dark.png", class: "filter-img" %>
+      <div class="filter-icon" id="shopping-icon">
+        <%= image_tag "shopping-dark.png", class: "filter-img fill-none" %>
+        <%= image_tag "shopping-light.png", class: "filter-img fill-solid hidden" %>
       </div>
     <% end %>
   </div>
