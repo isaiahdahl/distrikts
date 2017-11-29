@@ -8,3 +8,23 @@ var jsonCoordinates = <%= raw @places_coordinates.to_json %>
 //$('.places-right').innerHTML(placesHTML);
 //const mapDOM = document.querySelector('.map-left');
 //mapDOM.innerHTML(mapHTML);
+<% if params[:category] %>
+  $('img.fill-none').removeClass('hidden');
+  $('img.fill-solid').addClass('hidden');
+
+  $('#<%= params[:category] %>-icon img.fill-none').addClass('hidden');
+  $('#<%= params[:category] %>-icon img.fill-solid').removeClass('hidden');
+
+  if ($("#<%= params[:category] %>-icon:has(img.fill-none.hidden)")) {
+    $('.filter-icon').removeClass('filter-icon-active');
+    $('#<%= params[:category] %>-icon').addClass('filter-icon-active');
+  }
+<% else %>
+  $('.filter-icon').removeClass('filter-icon-active');
+  $('img.fill-none').removeClass('hidden');
+  $('img.fill-solid').addClass('hidden');
+  $('#all-icon').addClass('filter-icon-active');
+  $('#all-icon img.fill-none').addClass('hidden');
+  $('#all-icon img.fill-solid').removeClass('hidden');
+<% end %>
+
