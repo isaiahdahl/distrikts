@@ -19,7 +19,7 @@
             <% if current_user.avatar? %>
               <% avatar_url = cl_image_path(current_user.avatar.path, { size: '50x50', crop: :thumb, gravity: :face }) %>
             <% else %>
-              <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+              <% avatar_url = current_user.facebook_picture_url || "default-avatar-sm" %>
             <% end %>
             <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
