@@ -1,11 +1,10 @@
-<div id='map' style="width: calc(100vw - 450px);">
+<div id='map' style="width: calc(100vw - 435px);">
 </div>
 
 <% content_for :after_js do %>
     <script>
       var target = document.getElementById('places-search')
       var observer = new MutationObserver(function() {
-        console.log("boom");
         console.log(jsonCoordinates);
       });
       observer.observe(target, {

@@ -173,13 +173,14 @@ class DistriktsController < ApplicationController
     @places_coordinates = @places.map do |place|
       lng = place.longitude unless place.longitude.nil?
       lat =  place.latitude unless place.latitude.nil?
+      price = "€" * place.price
       feature = { "type": "Feature",
                   "id": "#{place.id}",
                   "properties": {
                     "description":
                     "<div class=\"popup-bottom\">
                     <h4 class=\"bold\">#{place.name}</h4>
-                    <h5 class=\"light\">#{place.category.capitalize} | #{place.description}</h5>
+                    <h5 class=\"light\">#{place.category.capitalize} | #{price}</h5>
                     </div>"
                   },
                   "geometry": {
