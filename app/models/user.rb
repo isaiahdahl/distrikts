@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :distrikts, through: :matches
   has_many :reviews
   has_many :places, through: :reviews
+  has_attachment :avatar
 
   acts_as_favoritor
 
