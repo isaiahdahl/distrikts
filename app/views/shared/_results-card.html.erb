@@ -2,9 +2,9 @@
   <a class="sample-card" data-toggle="modal" data-target="#modalSignUp">
     <div class="col-xs-6 col-sm-3">
       <% if distrikt.photos.first.nil? %>
-      <div class="card" style="background-image: linear-gradient(-180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7)), url('https://static.pexels.com/photos/397434/pexels-photo-397434.jpeg');">
+      <div class="card" style="background-image: linear-gradient(-180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://static.pexels.com/photos/397434/pexels-photo-397434.jpeg');">
         <% else %>
-        <div class="card" style = "background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<%= cl_image_path distrikt.photos.first.path, height: 281, width: 222, crop: :fill %>')">
+        <div class="card" style = "background-image: linear-gradient(-180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('<%= cl_image_path distrikt.photos.first.path, height: 281, width: 222, crop: :fill %>')">
           <% end %>
         <div class="card-body">
           <div class="card-match text-center gold">

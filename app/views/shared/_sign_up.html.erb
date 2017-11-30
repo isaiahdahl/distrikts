@@ -24,7 +24,7 @@
       <% end -%>
   <% end -%>
   <%- if controller_name != 'sessions' %>
-      <%= link_to "Log in", new_session_path(resource_name) %><br />
+      <p class="light">Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: 'link' %></p><br />
   <% end -%>
 </div>
 

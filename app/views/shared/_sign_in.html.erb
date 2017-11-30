@@ -1,6 +1,6 @@
 <div class="form">
   <div class="text-center">
-    <h4 class="text-center">Sign in</h4>
+    <h4 class="text-center bumpdown">Sign in</h4>
   </div>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -22,7 +22,7 @@
   <% end -%>
 
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+      <p class="light"><%= link_to "Forgot your password?", new_password_path(resource_name), class: 'link' %></p><br/>
   <% end -%>
   </div>
 </div>
