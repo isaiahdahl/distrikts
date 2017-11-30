@@ -8,8 +8,11 @@ class AnswersController < ApplicationController
     else
       add_to_cookie(params[:score_id])
     end
-
-    @question = Question.find(params[:question_id].next)
+    if params[:question_id] == 4
+      @question = Question.find(6)
+    else
+      @question = Question.find(params[:question_id].next)
+    end
     authorize @question
 
     respond_to do |format|
