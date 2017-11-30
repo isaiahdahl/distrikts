@@ -37,7 +37,7 @@
     }
   };
 
-  var activeChapterName = '<%= @distrikts[1].name.delete(' ') %>';
+  var activeChapterName = '<%= @distrikts[0].name.delete(' ') %>';
   function setActiveChapter(chapterName) {
     if (chapterName === activeChapterName) return;
 
