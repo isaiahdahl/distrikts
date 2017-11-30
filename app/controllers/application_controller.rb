@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   private
 
   def default_url_options
-    { host: ENV["HOST"] || "localhost:3000" }
+    { host: ENV["HOST"] || "www.distrikts.co" }
   end
 
   def skip_pundit?
