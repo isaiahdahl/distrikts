@@ -1,6 +1,6 @@
 <% if @question == Question.last %>
 
-<h4 class="heading light text-center"><%= @question.description  %></h4>
+<h3 class="heading text-center"><%= @question.description  %></h3>
 
 <div class="quiz-container">
   <% @question.answers.each do |answer| %>

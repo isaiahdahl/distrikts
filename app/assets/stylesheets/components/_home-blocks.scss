@@ -172,6 +172,7 @@
   margin-right: 100px;
 }
 
+
 // map block
 
 .mapblock-container {
@@ -201,9 +202,10 @@
 }
 
 .mapblock-right {
+  flex: 1 1 50%;
   background-image: url('map-placeholder.png');
   background-size: cover !important;
-  flex: 1 1 50%;
+
 }
 
 .mapblock-right-content {
