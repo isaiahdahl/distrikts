@@ -19,8 +19,10 @@
     <hr>
     <ul class="li"><%= image_tag "place-marker.png", class: "place-icon" %>  <%= @place.address %></ul>
     <ul class="li"><%= image_tag "place-earth.png", class: "place-icon" %>  <%= link_to @place.url || "N/A", @place.url, target: "_blank" %></ul>
-    <ul class="li"><%= image_tag "place-phone.png", class: "place-icon" %>  <%= @place.phone || "N/A" %></ul>
+    <ul class="li"><%= image_tag "place-phone.png", class: "place-icon" %>  <%= link_to @place.phone || "N/A", "tel:#{@place.phone}" %></ul>
     <ul class="li"><%= image_tag "place-hours.png", class: "place-icon" %>  <%= @place.hour || "N/A" %></ul>
   </div>
 </div>
+
+
 

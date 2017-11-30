@@ -2,5 +2,5 @@ meta_product_name: "Distrikts"
 meta_title: "Distrikts - Find your city within the city"
 meta_description: "Distrikts: A different take on how to explore cities, based on your travel style. Find the districts that
 best match your travel style. Make the most of your time in a city. Less of trying to see everything, and more of experiencing the things you enjoy most"
-meta_image: "banner3.png"                       # should exist in `app/assets/images/`
+meta_image: "og-distrikts_preview.png"                       # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
