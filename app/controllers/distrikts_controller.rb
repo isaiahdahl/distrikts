@@ -62,7 +62,7 @@ class DistriktsController < ApplicationController
   end
 
   def new
-    @distrikt = Distrikt.new(distrikt_params)
+    @distrikt = Distrikt.new
   end
 
   def create

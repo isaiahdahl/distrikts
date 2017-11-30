@@ -5,8 +5,25 @@
     <script>
       var target = document.getElementById('places-search')
       var observer = new MutationObserver(function() {
-        console.log("boom");
-        console.log(jsonCoordinates);
+        map.removeLayer("points");
+        map.removeSource('points');
+        map.addLayer({
+          "id": "points",
+          "type": "symbol",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "FeatureCollection",
+              "features": <%= raw @places_coordinates.to_json %>
+            }
+          },
+          "layout": {
+            "icon-image": "cat",
+            "icon-size": 0.07,
+            "icon-allow-overlap": true
+          }
+        });
+      });
       });
       observer.observe(target, {
         childList: true,
