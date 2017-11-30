@@ -76,23 +76,29 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
-    <% unless action_name == "explore" %>
-       <%= render 'shared/navbar' %>
-    <% end %>
+    <div class="all-container">
+      <% unless action_name == "explore" %>
+          <%= render 'shared/navbar' %>
+      <% end %>
 
-    <%= render 'shared/flashes' %>
+      <%= render 'shared/flashes' %>
 
-    <div class="snapper">
-      <%= yield %>
-    </div>
+      <div class="snapper">
+        <%= yield %>
+      </div>
 
-    <% unless action_name == "explore" %>
-      <%= render 'shared/footer' %>
-    <% end %>
+      <% unless action_name == "explore" %>
+          <%= render 'shared/footer' %>
+      <% end %>
+
+
 
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>
 
+    </div>
+    <div class="mobile-view">
+    </div>
   </body>
 </html>
