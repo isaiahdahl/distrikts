@@ -8,9 +8,10 @@ class AnswersController < ApplicationController
     else
       add_to_cookie(params[:score_id])
     end
-    if params[:question_id] == 4
+    if params[:question_id] == "4"
       @question = Question.find(6)
     else
+      byebug
       @question = Question.find(params[:question_id].next)
     end
     authorize @question
