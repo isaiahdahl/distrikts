@@ -38,6 +38,7 @@ class DistriktsController < ApplicationController
     @q = Distrikt.ransack q_param
     @distrikts = @q.result
     authorize @distrikts
+    @distrikts_droped = @distrikts.drop(1)
     @user = current_user
     @cities = cities
     @countries = countries
