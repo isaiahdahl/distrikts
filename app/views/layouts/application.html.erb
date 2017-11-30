@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= content_for?(:head) ? yield(:head) : '' %>
-    
+
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
@@ -76,7 +76,7 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
-    <div class="all-container">
+    <div id="all-container">
       <% unless action_name == "explore" %>
           <%= render 'shared/navbar' %>
       <% end %>
@@ -99,6 +99,10 @@
 
     </div>
     <div class="mobile-view">
+      <%= image_tag 'dk-hp-logo.png', class: "dkpage-img"  %>
+
+      <h4 class="upper">Coming soon to mobile</h4>
+
     </div>
   </body>
 </html>
