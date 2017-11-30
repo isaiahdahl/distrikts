@@ -5,6 +5,6 @@ class PagesController < ApplicationController
     @questions = Question.all.order(:order)
     @question = Question.first
     cookies[:score] = nil
-    @array = ["an Urban Explorer", "a Cultural Scavenger", "a Cultural Ninja", "a Luxury Scavenger", "a Hedonist Connoisseur", "a Zen Ninja"]
+    @array = ["an Urban Explorer", "a Cultural Fashionista", "a Chic Foodie", "a Libertine Connoisseur", "a Hedonist Hipster", "a Posh Ninja"]
   end
 end
