@@ -2,7 +2,7 @@
   <h4 class="bumpdown light text-center">
     #<%= @distrikt.name.downcase %></h4>
     <div class="gallery-container-flickr">
-        <% Flickr.new.search(@distrikt.latitude, @distrikt.longitude)[0..17].each do |url| %>
+        <% Flickr.new.search(@distrikt.latitude, @distrikt.longitude)[0..20].each do |url| %>
           <div class="flickr-img" style="background-image: url('<%= url %>')">
           </div>
         <% end %>
