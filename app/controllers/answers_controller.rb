@@ -11,7 +11,6 @@ class AnswersController < ApplicationController
     if params[:question_id] == "4"
       @question = Question.find(6)
     else
-      byebug
       @question = Question.find(params[:question_id].next)
     end
     authorize @question
