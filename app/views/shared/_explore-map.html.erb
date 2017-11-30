@@ -7,11 +7,142 @@
     container: 'map-explore',
     style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',
     center: [<%= @distrikts.first.longitude %>, <%= @distrikts.first.latitude %>],
-    zoom: 15.5,
+    zoom: 14,
     bearing: 27,
     pitch: 45
   });
 
+  map.on('load', function() {
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+      if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+        labelLayerId = layers[i].id;
+        break;
+      }
+    }
+
+
+    map.addLayer({
+      'id': 'maine',
+      'type': 'fill',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [<%= @distrikts[0].outline %>]
+          }
+        }
+      },
+      'layout': {},
+      'paint': {
+        'fill-color': '#f1cb1d',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'maineee',
+      'type': 'fill',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [<%= @distrikts[1].outline %>]
+          }
+        }
+      },
+      'layout': {},
+      'paint': {
+        'fill-color': '#f1cb1d',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'maineeee2',
+      'type': 'fill',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [<%= @distrikts[2].outline %>]
+          }
+        }
+      },
+      'layout': {},
+      'paint': {
+        'fill-color': '#f1cb1d',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'maineeeee3',
+      'type': 'fill',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [<%= @distrikts[3].outline %>]
+          }
+        }
+      },
+      'layout': {},
+      'paint': {
+        'fill-color': '#f1cb1d',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'maineee4',
+      'type': 'fill',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [<%= @distrikts[4].outline %>]
+          }
+        }
+      },
+      'layout': {},
+      'paint': {
+        'fill-color': '#f1cb1d',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'maineee5',
+      'type': 'fill',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [<%= @distrikts[5].outline %>]
+          }
+        }
+      },
+      'layout': {},
+      'paint': {
+        'fill-color': '#f1cb1d',
+        'fill-opacity': 0.3
+      }
+    });
 
   var chapters = {
     <% @distrikts.each do |distrikt| %>
@@ -54,6 +185,8 @@
     var bounds = element.getBoundingClientRect();
     return bounds.top < 400 && bounds.bottom > 400;
   }
+
+  });
 
 </script>
 <% end %>
