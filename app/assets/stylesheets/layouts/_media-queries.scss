@@ -8,9 +8,11 @@
 }
 
 @media screen and (min-width: 701px){
-   body   {
+   .snapper {
+    display: block;
    }
-   footer {
+   .mobile-view {
+    display: none !important;
    }
 }
 
