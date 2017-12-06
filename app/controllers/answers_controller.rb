@@ -8,11 +8,14 @@ class AnswersController < ApplicationController
     else
       add_to_cookie(params[:score_id])
     end
-    if params[:question_id] == "4"
-      @question = Question.find(6)
-    else
-      @question = Question.find(params[:question_id].next)
-    end
+
+    # this needs to be refactored
+    # Get the question order of the current question
+    @question_order = Question.find(params[:question_id]).order
+
+    # find the question next in order.
+    # returns an array of 1 item. Need to call first
+    @question = Question.where(order: @question_order + 1).first
     authorize @question
 
     respond_to do |format|
@@ -45,6 +48,7 @@ class AnswersController < ApplicationController
   end
 
   def top_four
+    # This is repeated in the distrikts controller.
     scores = @score.attributes
     scores.delete("id")
     scores.delete("created_at")

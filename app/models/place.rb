@@ -6,6 +6,7 @@ class Place < ApplicationRecord
 
   acts_as_favoritable
 
+  # All the scope for the filtering in the distrikts show page.
   scope :nightlife, -> { where(category: "nightlife")}
   scope :restaurant, -> { where(category: "restaurant")}
   scope :dessert, -> { where(category: "dessert")}
