@@ -6,22 +6,24 @@ class DistriktsController < ApplicationController
 
   def index
     @user = current_user
-    q_param = params[:q]
     @distrikts = policy_scope(Distrikt)
+    # Check for visit/wishlist params, this allows us to ransack sort the wishlist
+    # and visited filters.
     if !params[:scope].blank?
       @distrikts = @user.favorited_by_type 'Distrikt', scope: [params[:scope]]
       @scope = params[:scope]
     end
-    @q = @distrikts.ransack q_param
+    @q = @distrikts.ransack params[:q]
     @distrikts = @q.result
     @score = @user.score
-    @cities = cities
-    @countries = countries
-    @continents = continents
+    @scores = top_four
+    # Assign style every time user goes to index so that if his style changes
     assign_style(@user)
+    cities
+    countries
+    continents
     wishlisted
     visited
-    @scores = top_four
     respond_to do |format|
       if request.xhr?
         format.js
@@ -33,18 +35,17 @@ class DistriktsController < ApplicationController
   end
 
   def explore
-    q_param = params[:q]
-
-    @q = Distrikt.ransack q_param
-    @disk = @q.result
-    authorize @disk
-    @distrikts = @disk.sort_by {|distrikt| distrikt.id }
+    @q = Distrikt.ransack params[:q]
+    @unsorted_distrikts = @q.result
+    authorize @unsorted_distrikts
+    # Distrikts are sorted by id, one is required to be dropped for the explore page functionality
+    @distrikts = @unsorted_distrikts.sort_by { |distrikt| distrikt.id }
     @distrikts_droped = @distrikts.drop(1)
     @user = current_user
-    @cities = cities
-    @countries = countries
-    @continents = continents
     assign_style(@user)
+    cities
+    countries
+    continents
     respond_to do |format|
       if request.xhr?
         format.js
@@ -77,7 +78,7 @@ class DistriktsController < ApplicationController
   end
 
   def new
-    @distrikt = Distrikt.new(distrikt_params)
+    @distrikt = Distrikt.new()
   end
 
   def create
@@ -101,8 +102,11 @@ class DistriktsController < ApplicationController
 
   def visit
     user = current_user
+    # Assign favorite to the distrikt with the scope of visit.
     user.favorite @distrikt, scope: [:visit]
+    # If the distrikt was in the wishlist, remove it.
     unless user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).empty?
+      # possibly can just run remove_wishlist code
       user.favorites.where(favoritable_id: @distrikt.id).where(scope: ["wishlist"]).first.destroy
     end
     redirect_to distrikt_path(@distrikt)
@@ -110,6 +114,7 @@ class DistriktsController < ApplicationController
 
   def wishlist
     user = current_user
+    # Assign favorite to the distrikt with the scope of wishlist.
     user.favorite @distrikt, scope: [:wishlist]
     redirect_to distrikt_path(@distrikt)
   end
@@ -152,6 +157,7 @@ class DistriktsController < ApplicationController
   def cities
     @cities = []
     City.all.each { |city| @cities << city.name }
+    @cities.uniq!
     @cities.sort!
     @cities.unshift(['City', ''])
 
@@ -160,6 +166,7 @@ class DistriktsController < ApplicationController
   def countries
     @countries = []
     City.all.each { |city| @countries << city.country }
+    @countries.uniq!
     @countries.sort!
     @countries.unshift(['Country', ''])
   end
@@ -167,6 +174,7 @@ class DistriktsController < ApplicationController
   def continents
     @continents = []
     City.all.each { |city| @continents << city.continent }
+    @continents.uniq!
     @continents.sort!
     @continents.unshift(['Continent', ''])
   end
@@ -201,6 +209,7 @@ class DistriktsController < ApplicationController
       end
     end
   end
+
   def assign_style(user)
     @score = user.score
     @score_id = @score.id

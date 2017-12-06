@@ -5,9 +5,9 @@
     <div class="dash-details">
 
       <% if current_user.avatar? %>
-      <% avatar_url = cl_image_path(current_user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
+        <% avatar_url = cl_image_path(current_user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
       <% else %>
-      <% avatar_url = current_user.facebook_picture_url || "default-avatar-lg" %>
+        <% avatar_url = current_user.facebook_picture_url || "default-avatar-lg" %>
       <% end %>
       <%= image_tag avatar_url, class: "avatar-lg" %>
       <div class="dash-details-information">
