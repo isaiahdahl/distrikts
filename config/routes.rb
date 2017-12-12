@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   devise_for :users, 
     controllers: { registrations: "users/registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  root to: 'pages#home'
-  
+  root to: 'pages#temp_home'
+
+  get 'secret', to: 'pages#home'
+
   get 'distrikts/explore', to: 'distrikts#explore'
   get 'answers/quiz', to: 'answers#quiz'
   get 'answers/results', to: 'answers#results'

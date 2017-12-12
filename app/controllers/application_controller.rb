@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    distrikts_path || root_path
+    # root_change
+    distrikts_path || secret_path
   end
 end

@@ -20,7 +20,8 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.js
-      format.html { redirect_back fallback_location: root_path }
+      # root_change
+      format.html { redirect_back fallback_location: secret_path }
     end
   end
 

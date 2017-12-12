@@ -1,6 +1,7 @@
 class CustomFailure < Devise::FailureApp
   def redirect_url
-    root_path(sign_in: true)
+    # root_change
+    secret_path(sign_in: true)
   end
 
   # You need to override respond to eliminate recall
