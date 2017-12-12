@@ -29,7 +29,8 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to root_path do %>
+                <!--root_change-->
+                <%= link_to secret_path do %>
                   <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
                 <% end %>
               </li>
@@ -50,7 +51,8 @@
       <!-- Logo -->
         <div class="navbar-left">
           <%= image_tag "logo.png", class: "navbar-logo" %>
-          <%= link_to "Distrikts", root_path, class: "navbar-wagon-brand" %>
+          <!--root_change-->
+          <%= link_to "Distrikts", secret_path, class: "navbar-wagon-brand" %>
         </div>
     <!-- Right Navigation -->
         <div class="navbar-wagon-right hidden-xs hidden-sm">

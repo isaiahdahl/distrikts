@@ -2,7 +2,8 @@ def authenticate_admin!
   if current_user && current_user.admin == false
     redirect_to distrikts_path
   elsif !current_user
-    redirect_to root_path(sign_in: true)
+    # root_change
+    redirect_to secret_path(sign_in: true)
   end
 end
 
@@ -120,7 +121,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = 'dashboard#index'
+  # config.root_to = 'pages#home'
 
   # == Admin Comments
   #
