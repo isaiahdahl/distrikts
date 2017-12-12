@@ -7,4 +7,7 @@ class PagesController < ApplicationController
     cookies[:score] = nil
     @array = ["an Urban Explorer", "a Cultural Fashionista", "a Chic Foodie", "a Libertine Connoisseur", "a Hedonist Hipster", "a Posh Ninja"]
   end
+
+  def temp_home
+  end
 end

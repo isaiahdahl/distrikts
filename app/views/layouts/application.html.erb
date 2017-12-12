@@ -77,7 +77,7 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
     <div id="all-container">
-      <% unless action_name == "explore" %>
+      <% unless action_name == "explore" || action_name == "temp_home" %>
           <%= render 'shared/navbar' %>
       <% end %>
 

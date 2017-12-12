@@ -11,7 +11,8 @@ class PlacesController < ApplicationController
     authorize @distrikt
     respond_to do |format|
       format.js
-      format.html { redirect_back fallback_location: root_path }
+      # root_change
+      format.html { redirect_back fallback_location: secret_path }
     end
   end
 
@@ -39,12 +40,14 @@ class PlacesController < ApplicationController
     if @place.save
       respond_to do |format|
         format.js { render :show }
-        format.html { redirect_back fallback_location: root_path }
+        # root_change
+        format.html { redirect_back fallback_location: secret_path }
       end
     else
       respond_to do |format|
         format.js { render :search }
-        format.html { redirect_back fallback_location: root_path }
+        # root_change
+        format.html { redirect_back fallback_location: secret_path }
       end
     end
   end
@@ -56,7 +59,8 @@ class PlacesController < ApplicationController
     authorize @place
     respond_to do |format|
       format.js
-      format.html { redirect_back fallback_location: root_path }
+      # root_change
+      format.html { redirect_back fallback_location: secret_path }
     end
   end
 
@@ -68,7 +72,8 @@ class PlacesController < ApplicationController
     authorize @place
     respond_to do |format|
       format.js
-      format.html { redirect_back fallback_location: root_path }
+      # root_change
+      format.html { redirect_back fallback_location: secret_path }
     end
   end
 

@@ -3,6 +3,38 @@
 $('#places-search').html("<%= j render @places %>");
 var jsonCoordinates = <%= raw @places_coordinates.to_json %>
 //$('.places-right').html(placesHTML)
+  window.history.replaceState(null, null, window.location.pathname);
+
+  function parseUrl() {
+    var obj = window.location.search.split("&").reduce(function(prev, curr, i, arr) {
+      var p = curr.split("=");
+      prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
+      return prev;
+    }, {});
+    return obj;
+  }
+
+function toUrl(obj) {
+  var str = [];
+  for(var p in obj)
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    }
+  return str.join("&");
+}
+
+<% if !params[:category].blank? %>
+if (window.location.search != "") {
+  var jsParams = parseUrl(window.location.search.substring(1));
+} else {
+  var jsParams = {};
+}
+
+jsParams.scope = '<%= params[:category] %>';
+
+var urlParams = toUrl(jsParams);
+window.history.replaceState(null, null, window.location.pathname + "?" + urlParams);
+<% end %>
 
 //$('.places-right').innerHTML(placesHTML);
 //const mapDOM = document.querySelector('.map-left');
