@@ -13,4 +13,15 @@ class PagesController < ApplicationController
     @question = Question.first
     @array = ["an Urban Explorer", "a Cultural Fashionista", "a Chic Foodie", "a Libertine Connoisseur", "a Hedonist Hipster", "a Posh Ninja"]
   end
+
+  def subscribe
+    @list_id = ENV['MAILCHIMP_LIST_ID']
+    gb = Gibbon::Request.new
+
+    gb.lists(@list_id).members.create(
+      body: {
+        email_address: params[:email][:email],
+        status: "subscribed"
+      })
+  end
 end

@@ -40,6 +40,7 @@ gem 'faraday'
 gem 'acts_as_favoritor', github: 'slooob/acts_as_favoritor'
 gem 'country_select'
 gem 'non-stupid-digest-assets'
+gem 'gibbon', github: 'amro/gibbon'
 
 
 group :development, :test do

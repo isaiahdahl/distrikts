@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     controllers: { registrations: "users/registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#temp_home'
+  post 'subscribe', to: 'pages#subscribe'
 
   get 'secret', to: 'pages#home'
 

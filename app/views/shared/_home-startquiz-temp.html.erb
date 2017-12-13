@@ -1,6 +1,18 @@
 <div class="startquiz-container">
-    <div class="startquiz-content">
+  <div class="startquiz-content">
+    <div class="col-xs-5">
       <h1>Start discovering your<br> Distrikts today</h1>
       <h4 class="heading spaced light">Sign up to get notified</h4>
+      <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form2 }, remote: true do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, wrapper: :vertical_input_group, label: false do %>
+        <%= f.input_field :email, placeholder: "EMAIL ADDRESS", class: "form-control" %>
+        <span class="input-group-btn">
+          <%= f.button :submit, "Submit", class: "btn btn-solid-gold upper"%>
+        </span>
+        <% end %>
+      </div>
+      <% end %>
     </div>
-  </div>
+  </div>  
+</div>

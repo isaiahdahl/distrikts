@@ -4,8 +4,23 @@
 
 <div class="about-block" >
   <div class="about-container">
-    <h3 class="hp touch">Say hello to Distrikts</h3>
-    <h4 class="light">A different take on how to explore cities, based on your travel style</h4>
+    <div class="col-xs-12 col-md-6">
+      <h3 class="hp touch">Coming soon... a new way to explore cities</h3>
+      <h4 class="light">Sign up to get notified of Distrikts' launch</h4>
+    </div>
+    <div class="col-xs-12 col-md-6" style="margin-top: 45px;     padding-right: 100px">
+      <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form1 }, remote: true do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, wrapper: :vertical_input_group, label: false do %>
+        <%= f.input_field :email, placeholder: "EMAIL ADDRESS", class: "form-control" %>
+        <span class="input-group-btn">
+          <%= f.button :submit, "Submit", class: "btn btn-solid-gold upper"%>
+        </span>
+        <% end %>
+      </div>
+      <% end %>
+
+    </div>
   </div>
 </div>
 
@@ -16,14 +31,14 @@
 
 <div class="dkpage-container">
   <div class="dkpage-left">
-      <div class="dkpage-left-content">
-        <h2 class="bumpdown">Discover new places within your Distrikts</h2>
-        <h4 class="spaced light">Our Scouts curate the best of what each Distrikt has to offer</h4>
-      </div>
+    <div class="dkpage-left-content">
+      <h2 class="bumpdown">Discover new places within your Distrikts</h2>
+      <h4 class="spaced light">Our Scouts curate the best of what each Distrikt has to offer</h4>
+    </div>
   </div>
 
   <div class="dkpage-right">
-      <%= image_tag 'dkpage.png', class: "dkpage-img"  %>
+    <%= image_tag 'dkpage.png', class: "dkpage-img"  %>
   </div>
 
 </div>
@@ -34,7 +49,33 @@
 
 <%= render 'shared/home-startquiz-temp' %>
 
+<!-- Modal -->
+<div class="modal fade" id="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">Thank you!</h4>
+      </div>
+      <div class="modal-body">
+        <p>We will send you more information when Distrikts opens for beta.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="http://code.jquery.com/jquery.js"></script>
 <script>
+  // newsletter form
+  $('#form1').submit(function(e) {
+    $('#modal').modal('show');
+  });
+
+  $('#form2').submit(function(e) {
+    $('#modal').modal('show');
+  });
+
+  // mapbox
   mapboxgl.accessToken = "pk.eyJ1IjoiaXNhaWFoZGFobCIsImEiOiJjajlsZGU1Njg0YXd1MzNvcmUyc3lyeHU3In0._dr0ijvTNB8DXVaf_GXvtA";
   var start = [-73.98, 40.72];
   var end = [-73.9815337, 40.7264773];
@@ -93,14 +134,14 @@
         // use an 'interpolate' expression to add a smooth transition effect to the
         // buildings as the user zooms in
         'fill-extrusion-height': [
-          "interpolate", ["linear"], ["zoom"],
-          15, 0,
-          15.05, ["get", "height"]
+        "interpolate", ["linear"], ["zoom"],
+        15, 0,
+        15.05, ["get", "height"]
         ],
         'fill-extrusion-base': [
-          "interpolate", ["linear"], ["zoom"],
-          15, 0,
-          15.05, ["get", "min_height"]
+        "interpolate", ["linear"], ["zoom"],
+        15, 0,
+        15.05, ["get", "min_height"]
         ],
         'fill-extrusion-opacity': .6
       }
@@ -124,9 +165,9 @@
           "icon-allow-overlap": true
         }
       });
-    });
+});
 
-    document.getElementById('fly').addEventListener('click', function () {
+document.getElementById('fly').addEventListener('click', function () {
       // Fly to a random location by offsetting the point -74.50, 40
       // by up to 5 degrees.
       map.flyTo({
@@ -136,24 +177,24 @@
       });
     });
 
-    map.on('click', function (e) {
-      map.flyTo({
-        center: end,
-        zoom: 13.5,
-        pitch: 60
-      });
-    });
+map.on('click', function (e) {
+  map.flyTo({
+    center: end,
+    zoom: 13.5,
+    pitch: 60
+  });
+});
 
-    map.on('click', 'points', function (e) {
-      new mapboxgl.Popup()
-        .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(e.features[0].properties.description)
-        .addTo(map);
-    });
+map.on('click', 'points', function (e) {
+  new mapboxgl.Popup()
+  .setLngLat(e.features[0].geometry.coordinates)
+  .setHTML(e.features[0].properties.description)
+  .addTo(map);
+});
 
-    map.on('click', 'points', function (e) {
-      map.flyTo({center: e.features[0].geometry.coordinates});
-    });
+map.on('click', 'points', function (e) {
+  map.flyTo({center: e.features[0].geometry.coordinates});
+});
 
     // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
     map.on('mouseenter', 'points', function () {
