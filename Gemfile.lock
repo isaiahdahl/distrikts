@@ -26,6 +26,14 @@ GIT
       responders
 
 GIT
+  remote: git://github.com/amro/gibbon.git
+  revision: 24bff0119e02345500903b68bbed3c41acf13d75
+  specs:
+    gibbon (3.2.0)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
+
+GIT
   remote: git://github.com/assembler/attachinary.git
   revision: 98a895be22edc74b1928ffa3ae116d24bd9818fd
   specs:
@@ -433,6 +441,7 @@ DEPENDENCIES
   flickraw
   font-awesome-sass
   geocoder
+  gibbon!
   http
   httparty
   inherited_resources!
