@@ -9,5 +9,8 @@ class PagesController < ApplicationController
   end
 
   def temp_home
+    @questions = Question.all.order(:order)
+    @question = Question.first
+    @array = ["an Urban Explorer", "a Cultural Fashionista", "a Chic Foodie", "a Libertine Connoisseur", "a Hedonist Hipster", "a Posh Ninja"]
   end
 end

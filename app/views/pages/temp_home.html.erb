@@ -1,0 +1,170 @@
+<%= render "shared/navbar-temp" %>
+
+<%= render "shared/home-banner-temp" %>
+
+<div class="about-block" >
+  <div class="about-container">
+    <h3 class="hp touch">Say hello to Distrikts</h3>
+    <h4 class="light">A different take on how to explore cities, based on your travel style</h4>
+  </div>
+</div>
+
+
+<%= render 'shared/home-takequiz-temp' %>
+
+<%= render 'shared/home-cardstack' %>
+
+<div class="dkpage-container">
+  <div class="dkpage-left">
+      <div class="dkpage-left-content">
+        <h2 class="bumpdown">Discover new places within your Distrikts</h2>
+        <h4 class="spaced light">Our Scouts curate the best of what each Distrikt has to offer</h4>
+      </div>
+  </div>
+
+  <div class="dkpage-right">
+      <%= image_tag 'dkpage.png', class: "dkpage-img"  %>
+  </div>
+
+</div>
+
+<%= render 'shared/home-mapblock' %>
+
+<%= render 'shared/home-tourists' %>
+
+<%= render 'shared/home-startquiz-temp' %>
+
+<script>
+  mapboxgl.accessToken = "pk.eyJ1IjoiaXNhaWFoZGFobCIsImEiOiJjajlsZGU1Njg0YXd1MzNvcmUyc3lyeHU3In0._dr0ijvTNB8DXVaf_GXvtA";
+  var start = [-73.98, 40.72];
+  var end = [-73.9815337, 40.7264773];
+
+  var map = new mapboxgl.Map({
+    container: 'hp-map',
+    style: 'mapbox://styles/isaiahdahl/cjaaaxy4k29zp2sppk3069h2s',
+    center: start,
+    bearing: 0,
+    zoom: 9,
+  });
+
+
+  map.addControl(new mapboxgl.NavigationControl());
+
+  map.on('load', function() {
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+      if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+        labelLayerId = layers[i].id;
+        break;
+      }
+    }
+
+    map.addLayer({
+      'id': 'maine',
+      'type': 'fill',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [[[-73.9720631, 40.7267709], [-73.9904308, 40.7343157], [-73.9925122, 40.7300231], [-73.992877, 40.7300719], [-73.9966965, 40.72547], [-73.995173, 40.7251285], [-73.9926195, 40.7241691], [-73.979187, 40.720071], [-73.9772987, 40.7194204], [-73.9736938, 40.7184446], [-73.9718914, 40.7267059]]]
+          }
+        }
+      },
+      'layout': {},
+      'paint': {
+        'fill-color': '#f1cb1d',
+        'fill-opacity': 0.3
+      }
+    });
+    map.addLayer({
+      'id': '3d-buildings',
+      'source': 'composite',
+      'source-layer': 'building',
+      'filter': ['==', 'extrude', 'true'],
+      'type': 'fill-extrusion',
+      'minzoom': 15,
+      'paint': {
+        'fill-extrusion-color': '#aaa',
+
+        // use an 'interpolate' expression to add a smooth transition effect to the
+        // buildings as the user zooms in
+        'fill-extrusion-height': [
+          "interpolate", ["linear"], ["zoom"],
+          15, 0,
+          15.05, ["get", "height"]
+        ],
+        'fill-extrusion-base': [
+          "interpolate", ["linear"], ["zoom"],
+          15, 0,
+          15.05, ["get", "min_height"]
+        ],
+        'fill-extrusion-opacity': .6
+      }
+    }, labelLayerId);
+    map.loadImage('/assets/marker-map-6626ac47ed4ff81be5388eccea8aec8ca93ca6b1f5620667ec958fc0723a0bc9.png', function(error, image) {
+      if (error) throw error;
+      map.addImage('cat', image);
+      map.addLayer({
+        "id": "points",
+        "type": "symbol",
+        "source": {
+          "type": "geojson",
+          "data": {
+            "type": "FeatureCollection",
+            "features": [{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media1.fl.yelpcdn.com/bphoto/KyJKehujQmJiIVKeyKJmXg/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eKeybar\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eNightlife | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9818782,40.7299039]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media1.fl.yelpcdn.com/bphoto/sWOtLRriIHx7X0e4wfIUgA/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eClub Cumming\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eNightlife | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9833833,40.7253991]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media1.fl.yelpcdn.com/bphoto/H4lQS-jsHcTqumDNOiEOqg/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003ePyramid Club\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eNightlife | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9839225,40.7258024]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media3.fl.yelpcdn.com/bphoto/F__uyzhJBV2hQdAbUKNBDQ/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003ePlease Don't Tell\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eNightlife | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.983715,40.727164]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media3.fl.yelpcdn.com/bphoto/81l9KO_4N_ZA9f6eLsjnUw/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eThe Village Underground\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eNightlife | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-74.0009274,40.7306227]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media4.fl.yelpcdn.com/bphoto/ISE53XYxuGvLgshv2FfWhw/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eRumpus Room\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eNightlife | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.989691,40.7229641]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media3.fl.yelpcdn.com/bphoto/z4yCPzDtekfxndnwkjl4vw/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eBembe\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eNightlife | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9651497,40.7110949]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media2.fl.yelpcdn.com/bphoto/qCeQT_p_uNalc9Q1WoT2ag/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eCoffee Project New York\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eCafe | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9892902,40.7270664]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media2.fl.yelpcdn.com/bphoto/wWciPWUyxI8E-xjby3yQkw/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eMatcha Cafe Wabi\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eCafe | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9829102,40.7235456]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media2.fl.yelpcdn.com/bphoto/tLv5D1ytClNOPdXNovxilQ/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eIrving Farm Coffee Roasters\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eCafe | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9900914,40.7179748]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media3.fl.yelpcdn.com/bphoto/hJyq242vIxMPpEquDNS1jg/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eMr Moustache\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eCafe | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9859025,40.7330379]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media1.fl.yelpcdn.com/bphoto/DXiPT8l6YDgwiwsAu_3pUg/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eHoneyhaus\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eCafe | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.984804,40.72947]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media1.fl.yelpcdn.com/bphoto/sZdHYf_UaR8ujXwCfR4HxQ/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003eZenchai\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eCafe | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.988531,40.7203]}},{"type":"Feature","properties":{"description":"\u003cdiv class=\"popup-top\"\u003e\n                    \u003cimg src=\"https://s3-media1.fl.yelpcdn.com/bphoto/PJ0K2qD2Z2szuNmBKMWZdA/o.jpg\" class=\"img-rounded\"\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"popup-bottom\"\u003e\n                    \u003ch5 class=\"bold\"\u003ePatisserie Florentine\u003c/h5\u003e\n                    \u003ch5 class=\"light\"\u003eCafe | \u003c/h5\u003e \n                    \u003c/div\u003e"},"geometry":{"type":"Point","coordinates":[-73.9830634,40.7279838]}}]
+          }
+        },
+        "layout": {
+          "icon-image": "cat",
+          "icon-size": 0.07,
+          "icon-allow-overlap": true
+        }
+      });
+    });
+
+    document.getElementById('fly').addEventListener('click', function () {
+      // Fly to a random location by offsetting the point -74.50, 40
+      // by up to 5 degrees.
+      map.flyTo({
+        center: end,
+        zoom: 13.5,
+        pitch: 60
+      });
+    });
+
+    map.on('click', function (e) {
+      map.flyTo({
+        center: end,
+        zoom: 13.5,
+        pitch: 60
+      });
+    });
+
+    map.on('click', 'points', function (e) {
+      new mapboxgl.Popup()
+        .setLngLat(e.features[0].geometry.coordinates)
+        .setHTML(e.features[0].properties.description)
+        .addTo(map);
+    });
+
+    map.on('click', 'points', function (e) {
+      map.flyTo({center: e.features[0].geometry.coordinates});
+    });
+
+    // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+    map.on('mouseenter', 'points', function () {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'points', function () {
+      map.getCanvas().style.cursor = '';
+    });
+    map.scrollZoom.disable();
+  });
+
+</script>
