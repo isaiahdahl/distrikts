@@ -8,6 +8,14 @@
   border: 0px solid #f8c504 !important;
 }
 
+.btn-solid-gold {
+  text-decoration: none;
+  color: $black !important;
+  padding: 6px 15px;
+  font-weight: 100;
+  background-color: $gold;
+}
+
 .btn-outline {
   padding: 10px 20px;
   border: 2px solid $gold;
