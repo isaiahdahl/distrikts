@@ -111,7 +111,7 @@
         <h5 class="light upper">Sign up to get notified of Distrikts' launch</h5>
 
         <div class="mobile-email">
-          <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form1 }, remote: true do |f| %>
+          <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form1, novalidate: false }, remote: true do |f| %>
             <div class="form-mobile-inputs text-center">
               <%= f.input :email, wrapper: :vertical_input_group, label: false do %>
                 <%= f.input_field :email, placeholder: "email address", class: "form-control" %>
