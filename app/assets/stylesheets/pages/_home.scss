@@ -1,12 +1,14 @@
 // Specific CSS for your home-page
 .mobile-view {
-  background-color: $light-gold;
-  height: 100vh;
+  background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  justify-content: space-between;
+  height: calc(100vh - 70px);
+  h2 {
+    padding: 0 40px;
+
+  }
 }
 
 .dkmobile-img {

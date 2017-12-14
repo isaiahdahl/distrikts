@@ -88,7 +88,7 @@
       </div>
 
       <% unless action_name == "explore" %>
-          <%= render 'shared/footer' %>
+        <%= render 'shared/footer' %>
       <% end %>
 
 
@@ -99,9 +99,33 @@
 
     </div>
     <div class="mobile-view">
-      <%= image_tag 'dk-hp-logo.png', class: "dkmobile-img"  %>
+      <%= render "shared/navbar-temp" %>
 
-      <h4 class="upper">Coming soon to mobile</h4>
+       <div class="banner-mobile" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/96414/pexels-photo-96414.jpeg');">
+         <h2 class="heading light gold upper">Find your city within the city</h2>
+      </div>
+
+      <div class="about-mobile-block text-center" >
+        <div class="about-mobile-content">
+        <h3 class="bumpdown light">Coming soon... a new way to explore cities</h3>
+        <h5 class="light upper">Sign up to get notified of Distrikts' launch</h5>
+
+        <div class="mobile-email">
+          <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form1 }, remote: true do |f| %>
+            <div class="form-mobile-inputs text-center">
+              <%= f.input :email, wrapper: :vertical_input_group, label: false do %>
+                <%= f.input_field :email, placeholder: "email address", class: "form-control" %>
+                <span class="input-group-btn">
+                  <%= f.button :submit, "Submit", class: "btn btn-solid-gold upper emaillist"%>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      </div>
+
 
     </div>
   </body>
