@@ -3,25 +3,24 @@
 <%= render "shared/home-banner-temp" %>
 
 <div class="about-block" >
-  <div class="about-container">
-    <div class="col-xs-12 col-md-6">
-      <h3 class="hp touch">Coming soon... a new way to explore cities</h3>
+  <div class="about-left">
+      <h3 class="hp bumpdown">Coming soon... a new way to explore cities</h3>
       <h4 class="light">Sign up to get notified of Distrikts' launch</h4>
-    </div>
-    <div class="col-xs-12 col-md-6" style="margin-top: 45px;     padding-right: 100px">
-      <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form1 }, remote: true do |f| %>
+  </div>
+
+  <div class="about-right">
+    <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form1 }, remote: true do |f| %>
       <div class="form-inputs">
         <%= f.input :email, wrapper: :vertical_input_group, label: false do %>
-        <%= f.input_field :email, placeholder: "EMAIL ADDRESS", class: "form-control" %>
-        <span class="input-group-btn">
-          <%= f.button :submit, "Submit", class: "btn btn-solid-gold upper"%>
-        </span>
+          <%= f.input_field :email, placeholder: "email address", class: "form-control" %>
+          <span class="input-group-btn">
+            <%= f.button :submit, "Submit", class: "btn btn-solid-gold upper emaillist"%>
+          </span>
         <% end %>
       </div>
-      <% end %>
-
-    </div>
+    <% end %>
   </div>
+
 </div>
 
 
@@ -57,7 +56,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title text-center">Thank you!</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
         <p>We will send you more information when Distrikts opens for beta.</p>
       </div>
     </div>
