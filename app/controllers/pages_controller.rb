@@ -23,5 +23,10 @@ class PagesController < ApplicationController
         email_address: params[:email][:email],
         status: "subscribed"
       })
+
+    respond_to do |format|
+      format.js { render :clear }
+      format.html { redirect_back fallback_location: root }
+    end
   end
 end
