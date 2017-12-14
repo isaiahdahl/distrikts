@@ -9,7 +9,7 @@
   </div>
 
   <div class="about-right">
-    <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form1 }, remote: true do |f| %>
+    <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form1, novalidate: false }, remote: true do |f| %>
       <div class="form-inputs">
         <%= f.input :email, wrapper: :vertical_input_group, label: false do %>
           <%= f.input_field :email, placeholder: "email address", class: "form-control" %>
@@ -63,18 +63,7 @@
   </div>
 </div>
 
-<script src="https://code.jquery.com/jquery.js"></script>
 <script>
-  // newsletter form
-  $('#form1').submit(function(e) {
-    $('#modal').modal('show');
-  });
-
-  $('#form2').submit(function(e) {
-    $('#modal').modal('show');
-  });
-
-  // mapbox
   mapboxgl.accessToken = "pk.eyJ1IjoiaXNhaWFoZGFobCIsImEiOiJjajlsZGU1Njg0YXd1MzNvcmUyc3lyeHU3In0._dr0ijvTNB8DXVaf_GXvtA";
   var start = [-73.98, 40.72];
   var end = [-73.9815337, 40.7264773];

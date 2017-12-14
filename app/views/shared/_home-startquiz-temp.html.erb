@@ -2,7 +2,7 @@
   <div class="startquiz-content">
       <h1>Start discovering your<br> Distrikts today</h1>
       <h4 class="bumpdown spaced light">Sign up to get notified</h4>
-      <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form2 }, remote: true do |f| %>
+      <%= simple_form_for :email, url: subscribe_path, wrapper: :vertical_form, html: { method: :post, id: :form2, novalidate: false }, remote: true do |f| %>
       <div class="form-inputs">
         <%= f.input :email, wrapper: :vertical_input_group, label: false do %>
         <%= f.input_field :email, placeholder: "email address", class: "form-control" %>
