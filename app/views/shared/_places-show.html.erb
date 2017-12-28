@@ -2,7 +2,7 @@
   <div class="place-show-top" style="background-image: url('<%= @place.img_url %>')">
 
     <div id="place-close">
-      <%= link_to distrikt_places_close_path([@distrikt.id), remote: true do %>
+      <%= link_to distrikt_places_close_path(@distrikt.id), remote: true do %>
         <%= image_tag "close-white-lg.png", class: "x-icon" %>
       <% end %>
     </div>
